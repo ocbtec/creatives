@@ -1,0 +1,18 @@
+.header {
+  height: 40px;
+  width: 100%;
+  background-color: #373f41;
+}
+
+.headerLogo {
+  margin: 10px 0 0 10px;
+  width: 77.3px;
+  height: 20px;
+}
+
+.headerMenu {
+  width: 48px;
+  height: 27px;
+  float: right;
+  margin-top: 6px;
+}
