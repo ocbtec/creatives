@@ -24,11 +24,8 @@ const LogoAnimation = () => {
           <button id="login" className="button">
             <div id="login-text">Login</div>
           </button>
-          <button id="artist" className="button">
-            <div id="artist-text">
-              <p>Register</p>
-              <p>as Artist</p>
-            </div>
+          <button id="showcase" className="button">
+            <div id="showcase-text">Showcase</div>
           </button>
           <button id="user" className="button">
             <div id="user-text">
@@ -36,8 +33,11 @@ const LogoAnimation = () => {
               <p>as User</p>
             </div>
           </button>
-          <button id="showcase" className="button">
-            <div id="showcase-text">Showcase</div>
+          <button id="artist" className="button">
+            <div id="artist-text">
+              <p>Register</p>
+              <p>as Artist</p>
+            </div>
           </button>
         </div>
       </div>

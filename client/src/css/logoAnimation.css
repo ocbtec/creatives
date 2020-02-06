@@ -56,6 +56,7 @@
     text-align: center;
     top: 50%;
     left: 50%;
+    opacity: 0;
     transform: translate(-50%, -50%) scale(0.5) rotate(90deg);
   }
   100% {
@@ -64,6 +65,7 @@
     text-align: center;
     top: 50%;
     left: 50%;
+    opacity: 1;
     transform: translate(-50%, -50%) scale(1) rotate(0deg);
   }
 }
@@ -83,16 +85,38 @@
   border: 1px solid #ffffff14;
   font-size: 15pt;
   color: grey;
+  opacity: 0;
+  animation: button-fade-in 2s ease 2s 1 forwards;
 }
 .button:hover {
   color: white;
   background: #00000055;
   border: 1px solid white;
 }
+@keyframes button-fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 
 #login {
+  position: absolute;
   top: 0;
   left: 0;
+  opacity: 0;
+  animation: login-transition 2s ease 1s 1 forwards;
+}
+@keyframes login-transition {
+  0% {
+    transform: translate(0px, 60px) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0px, 0px) scale(1);
+  }
 }
 #login-text {
   position: absolute;
@@ -103,16 +127,17 @@
   margin-left: 20px;
   top: 0;
   border-radius: 50%;
+  animation: text-flash 1s ease 2.5s 1;
 }
 #login:hover #login-text {
   box-shadow: 0px 0px 0px 1px white;
-  background: #0087c122;
+  background: #0087c116;
   font-size: 17pt;
 }
-
 #showcase {
   top: 0;
-  left: 50%;
+  right: 0;
+  animation: showcase-transition 2s ease 1s 1 forwards;
 }
 #showcase-text {
   position: absolute;
@@ -124,16 +149,36 @@
   top: 0;
   right: 0;
   border-radius: 50%;
+  animation: text-flash 1s ease 2.5s 1;
 }
 #showcase:hover #showcase-text {
   box-shadow: 0px 0px 0px 1px white;
-  background: #0087c122;
+  background: #0087c110;
   font-size: 17pt;
+}
+@keyframes showcase-transition {
+  0% {
+    transform: translate(-60px, 0px) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0px, 0px) scale(1);
+  }
 }
 
 #user {
   top: 50%;
   left: 0;
+  animation: user-transition 2s ease 1s 1 forwards;
+}
+@keyframes user-transition {
+  0% {
+    transform: translate(0px, 60px) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0px, 0px) scale(1);
+  }
 }
 #user-text {
   position: absolute;
@@ -148,16 +193,27 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  animation: text-flash 1s ease 2.5s 1;
 }
 #user:hover #user-text {
   box-shadow: 0px 0px 0px 1px white;
-  background: #0087c122;
+  background: #0087c125;
   font-size: 17pt;
 }
 
 #artist {
   top: 50%;
   left: 50%;
+  animation: artist-transition 2s ease 1s 1 forwards;
+}
+@keyframes artist-transition {
+  0% {
+    transform: translate(60px, 0px) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0px, 0px) scale(1);
+  }
 }
 #artist-text {
   position: absolute;
@@ -172,9 +228,26 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  animation: text-flash 1s ease 2.5s 1;
 }
 #artist:hover #artist-text {
   box-shadow: 0px 0px 0px 1px white;
-  background: #0087c122;
+  background: #0087c110;
   font-size: 17pt;
+}
+@keyframes text-flash {
+  0% {
+    font-weight: 500;
+    color: grey;
+  }
+  50% {
+    font-weight: 600;
+    color: #ededed;
+    box-shadow: 0px 0px 0px 1px #ededed;
+    background: #0087c122;
+  }
+  100% {
+    font-weight: 500;
+    color: grey;
+  }
 }
