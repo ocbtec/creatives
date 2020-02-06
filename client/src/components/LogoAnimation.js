@@ -5,7 +5,9 @@ const LogoAnimation = () => {
   return (
     <Fragment>
       <div className="container">
-        <div className="background-absolute"></div>
+        <div className="background-absolute">
+          <img id="waves" src={require("../images/waves.jpg")} />
+        </div>
         <div className="animated-logo-big-part">
           <img
             src={require("../images/animated-logo-1.svg")}
@@ -23,10 +25,16 @@ const LogoAnimation = () => {
             <div id="login-text">Login</div>
           </button>
           <button id="artist" className="button">
-            <div id="artist-text">Register as Artist</div>
+            <div id="artist-text">
+              <p>Register</p>
+              <p>as Artist</p>
+            </div>
           </button>
           <button id="user" className="button">
-            <div id="user-text">Register as User</div>
+            <div id="user-text">
+              <p>Register</p>
+              <p>as User</p>
+            </div>
           </button>
           <button id="showcase" className="button">
             <div id="showcase-text">Showcase</div>

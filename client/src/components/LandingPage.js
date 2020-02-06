@@ -8,9 +8,7 @@ const LandingPage = () => {
   return (
     <Fragment>
       <div className="landingPageContainer">
-        <Header />
         <LogoAnimation />
-        <Footer />
       </div>
     </Fragment>
   );
