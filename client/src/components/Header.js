@@ -10,6 +10,7 @@ const Header = () => {
           src={require("../images/logo.svg")}
           alt="logo"
         />
+
         <img
           className="headerMenu"
           src={require("../images/menu.svg")}
