@@ -8,16 +8,16 @@ const LogoAnimation = () => {
         <div className="background-absolute">
           <img id="waves" src={require("../images/waves.jpg")} />
         </div>
-        <div className="animated-logo-big-part">
-          <img
-            src={require("../images/animated-logo-1.svg")}
-            alt="animated-logo-1"
-          />
-        </div>
         <div className="animated-logo-small-part">
           <img
             src={require("../images/animated-logo-2.svg")}
             alt="animated-logo-2"
+          />
+        </div>
+        <div className="animated-logo-big-part">
+          <img
+            src={require("../images/animated-logo-1.svg")}
+            alt="animated-logo-1"
           />
         </div>
         <div className="button-container">
