@@ -1,6 +1,18 @@
 import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
+import ButtonLandingpage from "./ButtonLandingpage";
 import "../css/logoAnimation.css";
+
+const buttonComponent = [0, 1, 2, 3];
+const linkTo = ["/login", "/showcase", "/registeruser", "/registercreative"];
+const idButton = ["login", "showcase", "user", "creative"];
+const idText = ["login-text", "showcase-text", "user-text", "creative-text"];
+const buttonText = [
+  "Login",
+  "Showcase",
+  "Register as User",
+  "Register as Creative"
+];
 
 const LogoAnimation = () => {
   return (
@@ -22,32 +34,18 @@ const LogoAnimation = () => {
           />
         </div>
         <div className="button-container">
-          <Link to="/login">
-            <button id="login" className="button">
-              <div id="login-text">Login</div>
-            </button>
-          </Link>
-          <Link to="/showcase">
-            <button id="showcase" className="button">
-              <div id="showcase-text">Showcase</div>
-            </button>
-          </Link>
-          <Link to="/registeruser">
-            <button id="user" className="button">
-              <div id="user-text">
-                <p>Register</p>
-                <p>as User</p>
-              </div>
-            </button>
-          </Link>
-          <Link to="/registercreative">
-            <button id="creative" className="button">
-              <div id="creative-text">
-                <p>Register</p>
-                <p>as Creative</p>
-              </div>
-            </button>
-          </Link>
+          {buttonComponent.map(function(el) {
+            return (
+              <Link to={linkTo[el]}>
+                <ButtonLandingpage
+                  key={buttonComponent[el]}
+                  idButton={idButton[el]}
+                  idText={idText[el]}
+                  buttonText={buttonText[el]}
+                />
+              </Link>
+            );
+          })}
         </div>
       </div>
     </Fragment>

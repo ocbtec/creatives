@@ -12,11 +12,11 @@ const Routes = () => (
   <BrowserRouter>
     <Switch>
       <Route path="/" component={LandingPage} exact />
-      <Route path="/Terms" component={Terms} exact />
-      <Route path="/Login" component={Login} exact />
-      <Route path="/RegisterCreative" component={RegisterCreative} exact />
-      <Route path="/RegisterUser" component={RegisterUser} exact />
-      <Route path="/Showcase" component={Showcase} exact />
+      <Route path="/terms" component={Terms} exact />
+      <Route path="/login" component={Login} exact />
+      <Route path="/registercreative" component={RegisterCreative} exact />
+      <Route path="/registeruser" component={RegisterUser} exact />
+      <Route path="/showcase" component={Showcase} exact />
     </Switch>
   </BrowserRouter>
 );
