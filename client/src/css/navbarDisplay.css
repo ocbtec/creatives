@@ -1,0 +1,13 @@
+.navbar-display {
+  height: 30px;
+  width: 300px;
+  margin-left: 650px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.pipe-divider {
+  margin: 0px 5px;
+  color: #fefefe;
+}

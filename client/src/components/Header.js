@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
+import NavbarDisplay from "./NavbarDisplay";
 
 import "../css/header.css";
 
@@ -14,6 +15,7 @@ const Header = () => {
             alt="logo"
           />
         </Link>
+        <NavbarDisplay />
         <img
           className="headerMenu"
           src={require("../images/menu.svg")}

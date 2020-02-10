@@ -7,7 +7,7 @@ const LogoAnimation = () => {
     <Fragment>
       <div className="container">
         <div className="background-absolute">
-          <img id="waves" src={require("../images/waves.jpg")} />
+          <img id="waves" src={require("../images/waves.jpg")} alt="waves" />
         </div>
         <div className="animated-logo-small-part">
           <img
@@ -41,8 +41,8 @@ const LogoAnimation = () => {
             </button>
           </Link>
           <Link to="/registercreative">
-            <button id="artist" className="button">
-              <div id="artist-text">
+            <button id="creative" className="button">
+              <div id="creative-text">
                 <p>Register</p>
                 <p>as Creative</p>
               </div>

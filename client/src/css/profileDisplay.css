@@ -1,0 +1,11 @@
+.avatar-image {
+  width: 23px;
+  height: 23px;
+  object-fit: cover;
+  clip-path: circle(11.5px at center);
+  margin: 0px 15px;
+}
+.user-name {
+  color: #fefefe;
+  font-size: 17px;
+}
