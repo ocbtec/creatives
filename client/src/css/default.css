@@ -6,3 +6,11 @@
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
 }
+
+.main-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
