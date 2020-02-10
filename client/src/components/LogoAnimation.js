@@ -36,7 +36,7 @@ const LogoAnimation = () => {
           <button id="artist" className="button">
             <div id="artist-text">
               <p>Register</p>
-              <p>as Artist</p>
+              <p>as Creative</p>
             </div>
           </button>
         </div>
