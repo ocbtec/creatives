@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import { Link } from "react-router-dom";
 import "../css/logoAnimation.css";
 
 const LogoAnimation = () => {
@@ -21,24 +22,32 @@ const LogoAnimation = () => {
           />
         </div>
         <div className="button-container">
-          <button id="login" className="button">
-            <div id="login-text">Login</div>
-          </button>
-          <button id="showcase" className="button">
-            <div id="showcase-text">Showcase</div>
-          </button>
-          <button id="user" className="button">
-            <div id="user-text">
-              <p>Register</p>
-              <p>as User</p>
-            </div>
-          </button>
-          <button id="artist" className="button">
-            <div id="artist-text">
-              <p>Register</p>
-              <p>as Creative</p>
-            </div>
-          </button>
+          <Link to="/login">
+            <button id="login" className="button">
+              <div id="login-text">Login</div>
+            </button>
+          </Link>
+          <Link to="/showcase">
+            <button id="showcase" className="button">
+              <div id="showcase-text">Showcase</div>
+            </button>
+          </Link>
+          <Link to="/registeruser">
+            <button id="user" className="button">
+              <div id="user-text">
+                <p>Register</p>
+                <p>as User</p>
+              </div>
+            </button>
+          </Link>
+          <Link to="/registercreative">
+            <button id="artist" className="button">
+              <div id="artist-text">
+                <p>Register</p>
+                <p>as Creative</p>
+              </div>
+            </button>
+          </Link>
         </div>
       </div>
     </Fragment>

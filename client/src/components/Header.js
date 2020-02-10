@@ -1,16 +1,19 @@
 import React, { Fragment } from "react";
+import { Link } from "react-router-dom";
+
 import "../css/header.css";
 
 const Header = () => {
   return (
     <Fragment>
       <div className="header">
-        <img
-          className="headerLogo"
-          src={require("../images/logo.svg")}
-          alt="logo"
-        />
-
+        <Link to="/">
+          <img
+            className="headerLogo"
+            src={require("../images/logo.svg")}
+            alt="logo"
+          />
+        </Link>
         <img
           className="headerMenu"
           src={require("../images/menu.svg")}
