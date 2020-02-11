@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 import NavbarDisplay from "./NavbarDisplay";
+import Menu from "./menu";
 
 import "../css/header.css";
 
@@ -19,13 +20,16 @@ const Header = () => {
         </div>
         <NavbarDisplay />
         <div className="burger-menu-container">
-          <img
-            className="burger-menu"
-            src={require("../images/menu.svg")}
-            alt="menu"
-          />
+          <button className="menu-button">
+            <img
+              className="burger-menu"
+              src={require("../images/menu.svg")}
+              alt="menu"
+            />
+          </button>
         </div>
       </div>
+      <Menu />
     </Fragment>
   );
 };

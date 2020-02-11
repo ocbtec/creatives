@@ -1,6 +1,6 @@
 .header {
   display: grid;
-  grid-template-columns: 18fr 300px 1fr;
+  grid-template-columns: 18fr 300px 40px;
   height: 80px;
   width: 100%;
   align-items: center;
@@ -15,4 +15,9 @@
 }
 .burger-menu {
   height: 20px;
+}
+.menu-button {
+  border: none;
+  background-color: #00000000;
+  outline: none;
 }
