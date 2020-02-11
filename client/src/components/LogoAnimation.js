@@ -1,17 +1,14 @@
 import React, { Fragment } from "react";
 import ButtonLandingPage from "./ButtonLandingPage";
+import {
+  loginButton,
+  showcaseButton,
+  userButton,
+  creativeButton
+} from "../scripts/landingPageButtonConstructor";
 import "../css/logoAnimation.css";
 
-const buttonComponent = [0, 1, 2, 3];
-const linkTo = ["/login", "/showcase", "/registeruser", "/registercreative"];
-const idButton = ["login", "showcase", "user", "creative"];
-const idText = ["login-text", "showcase-text", "user-text", "creative-text"];
-const buttonText = [
-  "Login",
-  "Showcase",
-  "Register as User",
-  "Register as Creative"
-];
+const buttonArray = [loginButton, showcaseButton, userButton, creativeButton];
 
 const LogoAnimation = () => {
   return (
@@ -33,14 +30,14 @@ const LogoAnimation = () => {
           />
         </div>
         <div className="button-container">
-          {buttonComponent.map((el, index) => {
+          {buttonArray.map((obj, index) => {
             return (
               <ButtonLandingPage
                 key={index}
-                idButton={idButton[el]}
-                idText={idText[el]}
-                buttonText={buttonText[el]}
-                linkTo={linkTo[el]}
+                idButton={obj.idButton}
+                idText={obj.idText}
+                buttonText={obj.buttonText}
+                linkTo={obj.linkTo}
               />
             );
           })}
