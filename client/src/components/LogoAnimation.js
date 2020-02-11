@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
-import ButtonLandingpage from "./ButtonLandingpage";
+import ButtonLandingPage from "./ButtonLandingPage";
 import "../css/logoAnimation.css";
 
 const buttonComponent = [0, 1, 2, 3];
@@ -37,7 +37,7 @@ const LogoAnimation = () => {
           {buttonComponent.map(function(el) {
             return (
               <Link to={linkTo[el]}>
-                <ButtonLandingpage
+                <ButtonLandingPage
                   key={buttonComponent[el]}
                   idButton={idButton[el]}
                   idText={idText[el]}

@@ -91,6 +91,7 @@
   color: #b6b6b6;
   background: #00000055;
   border: 1px solid white;
+  cursor: pointer;
 }
 @keyframes button-fade-in {
   0% {

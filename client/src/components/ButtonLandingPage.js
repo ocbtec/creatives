@@ -1,6 +1,6 @@
 import React from "react";
 
-const ButtonLandingpage = props => {
+const ButtonLandingPage = props => {
   return (
     <button id={props.idButton} className="button">
       <div id={props.idText}>{props.buttonText}</div>
@@ -8,4 +8,4 @@ const ButtonLandingpage = props => {
   );
 };
 
-export default ButtonLandingpage;
+export default ButtonLandingPage;
