@@ -1,5 +1,4 @@
 import React, { Fragment } from "react";
-import { Link } from "react-router-dom";
 import ButtonLandingPage from "./ButtonLandingPage";
 import "../css/logoAnimation.css";
 
@@ -34,16 +33,15 @@ const LogoAnimation = () => {
           />
         </div>
         <div className="button-container">
-          {buttonComponent.map(function(el) {
+          {buttonComponent.map((el, index) => {
             return (
-              <Link to={linkTo[el]}>
-                <ButtonLandingPage
-                  key={buttonComponent[el]}
-                  idButton={idButton[el]}
-                  idText={idText[el]}
-                  buttonText={buttonText[el]}
-                />
-              </Link>
+              <ButtonLandingPage
+                key={index}
+                idButton={idButton[el]}
+                idText={idText[el]}
+                buttonText={buttonText[el]}
+                linkTo={linkTo[el]}
+              />
             );
           })}
         </div>
