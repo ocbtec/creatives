@@ -1,17 +1,18 @@
 .header {
+  display: grid;
+  grid-template-columns: 18fr 300px 1fr;
   height: 80px;
   width: 100%;
-  background-color: #373f41;
-  display: flex;
   align-items: center;
-  justify-content: space-between;
+  background-color: #373f41;
   padding: 0 20px;
 }
-
-.headerLogo {
+.logo {
   height: 40px;
 }
-
-.headerMenu {
+.burger-menu-container {
+  text-align: right;
+}
+.burger-menu {
   height: 20px;
 }

@@ -1,9 +1,12 @@
 .avatar-image {
-  width: 23px;
-  height: 23px;
+  width: 25px;
+  height: 25px;
   object-fit: cover;
-  clip-path: circle(11.5px at center);
+  clip-path: circle(12.5px at center);
   margin: 0px 15px;
+}
+.avatar-link {
+  line-height: 0;
 }
 .user-name {
   color: #fefefe;
