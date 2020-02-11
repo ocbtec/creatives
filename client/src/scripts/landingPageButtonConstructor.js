@@ -1,4 +1,4 @@
-class ButtonClass {
+class Button {
   constructor(linkTo, idButton, idText, buttonText) {
     this.linkTo = linkTo;
     this.idButton = idButton;
@@ -7,28 +7,23 @@ class ButtonClass {
   }
 }
 
-export const loginButton = new ButtonClass(
-  "/login",
-  "login",
-  "login-text",
-  "Login"
-);
+export const loginButton = new Button("/login", "login", "login-text", "Login");
 
-export const showcaseButton = new ButtonClass(
+export const showcaseButton = new Button(
   "/showcase",
   "showcase",
   "showcase-text",
   "Showcase"
 );
 
-export const userButton = new ButtonClass(
+export const userButton = new Button(
   "/user",
   "user",
   "user-text",
   " Register as User"
 );
 
-export const creativeButton = new ButtonClass(
+export const creativeButton = new Button(
   "/creative",
   "creative",
   "creative-text",

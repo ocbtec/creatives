@@ -9,13 +9,6 @@ const menu = () => {
           Home
           <img className="icon" src={require("../images/home-icon.svg")}></img>
         </li>
-        <li className="menu-item-left">About</li>
-        <li className="menu-item-left">Showcase</li>
-        <li className="menu-item-left">Search</li>
-        <li className="menu-line"></li>
-        <li className="menu-item-left">Profile</li>
-        <li className="menu-item-left">Works</li>
-        <li className="menu-item-left">Log out</li>
       </ul>
 
       <ul className="menu-right">
