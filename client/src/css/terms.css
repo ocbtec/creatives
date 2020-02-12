@@ -1,0 +1,19 @@
+body {
+  /* width: 100%; */
+}
+h1 {
+  color: #555;
+  margin: 20px 0px;
+}
+.terms-container {
+  overflow: auto;
+  padding: 0px 30px;
+}
+p {
+  margin: 20px 0px;
+  color: #606a6c;
+  text-align: justify;
+}
+.address {
+  margin: 0;
+}
