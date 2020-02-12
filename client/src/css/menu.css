@@ -1,87 +1,52 @@
 .menu-container {
+  /* width: 100%;
+  height: 100vh; */
+}
+.menu {
   position: absolute;
   display: flex;
-  right: 0;
-  top: 80px;
-  width: 300px;
-  height: 555px;
-}
-.split-left {
-  width: 200px;
-  height: 555px;
-  background-image: url("../images/menu-structure.png");
-}
-.menu-left {
-  position: relative;
-  width: 300px;
-  height: 555px;
-  list-style: none;
-  display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  padding: 15px 0px;
-}
-.menu-item-left {
-  width: 300px;
-  height: 55px;
-  color: #fce2db;
-  line-height: 55px;
-  padding-left: 50px;
-}
-.menu-item-left:hover {
-  width: 200px;
-  height: 55px;
-  background-color: #6e7475;
-  background-image: url("../images/logo-select.png");
-  background-repeat: no-repeat;
-  color: #fefefe;
-  line-height: 55px;
-  padding-left: 50px;
-}
-.menu-item-left:hover .menu-item-right {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 55px;
-  background-color: #1c3841;
-}
-.split-right {
-  width: 100px;
-  height: 555px;
-  background-color: #46575b;
+  right: -300px;
   opacity: 0.95;
 }
-.menu-right {
-  position: relative;
-  width: 100px;
-  height: 555px;
+.menu-fade-in {
+  animation: menu-fade-in 1s ease 1 forwards;
+}
+.menu-fade-out {
+  animation: menu-fade-out 1s ease 1 forwards;
+}
+.menu-item {
+  background-image: url("../images/menu-structure.png");
+  color: #fefefe;
   list-style: none;
+  height: 100px;
+  width: 300px;
   display: flex;
-  flex-direction: column;
+  align-items: center;
   justify-content: space-between;
-  padding: 15px 0px;
+  padding: 0px 35px 0 55px;
+  font-size: 16pt;
 }
-.menu-item-right {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 55px;
-}
-.menu-item-right:hover {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 55px;
-  background-color: #1c3841;
+.menu-item:hover {
+  background-image: url("../images/menu-structure-hover.png");
 }
 .icon {
   width: 30px;
+  height: 30px;
 }
-.menu-line {
-  width: 100%;
-  height: 1px;
-  background: #fefefe;
+@keyframes menu-fade-in {
+  0% {
+    right: -300px;
+  }
+  100% {
+    right: 0px;
+  }
+}
+@keyframes menu-fade-out {
+  0% {
+    right: 0px;
+  }
+  100% {
+    right: -300px;
+  }
 }

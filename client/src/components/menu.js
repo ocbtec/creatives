@@ -15,7 +15,7 @@ const menu = () => {
   return (
     <Fragment>
       <div className="menu-container">
-        <ul className="menu-left">
+        <ul className="menu">
           {linksArray.map((link, index) => {
             return (
               <MenuLink
