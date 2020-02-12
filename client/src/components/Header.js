@@ -6,6 +6,16 @@ import Menu from "./menu";
 import "../css/header.css";
 
 const Header = () => {
+  let menuDisplayed = false;
+  const menuFadeIn = () => {
+    let menu = document.getElementsByClassName("menu")[0];
+    menuDisplayed
+      ? (menu.className = "menu menu-fade-out")
+      : (menu.className = "menu menu-fade-in");
+    console.log(menuDisplayed);
+    menuDisplayed = !menuDisplayed;
+    console.log(menuDisplayed);
+  };
   return (
     <Fragment>
       <div className="header">
@@ -20,7 +30,7 @@ const Header = () => {
         </div>
         <NavbarDisplay />
         <div className="burger-menu-container">
-          <button className="menu-button">
+          <button className="menu-button" onClick={menuFadeIn}>
             <img
               className="burger-menu"
               src={require("../images/menu.svg")}
