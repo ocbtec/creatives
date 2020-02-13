@@ -1,12 +1,16 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-import LandingPage from "./LandingPage";
-import Terms from "./Terms";
-import Login from "./Login";
-import RegisterCreative from "./RegisterCreative";
-import RegisterUser from "./RegisterUser";
-import Showcase from "./Showcase";
+import LandingPage from "../page-components/LandingPage";
+import Terms from "../page-components/Terms";
+import Login from "../page-components/Login";
+import RegisterCreative from "../page-components/RegisterCreative";
+import RegisterUser from "../page-components/RegisterUser";
+import Showcase from "../page-components/Showcase";
+import About from "../page-components/About";
+import Search from "../page-components/Search";
+import UserUpdate from "../page-components/UserUpdate";
+import Works from "../page-components/Works";
 
 const Routes = () => (
   <BrowserRouter>
@@ -17,6 +21,10 @@ const Routes = () => (
       <Route path="/registercreative" component={RegisterCreative} exact />
       <Route path="/registeruser" component={RegisterUser} exact />
       <Route path="/showcase" component={Showcase} exact />
+      <Route path="/about" component={About} exact />
+      <Route path="/search" component={Search} exact />
+      <Route path="/userupdate" component={UserUpdate} exact />
+      <Route path="/works" component={Works} exact />
     </Switch>
   </BrowserRouter>
 );

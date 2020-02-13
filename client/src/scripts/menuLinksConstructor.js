@@ -31,3 +31,21 @@ export const searchLink = new MenuLink(
   "Search",
   (<img className="icon" src={require("../images/search-icon.png")} />)
 );
+
+export const loginLink = new MenuLink(
+  "/login",
+  "Login",
+  (<img className="icon" src={require("../images/login-icon.png")} />)
+);
+
+export const userProfileLink = new MenuLink(
+  "/userupdate",
+  "Profile",
+  (<img className="icon" src={require("../images/user-icon.png")} />)
+);
+
+export const worksLink = new MenuLink(
+  "/works",
+  "Works",
+  (<img className="icon" src={require("../images/works-icon-bright.png")} />)
+);

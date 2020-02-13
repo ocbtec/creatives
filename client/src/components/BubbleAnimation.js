@@ -1,7 +1,6 @@
 import React, { Fragment } from "react";
 
 const BubbleAnimation = () => {
-  let stopBubbles = false;
   let colors = [
     "#5d5b6a",
     "#758184",
@@ -70,7 +69,7 @@ const BubbleAnimation = () => {
 
     let randomTime = getRandomInt(10, 300);
     setTimeout(() => {
-      stopBubbles === false && bubbles();
+      bubbles();
     }, randomTime);
     setTimeout(() => {
       bubble.className = "bubble delete-bubble";
@@ -80,14 +79,6 @@ const BubbleAnimation = () => {
 
   const bubbleDelete = () => {
     let bubbleArray = document.querySelectorAll(".delete-bubble");
-    for (let i = 0; i < bubbleArray.length; i++) {
-      bubbleArray[i].remove();
-    }
-  };
-
-  const killBubbles = () => {
-    stopBubbles = true;
-    let bubbleArray = document.querySelectorAll(".bubble");
     for (let i = 0; i < bubbleArray.length; i++) {
       bubbleArray[i].remove();
     }

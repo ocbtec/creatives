@@ -9,7 +9,7 @@ const Footer = () => {
         <p className="pFooter">
           {" "}
           Copyright © 2020 Creatives{" "}
-          <Link className="linkFooter" to="/Terms">
+          <Link className="linkFooter" to="/terms">
             Terms & Conditions
           </Link>
         </p>

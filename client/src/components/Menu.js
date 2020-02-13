@@ -4,14 +4,25 @@ import {
   homeLink,
   aboutLink,
   showcaseLink,
-  searchLink
+  searchLink,
+  loginLink,
+  userProfileLink,
+  worksLink
 } from "../scripts/menuLinksConstructor";
 import "../css/menu.css";
 
-const linksArray = [homeLink, aboutLink, showcaseLink, searchLink];
+const linksArray = [
+  homeLink,
+  aboutLink,
+  showcaseLink,
+  searchLink,
+  loginLink,
+  userProfileLink,
+  worksLink
+];
 // linksArray.push(homeLink);
 
-const menu = () => {
+const Menu = () => {
   return (
     <Fragment>
       <div className="menu-container">
@@ -32,4 +43,4 @@ const menu = () => {
   );
 };
 
-export default menu;
+export default Menu;

@@ -1,9 +1,9 @@
 import React, { Fragment } from "react";
-import Footer from "./Footer";
-import Header from "./Header";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 import "../css/terms.css";
 
-import BubbleAnimation from "./BubbleAnimation";
+import BubbleAnimation from "../components/BubbleAnimation";
 
 const Terms = () => {
   return (

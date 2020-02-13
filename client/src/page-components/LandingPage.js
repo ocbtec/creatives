@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import LogoAnimation from "./LogoAnimation";
+import LogoAnimation from "../components/LogoAnimation";
 import "../css/landingPage.css";
 
 const LandingPage = () => {

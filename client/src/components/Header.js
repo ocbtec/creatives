@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 import NavbarDisplay from "./NavbarDisplay";
-import Menu from "./menu";
+import Menu from "./Menu";
 
 import "../css/header.css";
 
