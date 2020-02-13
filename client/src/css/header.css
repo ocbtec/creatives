@@ -1,11 +1,11 @@
 .header {
   display: grid;
-  grid-template-columns: 18fr 300px 40px;
+  grid-template-columns: 18fr 285px 40px;
   height: 80px;
   width: 100%;
   align-items: center;
   background-color: #606a6c;
-  padding: 0 20px;
+  padding: 0 35px;
 }
 .logo {
   height: 40px;
@@ -15,6 +15,9 @@
 }
 .burger-menu {
   height: 20px;
+}
+.burger-menu:hover {
+  cursor: pointer;
 }
 .menu-button {
   border: none;
