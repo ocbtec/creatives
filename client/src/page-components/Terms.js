@@ -3,7 +3,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import "../css/terms.css";
 
-import BubbleAnimation from "../components/BubbleAnimation";
+// import BubbleAnimation from "../components/BubbleAnimation";
 
 const Terms = () => {
   return (

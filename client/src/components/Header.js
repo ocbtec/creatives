@@ -5,7 +5,7 @@ import Menu from "./Menu";
 
 import "../css/header.css";
 
-const Header = () => {
+const Header = ({ userName, avatarImage, token }) => {
   let menuDisplayed = false;
   const menuFadeIn = () => {
     let menu = document.getElementsByClassName("menu")[0];
@@ -28,7 +28,13 @@ const Header = () => {
             />
           </Link>
         </div>
-        <NavbarDisplay />
+        {token && (
+          <NavbarDisplay
+            userName={userName}
+            avatarImage={avatarImage}
+            token={token}
+          />
+        )}
         <div className="burger-menu-container">
           <button className="menu-button" onClick={menuFadeIn}>
             <img

@@ -17,7 +17,7 @@ export const showcaseButton = new Button(
 );
 
 export const userButton = new Button(
-  "/user",
+  "/registeruser",
   "user",
   "user-text",
   " Register as User"

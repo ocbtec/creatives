@@ -11,41 +11,83 @@ class MenuLink {
 export const homeLink = new MenuLink(
   "/",
   "Home",
-  (<img className="icon" src={require("../images/home-icon.svg")} />)
+  (
+    <img
+      className="icon"
+      src={require("../images/home-icon.svg")}
+      alt="home-icon"
+    />
+  )
 );
 
 export const aboutLink = new MenuLink(
   "/about",
   "About",
-  (<img className="icon" src={require("../images/about-icon.png")} />)
+  (
+    <img
+      className="icon"
+      src={require("../images/about-icon.png")}
+      alt="about-icon"
+    />
+  )
 );
 
 export const showcaseLink = new MenuLink(
   "/showcase",
   "Showcase",
-  (<img className="icon" src={require("../images/showcase-icon.svg")} />)
+  (
+    <img
+      className="icon"
+      src={require("../images/showcase-icon.svg")}
+      alt="showcase-icon"
+    />
+  )
 );
 
 export const searchLink = new MenuLink(
   "/search",
   "Search",
-  (<img className="icon" src={require("../images/search-icon.png")} />)
+  (
+    <img
+      className="icon"
+      src={require("../images/search-icon.png")}
+      alt="search-icon"
+    />
+  )
 );
 
 export const loginLink = new MenuLink(
   "/login",
   "Login",
-  (<img className="icon" src={require("../images/login-icon.png")} />)
+  (
+    <img
+      className="icon"
+      src={require("../images/login-icon.png")}
+      alt="login-icon"
+    />
+  )
 );
 
 export const userProfileLink = new MenuLink(
   "/userupdate",
   "Profile",
-  (<img className="icon" src={require("../images/user-icon.png")} />)
+  (
+    <img
+      className="icon"
+      src={require("../images/user-icon.png")}
+      alt="user-icon"
+    />
+  )
 );
 
 export const worksLink = new MenuLink(
   "/works",
   "Works",
-  (<img className="icon" src={require("../images/works-icon-bright.png")} />)
+  (
+    <img
+      className="icon"
+      src={require("../images/works-icon-bright.png")}
+      alt="work-icon"
+    />
+  )
 );
