@@ -104,73 +104,117 @@ const RegisterUser = () => {
       <div className="main-container">
         <Header userName={user.name} avatarImage={user.avatar} token={token} />
         <div className="register-user-body">
-          <h1>Please fill in all fields to Register</h1>
-          <form autoComplete="nope" onSubmit={e => onSubmit(e)}>
-            <input style={{ display: "none" }} />
-            <input type="password" style={{ display: "none" }} />
-            <input
-              type="text"
-              placeholder="Name"
-              name="name"
-              value={name}
-              onChange={e => onChange(e)}
-              required
+          <div className="image-container">
+            <img
+              className="background-image"
+              src={require("../images/register-user-img-scale-3-crop-clip-4.png")}
             />
-            <input
-              type="email"
-              placeholder="Email"
-              name="email"
-              value={email}
-              onChange={e => onChange(e)}
-              required
-            />
-            <input
-              type="password"
-              placeholder="Password"
-              name="password"
-              value={password}
-              onChange={e => onChange(e)}
-              required
-              minLength="6"
-              autoComplete="new-password"
-            />
-            <input
-              type="checkbox"
-              placeholder="Make Email public"
-              name="emailVisible"
-              onChange={e => onChange(e)}
-              defaultChecked={emailVisible}
-            />
-            <input
-              type="checkbox"
-              placeholder="Allow Email Notifications"
-              name="emailNotificationAllowed"
-              onChange={e => onChange(e)}
-              defaultChecked={emailNotificationAllowed}
-            />
-            <input
-              type="checkbox"
-              placeholder="Subscribe to our Newsletter"
-              name="subscribeToNewsletter"
-              onChange={e => onChange(e)}
-              defaultChecked={subscribeToNewsletter}
-            />
-            <input
-              type="file"
-              placeholder="Upload an avatar"
-              name="avatar"
-              value={avatar}
-              onChange={e => onChange(e)}
-            />
-            {renderRedirect()}
-            <button onClick={handleRedirect}>Register</button>
-          </form>
-          <p>{token}</p>
-          <p>{user.name}</p>
-          <p>{user.email}</p>
-          <p>{user.avatar}</p>
-          <p>{user.creative}</p>
-          <p>{listErrors}</p>
+          </div>
+          <div className="register-user-container">
+            <div className="flex-item headline">
+              <img
+                className="register-icon"
+                src={require("../images/register-user-icon.svg")}
+              />
+              <h1>Register as User</h1>
+            </div>
+            <h3 className="flex-item headline">
+              Please fill in all fields to Register
+            </h3>
+            <form
+              className="form-container flex-item"
+              autoComplete="nope"
+              onSubmit={e => onSubmit(e)}>
+              <input style={{ display: "none" }} />
+              <input type="password" style={{ display: "none" }} />
+              <input
+                className="input-text"
+                type="text"
+                placeholder="* User name"
+                name="name"
+                value={name}
+                onChange={e => onChange(e)}
+                required
+              />
+
+              <input
+                className="input-text"
+                type="email"
+                placeholder="* Email"
+                name="email"
+                value={email}
+                onChange={e => onChange(e)}
+                required
+              />
+
+              <input
+                className="input-text"
+                type="password"
+                placeholder="* Password"
+                name="password"
+                value={password}
+                onChange={e => onChange(e)}
+                required
+                minLength="6"
+                autoComplete="new-password"
+              />
+
+              <div className="checkbox-container-outer">
+                <div className="checkbox-container-inner">
+                  <input
+                    className="input-checkbox"
+                    type="checkbox"
+                    placeholder="Make Email public"
+                    name="emailVisible"
+                    onChange={e => onChange(e)}
+                    defaultChecked={emailVisible}
+                  />
+                  <p className="checkbox-label">display email publicly</p>
+                </div>
+                <div className="checkbox-container-inner" id="align-items-top">
+                  <input
+                    className="input-checkbox"
+                    type="checkbox"
+                    placeholder="Allow Email Notifications"
+                    name="emailNotificationAllowed"
+                    onChange={e => onChange(e)}
+                    defaultChecked={emailNotificationAllowed}
+                  />
+                  <div>
+                    <p className="checkbox-label">allow email notifictions</p>
+                    <p className="checkbox-label-2">
+                      when receiving a personal message
+                    </p>
+                  </div>
+                </div>
+                <div className="checkbox-container-inner">
+                  <input
+                    className="input-checkbox"
+                    type="checkbox"
+                    placeholder="Subscribe to our Newsletter"
+                    name="subscribeToNewsletter"
+                    onChange={e => onChange(e)}
+                    defaultChecked={subscribeToNewsletter}
+                  />
+                  <p className="checkbox-label">subscribe to newsletter</p>
+                </div>
+                <div className="checkbox-container-inner line"></div>
+                <input
+                  className="checkbox-container-inner choose-file"
+                  type="file"
+                  placeholder="Upload an avatar"
+                  name="avatar"
+                  value={avatar}
+                  onChange={e => onChange(e)}
+                />
+                {/* <div className="fake-button"></div> */}
+                {renderRedirect()}
+                <button className="register-button" onClick={handleRedirect}>
+                  Register
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
         <Footer />
       </div>
