@@ -1,16 +1,20 @@
 .terms-container {
-  overflow: auto;
-  padding: 0px 35px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  height: 100%;
+  width: 90%;
+  margin: 0px 0px 0px 65px;
 }
-h1 {
+.terms-headline {
   color: #555;
   margin: 20px 0px;
 }
-p {
-  margin: 20px 0px;
+.terms-p {
   color: #606a6c;
   text-align: justify;
+  margin: 20px 0px;
 }
 .address {
+  color: #606a6c;
   margin: 0;
 }

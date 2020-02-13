@@ -5,7 +5,7 @@ import "../css/landingPage.css";
 const LandingPage = () => {
   return (
     <Fragment>
-      <div className="landingPageContainer">
+      <div className="landing-page-container">
         <LogoAnimation />
       </div>
     </Fragment>
