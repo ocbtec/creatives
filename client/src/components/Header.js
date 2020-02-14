@@ -9,12 +9,22 @@ const Header = ({ userName, avatarImage, token }) => {
   let menuDisplayed = false;
   const menuFadeIn = () => {
     let menu = document.getElementsByClassName('menu')[0];
-    menuDisplayed
-      ? (menu.className = 'menu menu-fade-out')
-      : (menu.className = 'menu menu-fade-in');
-    console.log(menuDisplayed);
+    let menubars = document.querySelectorAll('.menubars');
+
+    if (menuDisplayed) {
+      menu.className = 'menu menu-fade-out';
+      menubars.forEach((el, index) => {
+        el.className = `menubars menubar-${index + 1} menubar-${index +
+          1}-close-menu`;
+      });
+    } else {
+      menu.className = 'menu menu-fade-in';
+      menubars.forEach((el, index) => {
+        el.className = `menubars menubar-${index + 1} menubar-${index +
+          1}-open-menu`;
+      });
+    }
     menuDisplayed = !menuDisplayed;
-    console.log(menuDisplayed);
   };
   return (
     <Fragment>
@@ -37,11 +47,14 @@ const Header = ({ userName, avatarImage, token }) => {
         )}
         <div className='burger-menu-container'>
           <button className='menu-button' onClick={menuFadeIn}>
-            <img
+            {/* <img
               className='burger-menu'
               src={require('../images/menu.svg')}
               alt='menu'
-            />
+            /> */}
+            <div className='menubars menubar-1'></div>
+            <div className='menubars menubar-2'></div>
+            <div className='menubars menubar-3'></div>
           </button>
         </div>
       </div>
