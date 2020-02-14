@@ -126,7 +126,9 @@ const RegisterUser = () => {
       <div className='main-container'>
         <Header userName={user.name} avatarImage={user.avatar} token={token} />
         <div className='register-user-body'>
-          <div className='image-container'></div>
+          <div className='image-container'>
+            <div className='image-container-2'></div>
+          </div>
           <div className='register-user-container'>
             <div className='flex-item headline'>
               <img
