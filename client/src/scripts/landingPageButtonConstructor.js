@@ -24,7 +24,7 @@ export const userButton = new Button(
 );
 
 export const creativeButton = new Button(
-  '/creative',
+  '/registercreative',
   'creative',
   'creative-text',
   'Register as Creative'
