@@ -136,9 +136,9 @@ const RegisterUser = () => {
               />
               <h1>Register as User</h1>
             </div>
-            <h3 className='flex-item headline'>
+            <h4 className='flex-item headline'>
               Please fill in all fields to Register
-            </h3>
+            </h4>
             <form
               className='form-container flex-item'
               onSubmit={e => onSubmit(e)}>
@@ -215,16 +215,29 @@ const RegisterUser = () => {
                   />
                   <p className='checkbox-label'>subscribe to newsletter</p>
                 </div>
-                <div className='checkbox-container-inner line'></div>
-                <input
-                  className='checkbox-container-inner choose-file'
-                  type='file'
-                  placeholder='Upload an avatar'
-                  name='avatar'
-                  value={avatar}
-                  onChange={e => onChange(e)}
-                />
+                <div className='line'></div>
+                <div className='avatar-container'>
+                  <div className='upload-avatar'>
+                    <img
+                      className='user-icon'
+                      src={require('../images/user-icon-dark.png')}
+                      alt=''
+                      USer
+                      icon
+                    />
+                    <span>upload avatar</span>
+                  </div>
+                  <input
+                    className='choose-file'
+                    type='file'
+                    placeholder='Upload an avatar'
+                    name='avatar'
+                    value={avatar}
+                    onChange={e => onChange(e)}
+                  />
+                </div>
                 {renderRedirect()}
+                <div className='line'></div>
                 <button className='register-button'>Register</button>
               </div>
             </form>
