@@ -7,25 +7,25 @@ class Button {
   }
 }
 
-export const loginButton = new Button("/login", "login", "login-text", "Login");
+export const loginButton = new Button('/login', 'login', 'login-text', 'Login');
 
 export const showcaseButton = new Button(
-  "/showcase",
-  "showcase",
-  "showcase-text",
-  "Showcase"
+  '/showcase',
+  'showcase',
+  'showcase-text',
+  'Showcase'
 );
 
 export const userButton = new Button(
-  "/registeruser",
-  "user",
-  "user-text",
-  " Register as User"
+  '/registeruser',
+  'user',
+  'user-text',
+  ' Register as User'
 );
 
 export const creativeButton = new Button(
-  "/creative",
-  "creative",
-  "creative-text",
-  "Register as Creative"
+  '/creative',
+  'creative',
+  'creative-text',
+  'Register as Creative'
 );

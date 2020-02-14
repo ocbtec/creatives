@@ -1,14 +1,14 @@
-import React, { Fragment } from "react";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import React, { Fragment } from 'react';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
-import "../css/login.css";
+import '../css/login.css';
 
 const Login = () => (
   <Fragment>
-    <div className="main-container">
+    <div className='main-container'>
       <Header />
-      <div className="login-body">Login Content</div>
+      <div className='login-body'>Login Content</div>
       <Footer />
     </div>
   </Fragment>

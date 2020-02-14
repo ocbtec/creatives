@@ -9,5 +9,5 @@
 }
 .landingPageBody {
   flex-grow: 1;
-  background-image: url("../images/logo.svg");
+  background-image: url('../images/logo.svg');
 }

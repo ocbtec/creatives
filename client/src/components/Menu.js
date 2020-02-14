@@ -1,5 +1,5 @@
-import React, { Fragment } from "react";
-import MenuLink from "./MenuLink";
+import React, { Fragment } from 'react';
+import MenuLink from './MenuLink';
 import {
   homeLink,
   aboutLink,
@@ -8,8 +8,8 @@ import {
   loginLink,
   userProfileLink,
   worksLink
-} from "../scripts/menuLinksConstructor";
-import "../css/menu.css";
+} from '../scripts/menuLinksConstructor';
+import '../css/menu.css';
 
 const linksArray = [
   homeLink,
@@ -25,8 +25,8 @@ const linksArray = [
 const Menu = () => {
   return (
     <Fragment>
-      <div className="menu-container">
-        <ul className="menu">
+      <div className='menu-container'>
+        <ul className='menu'>
           {linksArray.map((link, index) => {
             return (
               <MenuLink

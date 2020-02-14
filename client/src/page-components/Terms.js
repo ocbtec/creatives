@@ -1,7 +1,7 @@
-import React, { Fragment } from "react";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import "../css/terms.css";
+import React, { Fragment } from 'react';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import '../css/terms.css';
 
 // import BubbleAnimation from "../components/BubbleAnimation";
 
@@ -10,15 +10,15 @@ const Terms = () => {
     <Fragment>
       <Header />
       {/* <BubbleAnimation /> */}
-      <div className="terms-container">
-        <h1 className="terms-headline">Terms &amp; Conditions</h1>
-        <p className="terms-p">
+      <div className='terms-container'>
+        <h1 className='terms-headline'>Terms &amp; Conditions</h1>
+        <p className='terms-p'>
           These terms and conditions outline the rules and regulations for the
           use of Creatives's Website. Creatives is located at:
         </p>
-        <p className="address">Dream Road 314</p>
-        <p className="address">Berlin 10243</p>
-        <p className="terms-p">
+        <p className='address'>Dream Road 314</p>
+        <p className='address'>Berlin 10243</p>
+        <p className='terms-p'>
           By accessing this website we assume you accept these terms and
           conditions in full. Do not continue to use Creatives's website if you
           do not accept all of the terms and conditions stated on this page. The
@@ -39,8 +39,8 @@ const Terms = () => {
           and/or he/she or they, are taken as interchangeable and therefore as
           referring to same.
         </p>
-        <h1 className="terms-headline">Cookies</h1>
-        <p className="terms-p">
+        <h1 className='terms-headline'>Cookies</h1>
+        <p className='terms-p'>
           We employ the use of cookies. By using Creatives's website you consent
           to the use of cookies in accordance with Creatives's privacy policy.
           Most of the modern day interactive web sites use cookies to enable us
@@ -58,8 +58,8 @@ const Terms = () => {
           http://creatives.org Redistribute content from Creatives (unless
           content is specifically made for redistribution).
         </p>
-        <h1 className="terms-headline">User Comments</h1>
-        <p className="terms-p">
+        <h1 className='terms-headline'>User Comments</h1>
+        <p className='terms-p'>
           This agreement shall begin on the date hereof. Certain parts of this
           website offer the opportunity for users to post and exchange opinions,
           information, material and data ('Comments') in areas of the website.

@@ -1,15 +1,15 @@
-import React, { Fragment } from "react";
+import React, { Fragment } from 'react';
 
 const BubbleAnimation = () => {
   let colors = [
-    "#5d5b6a",
-    "#758184",
-    "#cfb495",
-    "#f5cdaa",
-    "#fce2db",
-    "#f1c6d3",
-    "#e4a3d4",
-    "#c295d8"
+    '#5d5b6a',
+    '#758184',
+    '#cfb495',
+    '#f5cdaa',
+    '#fce2db',
+    '#f1c6d3',
+    '#e4a3d4',
+    '#c295d8'
   ];
 
   const getRandomInt = (min, max) => {
@@ -18,10 +18,10 @@ const BubbleAnimation = () => {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   };
 
-  let bubbleContainer = document.createElement("div");
+  let bubbleContainer = document.createElement('div');
   const bubbles = () => {
-    let bubble = document.createElement("div");
-    bubble.className = "bubble";
+    let bubble = document.createElement('div');
+    bubble.className = 'bubble';
     bubbleContainer.appendChild(bubble);
 
     let bubbleSize = getRandomInt(5, 70);
@@ -63,7 +63,7 @@ const BubbleAnimation = () => {
       ],
       {
         duration: time,
-        fill: "forwards"
+        fill: 'forwards'
       }
     );
 
@@ -72,13 +72,13 @@ const BubbleAnimation = () => {
       bubbles();
     }, randomTime);
     setTimeout(() => {
-      bubble.className = "bubble delete-bubble";
+      bubble.className = 'bubble delete-bubble';
       bubbleDelete();
     }, time);
   };
 
   const bubbleDelete = () => {
-    let bubbleArray = document.querySelectorAll(".delete-bubble");
+    let bubbleArray = document.querySelectorAll('.delete-bubble');
     for (let i = 0; i < bubbleArray.length; i++) {
       bubbleArray[i].remove();
     }

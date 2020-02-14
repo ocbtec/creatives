@@ -223,9 +223,7 @@ const RegisterUser = () => {
                     <img
                       className='user-icon'
                       src={require('../images/user-icon-dark.png')}
-                      alt=''
-                      USer
-                      icon
+                      alt='User icon'
                     />
                     <span>upload avatar</span>
                   </div>

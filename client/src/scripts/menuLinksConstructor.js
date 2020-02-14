@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 class MenuLink {
   constructor(linkTo, linkText, iconPath) {
@@ -9,85 +9,85 @@ class MenuLink {
 }
 
 export const homeLink = new MenuLink(
-  "/",
-  "Home",
+  '/',
+  'Home',
   (
     <img
-      className="icon"
-      src={require("../images/home-icon.svg")}
-      alt="home-icon"
+      className='icon'
+      src={require('../images/home-icon.svg')}
+      alt='home-icon'
     />
   )
 );
 
 export const aboutLink = new MenuLink(
-  "/about",
-  "About",
+  '/about',
+  'About',
   (
     <img
-      className="icon"
-      src={require("../images/about-icon.png")}
-      alt="about-icon"
+      className='icon'
+      src={require('../images/about-icon.png')}
+      alt='about-icon'
     />
   )
 );
 
 export const showcaseLink = new MenuLink(
-  "/showcase",
-  "Showcase",
+  '/showcase',
+  'Showcase',
   (
     <img
-      className="icon"
-      src={require("../images/showcase-icon.svg")}
-      alt="showcase-icon"
+      className='icon'
+      src={require('../images/showcase-icon.svg')}
+      alt='showcase-icon'
     />
   )
 );
 
 export const searchLink = new MenuLink(
-  "/search",
-  "Search",
+  '/search',
+  'Search',
   (
     <img
-      className="icon"
-      src={require("../images/search-icon.png")}
-      alt="search-icon"
+      className='icon'
+      src={require('../images/search-icon.png')}
+      alt='search-icon'
     />
   )
 );
 
 export const loginLink = new MenuLink(
-  "/login",
-  "Login",
+  '/login',
+  'Login',
   (
     <img
-      className="icon"
-      src={require("../images/login-icon.png")}
-      alt="login-icon"
+      className='icon'
+      src={require('../images/login-icon.png')}
+      alt='login-icon'
     />
   )
 );
 
 export const userProfileLink = new MenuLink(
-  "/userupdate",
-  "Profile",
+  '/userupdate',
+  'Profile',
   (
     <img
-      className="icon"
-      src={require("../images/user-icon.png")}
-      alt="user-icon"
+      className='icon'
+      src={require('../images/user-icon.png')}
+      alt='user-icon'
     />
   )
 );
 
 export const worksLink = new MenuLink(
-  "/works",
-  "Works",
+  '/works',
+  'Works',
   (
     <img
-      className="icon"
-      src={require("../images/works-icon-bright.png")}
-      alt="work-icon"
+      className='icon'
+      src={require('../images/works-icon-bright.png')}
+      alt='work-icon'
     />
   )
 );
