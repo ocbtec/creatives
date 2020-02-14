@@ -126,13 +126,7 @@ const RegisterUser = () => {
       <div className='main-container'>
         <Header userName={user.name} avatarImage={user.avatar} token={token} />
         <div className='register-user-body'>
-          <div className='image-container'>
-            <img
-              className='background-image'
-              src={require('../images/register-user-img-scale-3-crop-clip-4.png')}
-              alt='Background-pic'
-            />
-          </div>
+          <div className='image-container'></div>
           <div className='register-user-container'>
             <div className='flex-item headline'>
               <img
