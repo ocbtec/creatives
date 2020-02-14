@@ -30,6 +30,7 @@
 }
 .register-icon {
   margin-right: 15px;
+  width: 40px;
 }
 .headline {
   width: 100%;
@@ -50,9 +51,6 @@
 ::-webkit-input-placeholder {
   /* Chrome/Opera/Safari */
   color: #a8a8a8;
-}
-.register-icon {
-  width: 40px;
 }
 .checkbox-container-outer {
   display: flex;
@@ -96,6 +94,7 @@
   background-color: #606a6c;
   color: #fefefe;
   font-size: 14pt;
+  cursor: pointer;
 }
 .choose-file {
   /* clip-path: 10px; */
