@@ -158,7 +158,6 @@ const RegisterUser = () => {
                 onChange={e => onChange(e)}
                 required
               />
-              <p>{errorValue}</p>
               <input
                 className='input-text'
                 type='email'
@@ -244,6 +243,7 @@ const RegisterUser = () => {
                 <div className='line'></div>
                 <button className='register-button'>Register</button>
               </div>
+              <div className='error-message'>{errorValue}</div>
             </form>
           </div>
         </div>

@@ -61,6 +61,7 @@
   margin: 40px 0px;
 }
 .form-container {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -106,7 +107,6 @@
 .checkbox-container-outer {
   display: flex;
   flex-direction: column;
-  margin-top: 10px;
 }
 .checkbox-container-inner {
   width: 350px;
@@ -162,6 +162,28 @@
   height: 20px;
   color: #606a6c;
 }
+.error-message {
+  position: absolute;
+  bottom: 50px;
+  left: 0;
+  color: #ee2b2b;
+  font-size: 10pt;
+  height: 20px;
+  line-height: 20px;
+  width: 100%;
+  animation: flash-transition 1s ease-in-out infinite;
+}
+@keyframes flash-transition {
+  0% {
+    color: #a72929;
+  }
+  50% {
+    color: #ff0000;
+  }
+  100% {
+    color: #a72929;
+  }
+}
 .register-button {
   width: 350px;
   height: 40px;
@@ -171,7 +193,7 @@
   color: #fefefe;
   font-size: 14pt;
   cursor: pointer;
-  margin-top: 30px;
+  margin-top: 40px;
 }
 .fake-button {
   position: absolute;
