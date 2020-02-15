@@ -6,8 +6,6 @@ import Menu from './Menu';
 import '../css/header.css';
 
 const Header = ({ userName, avatarImage, token }) => {
-  // const Header = props => {
-
   let menuDisplayed = false;
   const menuFadeIn = () => {
     let menu = document.getElementsByClassName('menu')[0];
@@ -32,7 +30,15 @@ const Header = ({ userName, avatarImage, token }) => {
     <Fragment>
       <div className='header'>
         <div className='logo-container'>
-          <Link to='/'>
+          <Link
+            to={{
+              pathname: '/',
+              state: {
+                userName: userName,
+                avatarImage: avatarImage,
+                token: token
+              }
+            }}>
             <img
               className='logo'
               src={require('../images/logo.svg')}

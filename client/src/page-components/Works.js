@@ -4,12 +4,20 @@ import Footer from '../components/Footer';
 
 import '../css/works.css';
 
-const Works = () => (
+const Works = props => (
   <Fragment>
     <div className='main-container'>
-      <Header />
+      <Header
+        userName={props.location.state.userName}
+        avatarImage={props.location.state.avatarImage}
+        token={props.location.state.token}
+      />
       <div className='works-body'>Works</div>
-      <Footer />
+      <Footer
+        userName={props.location.state.userName}
+        avatarImage={props.location.state.avatarImage}
+        token={props.location.state.token}
+      />
     </div>
   </Fragment>
 );

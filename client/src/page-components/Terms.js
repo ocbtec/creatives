@@ -5,10 +5,14 @@ import '../css/terms.css';
 
 // import BubbleAnimation from "../components/BubbleAnimation";
 
-const Terms = () => {
+const Terms = props => {
   return (
     <Fragment>
-      <Header />
+      <Header
+        userName={props.location.state.userName}
+        avatarImage={props.location.state.avatarImage}
+        token={props.location.state.token}
+      />
       {/* <BubbleAnimation /> */}
       <div className='terms-container'>
         <h1 className='terms-headline'>Terms &amp; Conditions</h1>

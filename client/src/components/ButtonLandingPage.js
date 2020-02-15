@@ -2,15 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const ButtonLandingPage = props => {
-  console.log(props);
-
   return (
     <Link
       to={{
-        pathname: props.to.pathname,
+        pathname: props.to,
         state: {
-          userName: props.name,
-          avatarImage: props.avatar,
+          userName: props.userName,
+          avatarImage: props.avatarImage,
           token: props.token
         }
       }}>

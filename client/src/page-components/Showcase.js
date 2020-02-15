@@ -16,13 +16,13 @@ const Showcase = props => {
     avatarImage = props.avatarImage;
     token = props.token;
   }
-  console.log(userName);
+
   return (
     <Fragment>
       <div className='main-container'>
         <Header userName={userName} avatarImage={avatarImage} token={token} />
         <div className='showcase-body'>Showcase</div>
-        <Footer />
+        <Footer userName={userName} avatarImage={avatarImage} token={token} />
       </div>
     </Fragment>
   );

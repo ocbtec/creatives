@@ -3,7 +3,15 @@ import { Link } from 'react-router-dom';
 
 const MenuLink = props => {
   return (
-    <Link to={props.linkTo}>
+    <Link
+      to={{
+        pathname: props.linkTo,
+        state: {
+          userName: props.userName,
+          avatarImage: props.avatarImage,
+          token: props.token
+        }
+      }}>
       <li className='menu-item'>
         {props.linkText}
         {props.iconPath}

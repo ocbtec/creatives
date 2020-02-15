@@ -69,7 +69,7 @@ const RegisterUser = () => {
       return (
         <Redirect
           to={{
-            pathname: './showcase',
+            pathname: '/showcase',
             state: {
               userName: user.name,
               avatarImage: user.avatar,
@@ -247,7 +247,7 @@ const RegisterUser = () => {
             </form>
           </div>
         </div>
-        <Footer />
+        <Footer userName={user.name} avatarImage={user.avatar} token={token} />
       </div>
     </Fragment>
   );
