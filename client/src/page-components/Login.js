@@ -4,10 +4,14 @@ import Footer from '../components/Footer';
 
 import '../css/login.css';
 
-const Login = () => (
+const Login = props => (
   <Fragment>
     <div className='main-container'>
-      <Header />
+      <Header
+        userName={props.userName}
+        avatarImage={props.avatarImage}
+        token={props.token}
+      />
       <div className='login-body'>Login Content</div>
       <Footer />
     </div>

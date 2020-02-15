@@ -10,7 +10,7 @@ import '../css/logoAnimation.css';
 
 const buttonArray = [loginButton, showcaseButton, userButton, creativeButton];
 
-const LogoAnimation = () => {
+const LogoAnimation = props => {
   return (
     <Fragment>
       <div className='container'>
@@ -37,7 +37,14 @@ const LogoAnimation = () => {
                 idButton={obj.idButton}
                 idText={obj.idText}
                 buttonText={obj.buttonText}
-                linkTo={obj.linkTo}
+                to={{
+                  pathname: obj.linkTo,
+                  state: {
+                    userName: props.name,
+                    avatarImage: props.avatar,
+                    token: props.token
+                  }
+                }}
               />
             );
           })}
