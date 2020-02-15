@@ -139,6 +139,49 @@
     opacity: 0;
   }
 }
+.image-lightning-3 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url('../images/lightning-3.png');
+  background-size: cover;
+  background-position: bottom;
+  clip-path: polygon(75% 0%, 0% 0%, 0% 100%, 100% 100%);
+  animation: lightning-3 20s ease-in-out infinite;
+  opacity: 0;
+}
+@keyframes lightning-3 {
+  0% {
+    opacity: 0;
+  }
+  58% {
+    opacity: 0;
+  }
+  59% {
+    opacity: 0.1;
+  }
+  60% {
+    opacity: 0.8;
+  }
+  61% {
+    opacity: 0.5;
+  }
+  62% {
+    opacity: 1;
+  }
+  64% {
+    opacity: 1;
+  }
+  65% {
+    opacity: 0.1;
+  }
+  66% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 .background-image {
   height: 100%;
   width: 100%;

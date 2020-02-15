@@ -130,6 +130,7 @@ const RegisterUser = () => {
             <div className='image-container-2'></div>
             <div className='image-lightning-1'></div>
             <div className='image-lightning-2'></div>
+            <div className='image-lightning-3'></div>
           </div>
           <div className='register-user-container'>
             <div className='flex-item headline'>
