@@ -79,7 +79,7 @@
 }
 @keyframes menubar-2-transition-close {
   0% {
-    transform: translate(200px, 0px);
+    transform: translate(0px, -100px);
   }
   100% {
     transform: translate(0px, 0px);
