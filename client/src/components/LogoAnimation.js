@@ -37,14 +37,10 @@ const LogoAnimation = props => {
                 idButton={obj.idButton}
                 idText={obj.idText}
                 buttonText={obj.buttonText}
-                to={{
-                  pathname: obj.linkTo,
-                  state: {
-                    userName: props.name,
-                    avatarImage: props.avatar,
-                    token: props.token
-                  }
-                }}
+                to={obj.linkTo}
+                userName={props.userName}
+                avatarImage={props.avatarImage}
+                token={props.token}
               />
             );
           })}
