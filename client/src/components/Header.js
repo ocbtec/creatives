@@ -6,6 +6,8 @@ import Menu from './Menu';
 import '../css/header.css';
 
 const Header = ({ userName, avatarImage, token }) => {
+  // const Header = props => {
+
   let menuDisplayed = false;
   const menuFadeIn = () => {
     let menu = document.getElementsByClassName('menu')[0];

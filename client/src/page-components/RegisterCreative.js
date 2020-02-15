@@ -4,10 +4,14 @@ import Footer from '../components/Footer';
 
 import '../css/registerCreative.css';
 
-const RegisterCreative = () => (
+const RegisterCreative = props => (
   <Fragment>
     <div className='main-container'>
-      <Header />
+      <Header
+        userName={props.userName}
+        avatarImage={props.avatarImage}
+        token={props.token}
+      />
       <div className='register-creative-body'>Register Creative</div>
       <Footer />
     </div>
