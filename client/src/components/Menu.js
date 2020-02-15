@@ -20,9 +20,8 @@ const linksArray = [
   userProfileLink,
   worksLink
 ];
-// linksArray.push(homeLink);
 
-const Menu = () => {
+const Menu = props => {
   return (
     <Fragment>
       <div className='menu-container'>
@@ -34,6 +33,9 @@ const Menu = () => {
                 linkTo={link.linkTo}
                 linkText={link.linkText}
                 iconPath={link.iconPath}
+                userName={props.userName}
+                avatarImage={props.avatarImage}
+                token={props.token}
               />
             );
           })}

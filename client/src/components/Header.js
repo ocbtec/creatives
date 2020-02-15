@@ -47,18 +47,13 @@ const Header = ({ userName, avatarImage, token }) => {
         )}
         <div className='burger-menu-container'>
           <button className='menu-button' onClick={menuFadeIn}>
-            {/* <img
-              className='burger-menu'
-              src={require('../images/menu.svg')}
-              alt='menu'
-            /> */}
             <div className='menubars menubar-1'></div>
             <div className='menubars menubar-2'></div>
             <div className='menubars menubar-3'></div>
           </button>
         </div>
       </div>
-      <Menu token={token} />
+      <Menu userName={userName} avatarImage={avatarImage} token={token} />
     </Fragment>
   );
 };

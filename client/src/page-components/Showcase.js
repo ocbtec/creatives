@@ -4,9 +4,19 @@ import Footer from '../components/Footer';
 
 import '../css/showcase.css';
 
-const Showcase = props => {
-  const { userName, avatarImage, token } = props.location.state;
+let userName, avatarImage, token;
 
+const Showcase = props => {
+  if (props.location.state !== undefined) {
+    userName = props.location.state.userName;
+    avatarImage = props.location.state.avatarImage;
+    token = props.location.state.token;
+  } else {
+    userName = props.userName;
+    avatarImage = props.avatarImage;
+    token = props.token;
+  }
+  console.log(userName);
   return (
     <Fragment>
       <div className='main-container'>
