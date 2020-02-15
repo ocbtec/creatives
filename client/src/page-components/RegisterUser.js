@@ -141,9 +141,9 @@ const RegisterUser = () => {
               />
               <h1>Register as User</h1>
             </div>
-            <h4 className='flex-item headline'>
+            <div className='flex-item headline-2'>
               Please fill in all fields to Register
-            </h4>
+            </div>
             <form
               className='form-container flex-item'
               onSubmit={e => onSubmit(e)}>
@@ -158,7 +158,6 @@ const RegisterUser = () => {
                 onChange={e => onChange(e)}
                 required
               />
-              <p>{errorValue}</p>
               <input
                 className='input-text'
                 type='email'
@@ -220,6 +219,7 @@ const RegisterUser = () => {
                   />
                   <p className='checkbox-label'>subscribe to newsletter</p>
                 </div>
+                <div className='required-label'>* required</div>
                 <div className='line'></div>
                 <div className='avatar-container'>
                   <div className='upload-avatar'>
@@ -243,6 +243,7 @@ const RegisterUser = () => {
                 <div className='line'></div>
                 <button className='register-button'>Register</button>
               </div>
+              <div className='error-message'>{errorValue}</div>
             </form>
           </div>
         </div>
