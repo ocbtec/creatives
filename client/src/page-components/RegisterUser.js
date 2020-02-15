@@ -121,6 +121,9 @@ const RegisterUser = () => {
 
   //Get all errors if any
   const listErrors = errors.map(error => error.msg);
+  let errorValue;
+  listErrors.length > 0 && (errorValue = listErrors);
+
   return (
     <Fragment>
       <div className='main-container'>
@@ -155,7 +158,7 @@ const RegisterUser = () => {
                 onChange={e => onChange(e)}
                 required
               />
-
+              <p>{errorValue}</p>
               <input
                 className='input-text'
                 type='email'
