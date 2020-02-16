@@ -23,6 +23,14 @@ const RegisterUser = () => {
   const [image, setImage] = useState('');
   const [errors, setErrors] = useState([]);
   const [redirect, setRedirect] = useState(false);
+  const [registerButtonActive, setRegisterButtonActive] = useState({
+    button: {
+      active: '',
+      opacity: 1,
+      userName: 'upload avatar',
+      avatarPath: ''
+    }
+  });
 
   //De-structure form Data
   const {
@@ -43,6 +51,16 @@ const RegisterUser = () => {
 
   //Cloudinary
   const uploadToCloudinary = async x => {
+    setRegisterButtonActive({
+      ...registerButtonActive,
+      button: {
+        active: 'none',
+        opacity: 0.3,
+        userName: 'upload avatar',
+        avatarPath: ''
+      }
+    });
+
     const files = x.target.files;
     const data = new FormData();
     data.append('file', files[0]);
@@ -56,6 +74,18 @@ const RegisterUser = () => {
     );
     const file = await cloudinaryRes.json();
     setImage(file.secure_url);
+
+    if (file) {
+      setRegisterButtonActive({
+        ...registerButtonActive,
+        button: {
+          active: 'all',
+          opacity: 1,
+          userName: '',
+          avatarPath: file.secure_url
+        }
+      });
+    }
   };
 
   //Redirect handler
@@ -110,6 +140,7 @@ const RegisterUser = () => {
         body,
         config
       );
+
       setToken(res.data.token);
       setUser(res.data.user);
       handleRedirect();
@@ -226,12 +257,20 @@ const RegisterUser = () => {
                 <div className='line'></div>
                 <div className='avatar-container'>
                   <div className='upload-avatar'>
-                    <img
-                      className='user-icon'
-                      src={require('../images/user-icon-dark.png')}
-                      alt='User icon'
-                    />
-                    <span>upload avatar</span>
+                    {registerButtonActive.button.avatarPath === '' ? (
+                      <img
+                        className='user-icon'
+                        src={require('../images/user-icon-dark.png')}
+                        alt='User icon'
+                      />
+                    ) : (
+                      <img
+                        className='user-icon'
+                        src={registerButtonActive.button.avatarPath}
+                        alt='User icon'
+                      />
+                    )}
+                    <span>{registerButtonActive.button.userName}</span>
                   </div>
                   <input
                     className='choose-file'
@@ -244,7 +283,14 @@ const RegisterUser = () => {
                 </div>
                 {renderRedirect()}
                 <div className='line'></div>
-                <button className='register-button'>Register</button>
+                <button
+                  style={{
+                    pointerEvents: registerButtonActive.button.active,
+                    opacity: registerButtonActive.button.opacity
+                  }}
+                  className='register-button'>
+                  Register
+                </button>
               </div>
               <div className='error-message'>{errorValue}</div>
             </form>
