@@ -39,6 +39,14 @@ const RegisterUser = () => {
   const onChange = e => {
     e.target.files && uploadToCloudinary(e);
     setFormData({ ...formData, [e.target.name]: e.target.value });
+
+    if (e.target.files) {
+      let userAvatarUpload;
+      userAvatarUpload = document.getElementsByClassName('user-icon')[0];
+      userAvatarUpload.style.cssText =
+        'width: auto; height: 80px; clip-path: circle(40px at center);';
+      userAvatarUpload.src = URL.createObjectURL(e.target.files[0]);
+    }
   };
 
   //Cloudinary
@@ -223,21 +231,23 @@ const RegisterUser = () => {
                 <div className='line'></div>
                 <div className='avatar-container'>
                   <div className='upload-avatar'>
+                    <span>upload avatar</span>
+                    <input
+                      className='choose-file'
+                      type='file'
+                      placeholder='Upload an avatar'
+                      name='avatar'
+                      value={avatar}
+                      onChange={e => onChange(e)}
+                    />
+                  </div>
+                  <div className='user-icon-container'>
                     <img
                       className='user-icon'
                       src={require('../images/user-icon-dark.png')}
                       alt='User icon'
                     />
-                    <span>upload avatar</span>
                   </div>
-                  <input
-                    className='choose-file'
-                    type='file'
-                    placeholder='Upload an avatar'
-                    name='avatar'
-                    value={avatar}
-                    onChange={e => onChange(e)}
-                  />
                 </div>
                 {renderRedirect()}
                 <div className='line'></div>

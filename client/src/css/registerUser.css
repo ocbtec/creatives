@@ -140,7 +140,7 @@
 }
 .avatar-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   width: 350px;
   height: 70px;
   margin: 15px 0px;
@@ -149,18 +149,33 @@
 .upload-avatar {
   color: #606a6c;
   font-size: 11pt;
-  height: 25px;
+  height: 70px;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  /* align-items: center; */
+  justify-content: space-between;
+  width: 60%;
+}
+.user-icon-container {
+  position: relative;
+  width: 120px;
+  height: 80px;
+  text-align: center;
+}
+.user-icon-container-2 {
+  width: 120px;
+  height: 80px;
 }
 .user-icon {
-  height: 25px;
-  width: 25px;
-  margin-right: 10px;
+  height: 50px;
+  width: 50px;
 }
 .choose-file {
   height: 20px;
   color: #606a6c;
+  width: 50%;
+  /* height: 60px; */
+  width: 100%;
 }
 .error-message {
   position: absolute;
@@ -194,13 +209,4 @@
   font-size: 14pt;
   cursor: pointer;
   margin-top: 40px;
-}
-.fake-button {
-  position: absolute;
-  top: 545px;
-  width: 350px;
-  height: 40px;
-  background-color: #606a6c;
-  border-radius: 10px;
-  z-index: -2;
 }
