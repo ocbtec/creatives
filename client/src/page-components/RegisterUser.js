@@ -3,6 +3,7 @@ import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import { Spinner } from '../components/Spinner';
 
 import '../css/registerUser.css';
 
@@ -23,6 +24,7 @@ const RegisterUser = () => {
   const [image, setImage] = useState('');
   const [errors, setErrors] = useState([]);
   const [redirect, setRedirect] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [registerButtonActive, setRegisterButtonActive] = useState({
     button: {
       active: '',
@@ -81,7 +83,7 @@ const RegisterUser = () => {
         button: {
           active: 'all',
           opacity: 1,
-          userName: '',
+          userName: document.getElementById('userName').value,
           avatarPath: file.secure_url
         }
       });
@@ -114,6 +116,7 @@ const RegisterUser = () => {
   //OnSubmit event handler
   const onSubmit = async e => {
     e.preventDefault();
+    setLoading(true);
 
     //Create user object
     const newUser = {
@@ -143,6 +146,7 @@ const RegisterUser = () => {
 
       setToken(res.data.token);
       setUser(res.data.user);
+      setLoading(false);
       handleRedirect();
     } catch (err) {
       console.error(err.response.data);
@@ -184,6 +188,7 @@ const RegisterUser = () => {
               <input style={{ display: 'none' }} />
               <input type='password' style={{ display: 'none' }} />
               <input
+                id='userName'
                 className='input-text'
                 type='text'
                 placeholder='* User name'
@@ -281,7 +286,8 @@ const RegisterUser = () => {
                     onChange={e => onChange(e)}
                   />
                 </div>
-                {renderRedirect()}
+
+                {loading ? <Spinner /> : renderRedirect()}
                 <div className='line'></div>
                 <button
                   style={{
