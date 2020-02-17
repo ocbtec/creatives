@@ -1,21 +1,496 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
+import { Redirect } from 'react-router-dom';
+import axios from 'axios';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import { Spinner } from '../components/Spinner';
 
 import '../css/registerCreative.css';
 
-const RegisterCreative = props => (
-  <Fragment>
-    <div className='main-container'>
-      <Header
-        userName={props.userName}
-        avatarImage={props.avatarImage}
-        token={props.token}
-      />
-      <div className='register-creative-body'>Register Creative</div>
-      <Footer />
-    </div>
-  </Fragment>
-);
+const RegisterCreative = () => {
+  //states
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    password: '',
+    emailVisible: false,
+    emailNotificationAllowed: false,
+    subscribeToNewsletter: false,
+    avatar: '',
+    city: '',
+    website: '',
+    youtube: '',
+    twitter: '',
+    facebook: '',
+    linkedin: '',
+    instagram: '',
+    flickr: '',
+    deviantArt: '',
+    pinterest: '',
+    services: false,
+    category: []
+  });
+
+  const [token, setToken] = useState('');
+  const [user, setUser] = useState({});
+  const [image, setImage] = useState('');
+  const [errors, setErrors] = useState([]);
+  const [redirect, setRedirect] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [registerButtonActive, setRegisterButtonActive] = useState({
+    button: {
+      active: '',
+      opacity: 1,
+      userName: 'upload avatar',
+      avatarPath: ''
+    }
+  });
+  const [categories, setCategories] = useState([]);
+
+  const getCategories = async () => {
+    const res = await axios.get(
+      'https://creatives-api.herokuapp.com/api/getAllCategories'
+    );
+    setCategories(res.data);
+  };
+
+  useEffect(() => {
+    getCategories();
+  }, []);
+
+  //De-structure form Data
+  const {
+    name,
+    email,
+    password,
+    emailVisible,
+    emailNotificationAllowed,
+    subscribeToNewsletter,
+    avatar,
+    city,
+    website,
+    youtube,
+    twitter,
+    facebook,
+    linkedin,
+    instagram,
+    flickr,
+    deviantArt,
+    pinterest,
+    services,
+    category
+  } = formData;
+
+  //OnChange event Listener for all input fields and buttons
+  const onChange = e => {
+    e.target.files && uploadToCloudinary(e);
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+
+    console.log(formData);
+  };
+
+  const handleSocialIcon = e => {
+    let socialNetwork = document.getElementsByClassName(
+      'social-media-input'
+    )[0];
+    let nameAtr = document.createAttribute('name');
+    nameAtr.value = e.target.name;
+    socialNetwork.setAttributeNode(nameAtr);
+    socialNetwork.value = formData[e.target.name];
+  };
+
+  //Cloudinary
+  const uploadToCloudinary = async x => {
+    setRegisterButtonActive({
+      ...registerButtonActive,
+      button: {
+        active: 'none',
+        opacity: 0.3,
+        userName: 'upload avatar',
+        avatarPath: ''
+      }
+    });
+
+    const files = x.target.files;
+    const data = new FormData();
+    data.append('file', files[0]);
+    data.append('upload_preset', 'creatives');
+    const cloudinaryRes = await fetch(
+      'https://api.cloudinary.com/v1_1/creatives-upload/image/upload',
+      {
+        method: 'POST',
+        body: data
+      }
+    );
+    const file = await cloudinaryRes.json();
+    setImage(file.secure_url);
+
+    if (file) {
+      setRegisterButtonActive({
+        ...registerButtonActive,
+        button: {
+          active: 'all',
+          opacity: 1,
+          userName: document.getElementById('userName').value,
+          avatarPath: file.secure_url
+        }
+      });
+    }
+  };
+
+  //Redirect handler
+  const handleRedirect = () => {
+    setRedirect(true);
+  };
+
+  //Redirect function
+  const renderRedirect = () => {
+    if (redirect) {
+      return (
+        <Redirect
+          to={{
+            pathname: '/showcase',
+            state: {
+              userName: user.name,
+              avatarImage: user.avatar,
+              token: token
+            }
+          }}
+        />
+      );
+    }
+  };
+
+  //OnSubmit event handler
+  const onSubmit = async e => {
+    e.preventDefault();
+    setLoading(true);
+
+    //Create user object
+    const newUser = {
+      name,
+      email,
+      password,
+      emailVisible,
+      emailNotificationAllowed,
+      subscribeToNewsletter,
+      avatar: image,
+      city,
+      website
+    };
+
+    //Post to backend
+    try {
+      const config = {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      };
+      const body = JSON.stringify(newUser);
+      const res = await axios.post(
+        'https://creatives-api.herokuapp.com/api/creativeRegister',
+
+        body,
+        config
+      );
+
+      setToken(res.data.token);
+      setUser(res.data.user);
+      setLoading(false);
+      handleRedirect();
+    } catch (err) {
+      setErrors(err.response.data.errors);
+      setLoading(false);
+    }
+  };
+
+  //Get all errors if any
+  const listErrors = errors.map(error => error.msg);
+  let errorValue;
+  listErrors.length > 0 && (errorValue = listErrors);
+
+  return (
+    <Fragment>
+      <div className='main-container'>
+        <Header userName={user.name} avatarImage={user.avatar} token={token} />
+        <div className='register-creative-body'>
+          <div className='creative-image-container'>
+            <div className='creative-image-container-2'></div>
+            <div className='image-lightning-1'></div>
+            <div className='image-lightning-2'></div>
+            <div className='image-lightning-3'></div>
+          </div>
+          <div className='register-creative-container'>
+            <div className='flex-item headline'>
+              <img
+                className='register-icon'
+                src={require('../images/register-user-icon.svg')}
+                alt='Register-Icon'
+              />
+              <h1>Register as Creative</h1>
+            </div>
+            <div className='flex-item headline-2'>
+              Please fill in all fields to Register
+            </div>
+            <form
+              className='form-container flex-item'
+              onSubmit={e => onSubmit(e)}>
+              <input style={{ display: 'none' }} />
+              <input type='password' style={{ display: 'none' }} />
+              <input
+                id='userName'
+                className='input-text'
+                type='text'
+                placeholder='* User name'
+                name='name'
+                value={name}
+                maxLength='18'
+                onChange={e => onChange(e)}
+                required
+              />
+              <input
+                className='input-text'
+                type='email'
+                placeholder='* Email'
+                name='email'
+                value={email}
+                onChange={e => onChange(e)}
+                required
+              />
+
+              <input
+                className='input-text'
+                type='password'
+                placeholder='* Password'
+                name='password'
+                value={password}
+                onChange={e => onChange(e)}
+                required
+                minLength='6'
+                autoComplete='new-password'
+              />
+
+              <input
+                className='input-text'
+                type='text'
+                placeholder='* City'
+                name='city'
+                value={city}
+                onChange={e => onChange(e)}
+                required
+              />
+
+              <input
+                className='input-text'
+                type='text'
+                placeholder='Website'
+                name='website'
+                value={website}
+                onChange={e => onChange(e)}
+              />
+
+              <div className='checkbox-container-outer'>
+                <div className='checkbox-container-inner'>
+                  <input
+                    className='input-checkbox'
+                    type='checkbox'
+                    placeholder='Make Email public'
+                    name='emailVisible'
+                    onChange={e => onChange(e)}
+                    defaultChecked={emailVisible}
+                  />
+                  <p className='checkbox-label'>display email publicly</p>
+                </div>
+                <div className='checkbox-container-inner' id='align-items-top'>
+                  <input
+                    className='input-checkbox'
+                    type='checkbox'
+                    placeholder='Allow Email Notifications'
+                    name='emailNotificationAllowed'
+                    onChange={e => onChange(e)}
+                    defaultChecked={emailNotificationAllowed}
+                  />
+                  <div>
+                    <p className='checkbox-label'>allow email notifications</p>
+                    <p className='checkbox-label-2'>
+                      when receiving a personal message
+                    </p>
+                  </div>
+                </div>
+                <div className='checkbox-container-inner'>
+                  <input
+                    className='input-checkbox'
+                    type='checkbox'
+                    placeholder='Subscribe to our Newsletter'
+                    name='subscribeToNewsletter'
+                    onChange={e => onChange(e)}
+                    defaultChecked={subscribeToNewsletter}
+                  />
+                  <p className='checkbox-label'>subscribe to newsletter</p>
+                </div>
+                <div className='required-label'>* required</div>
+                <div className='line'></div>
+
+                <div className='social-media-container'>
+                  <span className='social-media-text'>
+                    Social media accounts
+                  </span>
+                  <div className='social-media-icons-container'>
+                    <button
+                      className='social-media-button'
+                      onClick={e => handleSocialIcon(e)}>
+                      <img
+                        name='twitter'
+                        className='social-media-icons'
+                        src={require('../images/twitter.svg')}
+                      />
+                    </button>
+
+                    <button
+                      className='social-media-button'
+                      onClick={e => handleSocialIcon(e)}>
+                      <img
+                        name='flickr'
+                        className='social-media-icons'
+                        src={require('../images/flickr.svg')}
+                      />
+                    </button>
+
+                    <button
+                      className='social-media-button'
+                      onClick={e => handleSocialIcon(e)}>
+                      <img
+                        name='facebook'
+                        className='social-media-icons'
+                        src={require('../images/facebook.svg')}
+                      />
+                    </button>
+
+                    <button
+                      className='social-media-button'
+                      onClick={e => handleSocialIcon(e)}>
+                      <img
+                        name='instagram'
+                        className='social-media-icons'
+                        src={require('../images/instagram.svg')}
+                      />
+                    </button>
+
+                    <button
+                      className='social-media-button'
+                      onClick={e => handleSocialIcon(e)}>
+                      <img
+                        name='youtube'
+                        className='social-media-icons'
+                        src={require('../images/youtube.svg')}
+                      />
+                    </button>
+
+                    <button
+                      className='social-media-button'
+                      onClick={e => handleSocialIcon(e)}>
+                      <img
+                        name='linkedin'
+                        className='social-media-icons'
+                        src={require('../images/linkedin.svg')}
+                      />
+                    </button>
+
+                    <button
+                      className='social-media-button'
+                      onClick={e => handleSocialIcon(e)}>
+                      <img
+                        name='deviantArt'
+                        className='social-media-icons'
+                        src={require('../images/linkedin.svg')}
+                      />
+                    </button>
+
+                    <button
+                      className='social-media-button'
+                      onClick={e => handleSocialIcon(e)}>
+                      <img
+                        name='pinterest'
+                        className='social-media-icons'
+                        src={require('../images/linkedin.svg')}
+                      />
+                    </button>
+                    <input
+                      className='social-media-input'
+                      type='text'
+                      onChange={e => onChange(e)}></input>
+                  </div>
+                </div>
+
+                <div className='line'></div>
+                <button
+                  style={{
+                    pointerEvents: registerButtonActive.button.active,
+                    opacity: registerButtonActive.button.opacity
+                  }}
+                  className='register-button'>
+                  Register
+                </button>
+              </div>
+              <div className='error-message'>{errorValue}</div>
+            </form>
+          </div>
+          <div className='categories-container'>
+            <div className='category-container'>
+              <button className='category-button'>
+                <img src={require('../images/linkedin.svg')} />
+              </button>
+              <button className='category-button'>
+                <img src={require('../images/linkedin.svg')} />
+              </button>
+              <button className='category-button'>
+                <img src={require('../images/linkedin.svg')} />
+              </button>
+              <button className='category-button'>
+                <img src={require('../images/linkedin.svg')} />
+              </button>
+              <button className='category-button'>
+                <img src={require('../images/linkedin.svg')} />
+              </button>
+              <button className='category-button'>
+                <img src={require('../images/linkedin.svg')} />
+              </button>
+            </div>
+            <div className='avatar-container'>
+              <div className='avatar-container-left'>
+                <div className='upload-avatar'>
+                  {registerButtonActive.button.avatarPath === '' ? (
+                    <img
+                      className='user-icon'
+                      src={require('../images/user-icon-dark.png')}
+                      alt='User icon'
+                    />
+                  ) : (
+                    <img
+                      className='user-icon'
+                      src={registerButtonActive.button.avatarPath}
+                      alt='User icon'
+                    />
+                  )}
+                  <span>{registerButtonActive.button.userName}</span>
+                </div>
+                <input
+                  className='choose-file'
+                  type='file'
+                  placeholder='Upload an avatar'
+                  name='avatar'
+                  value={avatar}
+                  onChange={e => onChange(e)}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <Footer userName={user.name} avatarImage={user.avatar} token={token} />
+        {loading ? <Spinner /> : renderRedirect()}
+      </div>
+    </Fragment>
+  );
+};
 
 export default RegisterCreative;
