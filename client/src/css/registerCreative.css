@@ -1,4 +1,360 @@
 .register-creative-body {
   width: 100%;
+  height: auto;
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+}
+.creative-image-container {
+  position: relative;
+  width: 33.3%;
   height: 100%;
+  background-image: url('../images/register-user-img-3-export.jpg');
+  background-size: cover;
+  background-position: bottom;
+  animation: saturation-transform 20s ease-in-out infinite;
+}
+@keyframes saturation-transform {
+  0% {
+    filter: saturate(0.9) brightness(0.9);
+  }
+  50% {
+    filter: saturate(0.7) brightness(0.8);
+  }
+  100% {
+    filter: saturate(0.9) brightness(0.9);
+  }
+}
+.creative-image-container-2 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url('../images/register-user-img-3-export-dark-sky.png');
+  background-size: cover;
+  background-position: bottom;
+  animation: opacity-transform 20s ease-in-out infinite;
+}
+@keyframes opacity-transform {
+  0% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0.2;
+  }
+}
+.image-lightning-1 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url('../images/lightning-1.png');
+  background-size: cover;
+  background-position: bottom;
+  clip-path: polygon(75% 0%, 0% 0%, 0% 100%, 100% 100%);
+  animation: lightning-1 20s ease-in-out infinite;
+  opacity: 0;
+}
+@keyframes lightning-1 {
+  0% {
+    opacity: 0;
+  }
+  44% {
+    opacity: 0;
+  }
+  45% {
+    opacity: 0.1;
+  }
+  46% {
+    opacity: 0.8;
+  }
+  48% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  52% {
+    opacity: 0.5;
+  }
+  54% {
+    opacity: 0.8;
+  }
+  56% {
+    opacity: 0.1;
+  }
+  57% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.image-lightning-2 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url('../images/lightning-2.png');
+  background-size: cover;
+  background-position: bottom;
+  clip-path: polygon(75% 0%, 0% 0%, 0% 100%, 100% 100%);
+  animation: lightning-2 20s ease-in-out infinite;
+  opacity: 0;
+}
+@keyframes lightning-2 {
+  0% {
+    opacity: 0;
+  }
+  46% {
+    opacity: 0;
+  }
+  55% {
+    opacity: 0.1;
+  }
+  56% {
+    opacity: 0.8;
+  }
+  57% {
+    opacity: 0.5;
+  }
+  58% {
+    opacity: 1;
+  }
+  59% {
+    opacity: 0.5;
+  }
+  60% {
+    opacity: 1;
+  }
+  61% {
+    opacity: 0.1;
+  }
+  62% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.image-lightning-3 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url('../images/lightning-3.png');
+  background-size: cover;
+  background-position: bottom;
+  clip-path: polygon(75% 0%, 0% 0%, 0% 100%, 100% 100%);
+  animation: lightning-3 20s ease-in-out infinite;
+  opacity: 0;
+}
+@keyframes lightning-3 {
+  0% {
+    opacity: 0;
+  }
+  58% {
+    opacity: 0;
+  }
+  59% {
+    opacity: 0.1;
+  }
+  60% {
+    opacity: 0.8;
+  }
+  61% {
+    opacity: 0.5;
+  }
+  62% {
+    opacity: 1;
+  }
+  64% {
+    opacity: 1;
+  }
+  65% {
+    opacity: 0.1;
+  }
+  66% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.background-image {
+  height: 100%;
+  width: 100%;
+}
+.register-creative-container {
+  width: 33.3%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 40px 0px;
+}
+.form-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.register-icon {
+  margin-right: 15px;
+  width: 40px;
+}
+.headline {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  color: #606a6c;
+  margin-bottom: 20px;
+}
+.headline-2 {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  color: #606a6c;
+  margin-bottom: 20px;
+}
+.input-text {
+  width: 350px;
+  height: 25px;
+  border-radius: 5px;
+  padding-left: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #cacaca;
+  color: #707070;
+}
+::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: #a8a8a8;
+}
+.required-label {
+  width: 350px;
+  padding-left: 27px;
+  margin-bottom: 10px;
+  font-size: 9pt;
+  color: #a8a8a8;
+}
+.checkbox-container-outer {
+  display: flex;
+  flex-direction: column;
+}
+.checkbox-container-inner {
+  width: 350px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+.input-checkbox {
+  width: 15px;
+  height: 15px;
+}
+.checkbox-label {
+  color: #606a6c;
+  font-size: 11pt;
+  margin-left: 12px;
+}
+.checkbox-label-2 {
+  color: #a5a5a5;
+  font-size: 9pt;
+  margin: 5px 0px 0px 12px;
+}
+#align-items-top {
+  align-items: flex-start;
+}
+.line {
+  width: 350px;
+  height: 1px;
+  background-color: #9ba1a2;
+  margin: 5px 0px;
+}
+.avatar-container {
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  height: 70px;
+  margin: 18px 0px;
+  justify-content: space-between;
+}
+.avatar-container-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 80px;
+  width: 175px;
+}
+.upload-avatar {
+  color: #606a6c;
+  font-size: 11pt;
+  width: 100%;
+  height: 25px;
+  display: flex;
+  align-items: center;
+}
+.user-icon {
+  height: 44px;
+  width: 44px;
+  margin-right: 10px;
+  clip-path: circle(22px at center);
+}
+.choose-file {
+  width: 100%;
+  height: 20px;
+  color: #606a6c;
+}
+.error-message {
+  position: absolute;
+  bottom: 50px;
+  left: 0;
+  color: #ee2b2b;
+  font-size: 10pt;
+  height: 20px;
+  line-height: 20px;
+  width: 100%;
+  animation: flash-transition 1s ease-in-out infinite;
+}
+@keyframes flash-transition {
+  0% {
+    color: #a72929;
+  }
+  50% {
+    color: #ff0000;
+  }
+  100% {
+    color: #a72929;
+  }
+}
+.register-button {
+  width: 350px;
+  height: 40px;
+  border-radius: 10px;
+  border-style: none;
+  background-color: #606a6c;
+  color: #fefefe;
+  font-size: 14pt;
+  cursor: pointer;
+  margin-top: 40px;
+}
+.fake-button {
+  position: absolute;
+  top: 545px;
+  width: 350px;
+  height: 40px;
+  background-color: #606a6c;
+  border-radius: 10px;
+  z-index: -2;
+}
+.categories-container {
+  height: 100vh;
+  width: 33.3%;
+  background-color: red;
+}
+.social-media-icons-container {
+}
+.social-media-icons {
+  width: 25px;
+  height: 25px;
 }
