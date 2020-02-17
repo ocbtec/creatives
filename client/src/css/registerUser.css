@@ -1,6 +1,6 @@
 .register-user-body {
   width: 100%;
-  height: auto;
+  height: 100%;
   display: flex;
   flex-grow: 1;
   align-items: center;
