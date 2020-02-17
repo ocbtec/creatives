@@ -149,8 +149,8 @@ const RegisterUser = () => {
       setLoading(false);
       handleRedirect();
     } catch (err) {
-      console.error(err.response.data);
       setErrors(err.response.data.errors);
+      setLoading(false);
     }
   };
 
@@ -261,33 +261,34 @@ const RegisterUser = () => {
                 <div className='required-label'>* required</div>
                 <div className='line'></div>
                 <div className='avatar-container'>
-                  <div className='upload-avatar'>
-                    {registerButtonActive.button.avatarPath === '' ? (
-                      <img
-                        className='user-icon'
-                        src={require('../images/user-icon-dark.png')}
-                        alt='User icon'
-                      />
-                    ) : (
-                      <img
-                        className='user-icon'
-                        src={registerButtonActive.button.avatarPath}
-                        alt='User icon'
-                      />
-                    )}
-                    <span>{registerButtonActive.button.userName}</span>
+                  <div className='avatar-container-left'>
+                    <div className='upload-avatar'>
+                      {registerButtonActive.button.avatarPath === '' ? (
+                        <img
+                          className='user-icon'
+                          src={require('../images/user-icon-dark.png')}
+                          alt='User icon'
+                        />
+                      ) : (
+                        <img
+                          className='user-icon'
+                          src={registerButtonActive.button.avatarPath}
+                          alt='User icon'
+                        />
+                      )}
+                      <span>{registerButtonActive.button.userName}</span>
+                    </div>
+                    <input
+                      className='choose-file'
+                      type='file'
+                      placeholder='Upload an avatar'
+                      name='avatar'
+                      value={avatar}
+                      onChange={e => onChange(e)}
+                    />
                   </div>
-                  <input
-                    className='choose-file'
-                    type='file'
-                    placeholder='Upload an avatar'
-                    name='avatar'
-                    value={avatar}
-                    onChange={e => onChange(e)}
-                  />
                 </div>
 
-                {loading ? <Spinner /> : renderRedirect()}
                 <div className='line'></div>
                 <button
                   style={{
@@ -303,6 +304,7 @@ const RegisterUser = () => {
           </div>
         </div>
         <Footer userName={user.name} avatarImage={user.avatar} token={token} />
+        {loading ? <Spinner /> : renderRedirect()}
       </div>
     </Fragment>
   );
