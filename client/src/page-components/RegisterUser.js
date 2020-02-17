@@ -194,6 +194,7 @@ const RegisterUser = () => {
                 placeholder='* User name'
                 name='name'
                 value={name}
+                maxLength='18'
                 onChange={e => onChange(e)}
                 required
               />

@@ -8,13 +8,14 @@
 .pipe-divider {
   margin: 0px 5px;
   color: #fefefe;
+  font-size: 36px;
 }
 
 .avatar-image {
-  width: 25px;
-  height: 25px;
+  width: 36px;
+  height: 36px;
   object-fit: cover;
-  clip-path: circle(12.5px at center);
+  clip-path: circle(18px at center);
   margin: 0px 15px;
 }
 .avatar-link {
