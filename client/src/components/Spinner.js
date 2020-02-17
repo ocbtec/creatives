@@ -1,9 +1,14 @@
 import React from 'react';
+import '../css/spinner.css';
 
 export const Spinner = () => {
   return (
-    <div>
-      <img src={require('../images/spinGear.png')} alt='Spinner' />
+    <div className='spinner-container'>
+      <img
+        className='spinner'
+        src={require('../images/spin-gear.png')}
+        alt='Spinner'
+      />
     </div>
   );
 };
