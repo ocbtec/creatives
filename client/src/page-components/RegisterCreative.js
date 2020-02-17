@@ -422,27 +422,25 @@ const RegisterCreative = () => {
                   Select your categories *
                 </div>
                 <div className='select-categories-label-2'>* at least one</div>
-                <div className='select-category-frame'>
-                  <div className='select-category-container'>
-                    <button className='category-button'>
-                      <img src={require('../images/linkedin.svg')} />
-                    </button>
-                    <button className='category-button'>
-                      <img src={require('../images/linkedin.svg')} />
-                    </button>
-                    <button className='category-button'>
-                      <img src={require('../images/linkedin.svg')} />
-                    </button>
-                    <button className='category-button'>
-                      <img src={require('../images/linkedin.svg')} />
-                    </button>
-                    <button className='category-button'>
-                      <img src={require('../images/linkedin.svg')} />
-                    </button>
-                    <button className='category-button'>
-                      <img src={require('../images/linkedin.svg')} />
-                    </button>
-                  </div>
+                <div className='select-category-container'>
+                  <button className='category-button'>
+                    <img src={require('../images/linkedin.svg')} />
+                  </button>
+                  <button className='category-button'>
+                    <img src={require('../images/linkedin.svg')} />
+                  </button>
+                  <button className='category-button'>
+                    <img src={require('../images/linkedin.svg')} />
+                  </button>
+                  <button className='category-button'>
+                    <img src={require('../images/linkedin.svg')} />
+                  </button>
+                  <button className='category-button'>
+                    <img src={require('../images/linkedin.svg')} />
+                  </button>
+                  <button className='category-button'>
+                    <img src={require('../images/linkedin.svg')} />
+                  </button>
                 </div>
                 <div className='available-container' id='align-items-top'>
                   <input

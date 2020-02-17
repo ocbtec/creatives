@@ -382,12 +382,6 @@
   display: flex;
   flex-direction: column;
 }
-.select-category-frame {
-  width: 400px;
-  height: 180px;
-  background-color: #e1e1e1;
-  border-radius: 5px;
-}
 .select-category-container {
   width: 400px;
   height: 180px;
@@ -395,6 +389,8 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-evenly;
+  background-color: #e1e1e1;
+  border-radius: 5px;
   box-shadow: 5px 5px 10px 0px #d2d2d2;
 }
 .category-button {
