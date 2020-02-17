@@ -97,6 +97,13 @@ const RegisterCreative = () => {
     nameAtr.value = e.target.name;
     socialNetwork.setAttributeNode(nameAtr);
     socialNetwork.value = formData[e.target.name];
+    socialNetwork.className = 'social-media-input social-media-input-animation';
+    socialNetwork.placeholder = e.target.name;
+    console.log(e.target.name);
+    console.log(e.currentTarget);
+
+    e.currentTarget.style.cssText =
+      'box-shadow: 0px 0px 15px 10px #7A73E8; background-color: #7A73E8;';
   };
 
   //Cloudinary
@@ -220,8 +227,8 @@ const RegisterCreative = () => {
             <div className='image-lightning-2'></div>
             <div className='image-lightning-3'></div>
           </div>
-          <div className='register-creative-container'>
-            <div className='flex-item headline'>
+          <div className='register-container'>
+            <div className='creative-headline'>
               <img
                 className='register-icon'
                 src={require('../images/register-user-icon.svg')}
@@ -229,259 +236,269 @@ const RegisterCreative = () => {
               />
               <h1>Register as Creative</h1>
             </div>
-            <div className='flex-item headline-2'>
-              Please fill in all fields to Register
-            </div>
-            <form
-              className='form-container flex-item'
-              onSubmit={e => onSubmit(e)}>
-              <input style={{ display: 'none' }} />
-              <input type='password' style={{ display: 'none' }} />
-              <input
-                id='userName'
-                className='input-text'
-                type='text'
-                placeholder='* User name'
-                name='name'
-                value={name}
-                maxLength='18'
-                onChange={e => onChange(e)}
-                required
-              />
-              <input
-                className='input-text'
-                type='email'
-                placeholder='* Email'
-                name='email'
-                value={email}
-                onChange={e => onChange(e)}
-                required
-              />
-
-              <input
-                className='input-text'
-                type='password'
-                placeholder='* Password'
-                name='password'
-                value={password}
-                onChange={e => onChange(e)}
-                required
-                minLength='6'
-                autoComplete='new-password'
-              />
-
-              <input
-                className='input-text'
-                type='text'
-                placeholder='* City'
-                name='city'
-                value={city}
-                onChange={e => onChange(e)}
-                required
-              />
-
-              <input
-                className='input-text'
-                type='text'
-                placeholder='Website'
-                name='website'
-                value={website}
-                onChange={e => onChange(e)}
-              />
-
-              <div className='checkbox-container-outer'>
-                <div className='checkbox-container-inner'>
+            <div className='data-input-container'>
+              <div className='input-container'>
+                <form
+                  className='creative-form-container'
+                  onSubmit={e => onSubmit(e)}>
+                  <input style={{ display: 'none' }} />
+                  <input type='password' style={{ display: 'none' }} />
                   <input
-                    className='input-checkbox'
-                    type='checkbox'
-                    placeholder='Make Email public'
-                    name='emailVisible'
+                    id='userName'
+                    className='creative-input-text'
+                    type='text'
+                    placeholder='User name *'
+                    name='name'
+                    value={name}
+                    maxLength='18'
                     onChange={e => onChange(e)}
-                    defaultChecked={emailVisible}
+                    required
                   />
-                  <p className='checkbox-label'>display email publicly</p>
+                  <input
+                    className='creative-input-text'
+                    type='email'
+                    placeholder='Email *'
+                    name='email'
+                    value={email}
+                    onChange={e => onChange(e)}
+                    required
+                  />
+
+                  <input
+                    className='creative-input-text'
+                    type='password'
+                    placeholder='Password *'
+                    name='password'
+                    value={password}
+                    onChange={e => onChange(e)}
+                    required
+                    minLength='6'
+                    autoComplete='new-password'
+                  />
+
+                  <input
+                    className='creative-input-text'
+                    type='text'
+                    placeholder='City *'
+                    name='city'
+                    value={city}
+                    onChange={e => onChange(e)}
+                    required
+                  />
+
+                  <input
+                    className='creative-input-text'
+                    type='text'
+                    placeholder='Website'
+                    name='website'
+                    value={website}
+                    onChange={e => onChange(e)}
+                  />
+
+                  <div className='creative-required-label'>* required</div>
+
+                  <div className='creative-checkbox-container-outer'>
+                    <div className='checkbox-container-inner'>
+                      <input
+                        className='input-checkbox'
+                        type='checkbox'
+                        placeholder='Make Email public'
+                        name='emailVisible'
+                        onChange={e => onChange(e)}
+                        defaultChecked={emailVisible}
+                      />
+                      <p className='checkbox-label'>display email publicly</p>
+                    </div>
+                    <div
+                      className='checkbox-container-inner'
+                      id='align-items-top'>
+                      <input
+                        className='input-checkbox'
+                        type='checkbox'
+                        placeholder='Allow Email Notifications'
+                        name='emailNotificationAllowed'
+                        onChange={e => onChange(e)}
+                        defaultChecked={emailNotificationAllowed}
+                      />
+                      <div>
+                        <p className='checkbox-label'>
+                          allow email notifications
+                        </p>
+                        <p className='checkbox-label-2'>
+                          when receiving a personal message
+                        </p>
+                      </div>
+                    </div>
+                    <div className='checkbox-container-inner'>
+                      <input
+                        className='input-checkbox'
+                        type='checkbox'
+                        placeholder='Subscribe to our Newsletter'
+                        name='subscribeToNewsletter'
+                        onChange={e => onChange(e)}
+                        defaultChecked={subscribeToNewsletter}
+                      />
+                      <p className='checkbox-label'>subscribe to newsletter</p>
+                    </div>
+                    <div className='creative-line'></div>
+
+                    <div className='social-media-container'>
+                      <span className='social-media-text'>
+                        Social media accounts
+                      </span>
+                      <div className='social-media-icons-container'>
+                        <button
+                          className='social-media-button'
+                          onClick={e => handleSocialIcon(e)}>
+                          <img
+                            name='twitter'
+                            className='social-media-icon'
+                            src={require('../images/twitter.svg')}
+                          />
+                        </button>
+
+                        <button
+                          className='social-media-button'
+                          onClick={e => handleSocialIcon(e)}>
+                          <img
+                            name='flickr'
+                            className='social-media-icon'
+                            src={require('../images/flickr.svg')}
+                          />
+                        </button>
+
+                        <button
+                          className='social-media-button'
+                          onClick={e => handleSocialIcon(e)}>
+                          <img
+                            name='facebook'
+                            className='social-media-icon'
+                            src={require('../images/facebook.svg')}
+                          />
+                        </button>
+
+                        <button
+                          className='social-media-button'
+                          onClick={e => handleSocialIcon(e)}>
+                          <img
+                            name='instagram'
+                            className='social-media-icon'
+                            src={require('../images/instagram.svg')}
+                          />
+                        </button>
+
+                        <button
+                          className='social-media-button'
+                          onClick={e => handleSocialIcon(e)}>
+                          <img
+                            name='youtube'
+                            className='social-media-icon'
+                            src={require('../images/youtube.svg')}
+                          />
+                        </button>
+
+                        <button
+                          className='social-media-button'
+                          onClick={e => handleSocialIcon(e)}>
+                          <img
+                            name='linkedin'
+                            className='social-media-icon'
+                            src={require('../images/linkedin.svg')}
+                          />
+                        </button>
+                      </div>
+                      <input
+                        className='social-media-input'
+                        type='text'
+                        onChange={e => onChange(e)}></input>
+                    </div>
+                  </div>
+                  <div className='error-message'>{errorValue}</div>
+                </form>
+              </div>
+
+              <div className='categories-container'>
+                <div className='select-categories-label'>
+                  Select your categories *
                 </div>
-                <div className='checkbox-container-inner' id='align-items-top'>
+                <div className='select-categories-label-2'>* at least one</div>
+                <div className='select-category-frame'>
+                  <div className='select-category-container'>
+                    <button className='category-button'>
+                      <img src={require('../images/linkedin.svg')} />
+                    </button>
+                    <button className='category-button'>
+                      <img src={require('../images/linkedin.svg')} />
+                    </button>
+                    <button className='category-button'>
+                      <img src={require('../images/linkedin.svg')} />
+                    </button>
+                    <button className='category-button'>
+                      <img src={require('../images/linkedin.svg')} />
+                    </button>
+                    <button className='category-button'>
+                      <img src={require('../images/linkedin.svg')} />
+                    </button>
+                    <button className='category-button'>
+                      <img src={require('../images/linkedin.svg')} />
+                    </button>
+                  </div>
+                </div>
+                <div className='available-container' id='align-items-top'>
                   <input
                     className='input-checkbox'
                     type='checkbox'
-                    placeholder='Allow Email Notifications'
                     name='emailNotificationAllowed'
                     onChange={e => onChange(e)}
                     defaultChecked={emailNotificationAllowed}
                   />
                   <div>
-                    <p className='checkbox-label'>allow email notifications</p>
+                    <p className='checkbox-label-available'>
+                      available for services
+                    </p>
                     <p className='checkbox-label-2'>
-                      when receiving a personal message
+                      hereby you offer to create customized art pieces
                     </p>
                   </div>
                 </div>
-                <div className='checkbox-container-inner'>
-                  <input
-                    className='input-checkbox'
-                    type='checkbox'
-                    placeholder='Subscribe to our Newsletter'
-                    name='subscribeToNewsletter'
-                    onChange={e => onChange(e)}
-                    defaultChecked={subscribeToNewsletter}
-                  />
-                  <p className='checkbox-label'>subscribe to newsletter</p>
-                </div>
-                <div className='required-label'>* required</div>
-                <div className='line'></div>
-
-                <div className='social-media-container'>
-                  <span className='social-media-text'>
-                    Social media accounts
-                  </span>
-                  <div className='social-media-icons-container'>
-                    <button
-                      className='social-media-button'
-                      onClick={e => handleSocialIcon(e)}>
-                      <img
-                        name='twitter'
-                        className='social-media-icons'
-                        src={require('../images/twitter.svg')}
-                      />
-                    </button>
-
-                    <button
-                      className='social-media-button'
-                      onClick={e => handleSocialIcon(e)}>
-                      <img
-                        name='flickr'
-                        className='social-media-icons'
-                        src={require('../images/flickr.svg')}
-                      />
-                    </button>
-
-                    <button
-                      className='social-media-button'
-                      onClick={e => handleSocialIcon(e)}>
-                      <img
-                        name='facebook'
-                        className='social-media-icons'
-                        src={require('../images/facebook.svg')}
-                      />
-                    </button>
-
-                    <button
-                      className='social-media-button'
-                      onClick={e => handleSocialIcon(e)}>
-                      <img
-                        name='instagram'
-                        className='social-media-icons'
-                        src={require('../images/instagram.svg')}
-                      />
-                    </button>
-
-                    <button
-                      className='social-media-button'
-                      onClick={e => handleSocialIcon(e)}>
-                      <img
-                        name='youtube'
-                        className='social-media-icons'
-                        src={require('../images/youtube.svg')}
-                      />
-                    </button>
-
-                    <button
-                      className='social-media-button'
-                      onClick={e => handleSocialIcon(e)}>
-                      <img
-                        name='linkedin'
-                        className='social-media-icons'
-                        src={require('../images/linkedin.svg')}
-                      />
-                    </button>
-
-                    <button
-                      className='social-media-button'
-                      onClick={e => handleSocialIcon(e)}>
-                      <img
-                        name='deviantArt'
-                        className='social-media-icons'
-                        src={require('../images/linkedin.svg')}
-                      />
-                    </button>
-
-                    <button
-                      className='social-media-button'
-                      onClick={e => handleSocialIcon(e)}>
-                      <img
-                        name='pinterest'
-                        className='social-media-icons'
-                        src={require('../images/linkedin.svg')}
-                      />
-                    </button>
+                <div className='creative-line-long'></div>
+                <div className='avatar-container'>
+                  <div className='avatar-container-left'>
+                    <div className='upload-avatar'>
+                      {registerButtonActive.button.avatarPath === '' ? (
+                        <img
+                          className='user-icon'
+                          src={require('../images/user-icon-dark.png')}
+                          alt='User icon'
+                        />
+                      ) : (
+                        <img
+                          className='user-icon'
+                          src={registerButtonActive.button.avatarPath}
+                          alt='User icon'
+                        />
+                      )}
+                      <span>{registerButtonActive.button.userName}</span>
+                    </div>
                     <input
-                      className='social-media-input'
-                      type='text'
-                      onChange={e => onChange(e)}></input>
+                      className='choose-file'
+                      type='file'
+                      placeholder='Upload an avatar'
+                      name='avatar'
+                      value={avatar}
+                      onChange={e => onChange(e)}
+                    />
                   </div>
                 </div>
-
-                <div className='line'></div>
+                <div className='creative-line-long'></div>
                 <button
                   style={{
                     pointerEvents: registerButtonActive.button.active,
                     opacity: registerButtonActive.button.opacity
                   }}
-                  className='register-button'>
+                  className='creative-register-button'>
                   Register
                 </button>
-              </div>
-              <div className='error-message'>{errorValue}</div>
-            </form>
-          </div>
-          <div className='categories-container'>
-            <div className='category-container'>
-              <button className='category-button'>
-                <img src={require('../images/linkedin.svg')} />
-              </button>
-              <button className='category-button'>
-                <img src={require('../images/linkedin.svg')} />
-              </button>
-              <button className='category-button'>
-                <img src={require('../images/linkedin.svg')} />
-              </button>
-              <button className='category-button'>
-                <img src={require('../images/linkedin.svg')} />
-              </button>
-              <button className='category-button'>
-                <img src={require('../images/linkedin.svg')} />
-              </button>
-              <button className='category-button'>
-                <img src={require('../images/linkedin.svg')} />
-              </button>
-            </div>
-            <div className='avatar-container'>
-              <div className='avatar-container-left'>
-                <div className='upload-avatar'>
-                  {registerButtonActive.button.avatarPath === '' ? (
-                    <img
-                      className='user-icon'
-                      src={require('../images/user-icon-dark.png')}
-                      alt='User icon'
-                    />
-                  ) : (
-                    <img
-                      className='user-icon'
-                      src={registerButtonActive.button.avatarPath}
-                      alt='User icon'
-                    />
-                  )}
-                  <span>{registerButtonActive.button.userName}</span>
-                </div>
-                <input
-                  className='choose-file'
-                  type='file'
-                  placeholder='Upload an avatar'
-                  name='avatar'
-                  value={avatar}
-                  onChange={e => onChange(e)}
-                />
               </div>
             </div>
           </div>
