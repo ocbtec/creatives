@@ -4,6 +4,7 @@ import axios from 'axios';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Spinner } from '../components/Spinner';
+import CategoryButton from '../components/CategoryButton';
 
 import '../css/registerCreative.css';
 
@@ -54,6 +55,16 @@ const RegisterCreative = () => {
     setCategories(res.data);
   };
 
+  const handleCategoryClick = e => {
+    e.preventDefault();
+
+    let categoryCheck = formData.category.indexOf(e.target.name);
+
+    categoryCheck > -1
+      ? formData.category.splice(categoryCheck, 1)
+      : formData.category.push(e.target.name);
+  };
+
   useEffect(() => {
     getCategories();
   }, []);
@@ -85,11 +96,10 @@ const RegisterCreative = () => {
   const onChange = e => {
     e.target.files && uploadToCloudinary(e);
     setFormData({ ...formData, [e.target.name]: e.target.value });
-
-    console.log(formData);
   };
 
   const handleSocialIcon = e => {
+    e.preventDefault();
     let socialNetwork = document.getElementsByClassName(
       'social-media-input'
     )[0];
@@ -99,8 +109,6 @@ const RegisterCreative = () => {
     socialNetwork.value = formData[e.target.name];
     socialNetwork.className = 'social-media-input social-media-input-animation';
     socialNetwork.placeholder = e.target.name;
-    console.log(e.target.name);
-    console.log(e.currentTarget);
   };
 
   //Cloudinary
@@ -174,13 +182,23 @@ const RegisterCreative = () => {
     const newUser = {
       name,
       email,
-      password,
       emailVisible,
       emailNotificationAllowed,
       subscribeToNewsletter,
+      password,
       avatar: image,
       city,
-      website
+      website,
+      category,
+      youtube,
+      twitter,
+      facebook,
+      linkedin,
+      instagram,
+      flickr,
+      deviantArt,
+      pinterest,
+      services
     };
 
     //Post to backend
@@ -199,7 +217,7 @@ const RegisterCreative = () => {
       );
 
       setToken(res.data.token);
-      setUser(res.data.user);
+      setUser(res.data.creative);
       setLoading(false);
       handleRedirect();
     } catch (err) {
@@ -234,10 +252,10 @@ const RegisterCreative = () => {
               <h1>Register as Creative</h1>
             </div>
             <div className='data-input-container'>
-              <div className='input-container'>
-                <form
-                  className='creative-form-container'
-                  onSubmit={e => onSubmit(e)}>
+              <form
+                className='creative-form-container'
+                onSubmit={e => onSubmit(e)}>
+                <div className='input-container'>
                   <input style={{ display: 'none' }} />
                   <input type='password' style={{ display: 'none' }} />
                   <input
@@ -411,90 +429,86 @@ const RegisterCreative = () => {
                     </div>
                   </div>
                   <div className='error-message'>{errorValue}</div>
-                </form>
-              </div>
+                </div>
 
-              <div className='categories-container'>
-                <div className='select-categories-label'>
-                  Select your categories *
-                </div>
-                <div className='select-categories-label-2'>* at least one</div>
-                <div className='select-category-container'>
-                  <button className='category-button'>
-                    <img src={require('../images/linkedin.svg')} />
-                  </button>
-                  <button className='category-button'>
-                    <img src={require('../images/linkedin.svg')} />
-                  </button>
-                  <button className='category-button'>
-                    <img src={require('../images/linkedin.svg')} />
-                  </button>
-                  <button className='category-button'>
-                    <img src={require('../images/linkedin.svg')} />
-                  </button>
-                  <button className='category-button'>
-                    <img src={require('../images/linkedin.svg')} />
-                  </button>
-                  <button className='category-button'>
-                    <img src={require('../images/linkedin.svg')} />
-                  </button>
-                </div>
-                <div className='available-container' id='align-items-top'>
-                  <input
-                    className='input-checkbox'
-                    type='checkbox'
-                    name='emailNotificationAllowed'
-                    onChange={e => onChange(e)}
-                    defaultChecked={emailNotificationAllowed}
-                  />
-                  <div>
-                    <p className='checkbox-label-available'>
-                      available for services
-                    </p>
-                    <p className='checkbox-label-2'>
-                      hereby you offer to create customized art pieces
-                    </p>
+                <div className='categories-container'>
+                  <div className='select-categories-label'>
+                    Select your categories *
                   </div>
-                </div>
-                <div className='creative-line-long'></div>
-                <div className='avatar-container'>
-                  <div className='avatar-container-left'>
-                    <div className='upload-avatar'>
-                      {registerButtonActive.button.avatarPath === '' ? (
-                        <img
-                          className='user-icon'
-                          src={require('../images/user-icon-dark.png')}
-                          alt='User icon'
+                  <div className='select-categories-label-2'>
+                    * at least one
+                  </div>
+                  <div className='select-category-container'>
+                    {categories.map(category => {
+                      return (
+                        <CategoryButton
+                          key={category._id}
+                          categoryName={category.categoryName}
+                          categoryIcon={category.categoryIconPath}
+                          handleCategoryClick={handleCategoryClick}
                         />
-                      ) : (
-                        <img
-                          className='user-icon'
-                          src={registerButtonActive.button.avatarPath}
-                          alt='User icon'
-                        />
-                      )}
-                      <span>{registerButtonActive.button.userName}</span>
-                    </div>
+                      );
+                    })}
+                  </div>
+                  <div className='available-container' id='align-items-top'>
                     <input
-                      className='choose-file'
-                      type='file'
-                      placeholder='Upload an avatar'
-                      name='avatar'
-                      value={avatar}
+                      className='input-checkbox'
+                      type='checkbox'
+                      name='emailNotificationAllowed'
                       onChange={e => onChange(e)}
+                      defaultChecked={emailNotificationAllowed}
                     />
+                    <div>
+                      <p className='checkbox-label-available'>
+                        available for services
+                      </p>
+                      <p className='checkbox-label-2'>
+                        hereby you offer to create customized art pieces
+                      </p>
+                    </div>
                   </div>
+                  <div className='creative-line-long'></div>
+                  <div className='avatar-container'>
+                    <div className='avatar-container-left'>
+                      <div className='upload-avatar'>
+                        {registerButtonActive.button.avatarPath === '' ? (
+                          <img
+                            className='user-icon'
+                            src={require('../images/user-icon-dark.png')}
+                            alt='User icon'
+                          />
+                        ) : (
+                          <img
+                            className='user-icon'
+                            src={registerButtonActive.button.avatarPath}
+                            alt='User icon'
+                          />
+                        )}
+                        <span>{registerButtonActive.button.userName}</span>
+                      </div>
+                      <input
+                        className='choose-file'
+                        type='file'
+                        placeholder='Upload an avatar'
+                        name='avatar'
+                        value={avatar}
+                        onChange={e => onChange(e)}
+                      />
+                    </div>
+                  </div>
+                  <div className='creative-line-long'></div>
+                  <button
+                    style={{
+                      pointerEvents: registerButtonActive.button.active,
+                      opacity: registerButtonActive.button.opacity
+                    }}
+                    className='creative-register-button'>
+                    Register
+                  </button>
+
+                  <div className='error-message'>{errorValue}</div>
                 </div>
-                <div className='creative-line-long'></div>
-                <button
-                  style={{
-                    pointerEvents: registerButtonActive.button.active,
-                    opacity: registerButtonActive.button.opacity
-                  }}
-                  className='creative-register-button'>
-                  Register
-                </button>
-              </div>
+              </form>
             </div>
           </div>
         </div>
