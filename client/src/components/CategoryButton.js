@@ -9,10 +9,10 @@ const CategoryButton = props => {
         onClick={e => {
           props.handleCategoryClick(e);
         }}>
-        {/* <img src={require(`../images/${props.categoryIcon}`)} /> */}
+        {/* <img src={require('../images/${props.categoryIcon}')} /> */}
         <img
           className='category-icon'
-          src={require(`../images/linkedin.svg`)}
+          src={require('../images/category-icon-gardener-deselect.png')}
         />
 
         <p className={props.categoryName + ' category-label'}>
