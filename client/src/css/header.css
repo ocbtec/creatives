@@ -1,17 +1,21 @@
 .header {
   display: grid;
-  grid-template-columns: 1fr 375px;
+  grid-template-columns: 1fr 365px 40px;
   height: 80px;
   width: 100%;
   align-items: center;
   background-color: #606a6c;
   padding: 0 45px;
 }
+.logo-container {
+  grid-column: 1;
+}
 .logo {
   height: 40px;
 }
 .burger-menu-container {
   text-align: right;
+  grid-column: 3;
 }
 .menu-button {
   border: none;
