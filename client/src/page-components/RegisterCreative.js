@@ -101,9 +101,6 @@ const RegisterCreative = () => {
     socialNetwork.placeholder = e.target.name;
     console.log(e.target.name);
     console.log(e.currentTarget);
-
-    e.currentTarget.style.cssText =
-      'box-shadow: 0px 0px 15px 10px #7A73E8; background-color: #7A73E8;';
   };
 
   //Cloudinary
