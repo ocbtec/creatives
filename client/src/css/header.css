@@ -1,11 +1,11 @@
 .header {
   display: grid;
-  grid-template-columns: 1fr 375px 40px;
+  grid-template-columns: 1fr 375px;
   height: 80px;
   width: 100%;
   align-items: center;
   background-color: #606a6c;
-  padding: 0 35px;
+  padding: 0 45px;
 }
 .logo {
   height: 40px;
