@@ -6,26 +6,6 @@ import Menu from './Menu';
 import '../css/header.css';
 
 const Header = ({ userName, avatarImage, token }) => {
-  let menuDisplayed = false;
-  const menuFadeIn = () => {
-    let menu = document.getElementsByClassName('menu')[0];
-    let menubars = document.querySelectorAll('.menubars');
-
-    if (menuDisplayed) {
-      menu.className = 'menu menu-fade-out';
-      menubars.forEach((el, index) => {
-        el.className = `menubars menubar-${index + 1} menubar-${index +
-          1}-close-menu`;
-      });
-    } else {
-      menu.className = 'menu menu-fade-in';
-      menubars.forEach((el, index) => {
-        el.className = `menubars menubar-${index + 1} menubar-${index +
-          1}-open-menu`;
-      });
-    }
-    menuDisplayed = !menuDisplayed;
-  };
   return (
     <Fragment>
       <div className='header'>
@@ -53,13 +33,6 @@ const Header = ({ userName, avatarImage, token }) => {
             token={token}
           />
         )}
-        <div className='burger-menu-container'>
-          <button className='menu-button' onClick={menuFadeIn}>
-            <div className='menubars menubar-1'></div>
-            <div className='menubars menubar-2'></div>
-            <div className='menubars menubar-3'></div>
-          </button>
-        </div>
       </div>
       <Menu userName={userName} avatarImage={avatarImage} token={token} />
     </Fragment>
