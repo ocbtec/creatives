@@ -20,13 +20,11 @@ const RegisterCreative = () => {
     avatar: '',
     city: '',
     website: '',
-    youtube: '',
-    twitter: '',
-    facebook: '',
-    linkedin: '',
+    behance: '',
+    deviantArt: '',
+    vimeo: '',
     instagram: '',
     flickr: '',
-    deviantArt: '',
     pinterest: '',
     services: false,
     category: []
@@ -91,13 +89,11 @@ const RegisterCreative = () => {
     avatar,
     city,
     website,
-    youtube,
-    twitter,
-    facebook,
-    linkedin,
+    behance,
+    deviantArt,
+    vimeo,
     instagram,
     flickr,
-    deviantArt,
     pinterest,
     services,
     category
@@ -121,6 +117,9 @@ const RegisterCreative = () => {
     socialNetwork.className = 'social-media-input social-media-input-animation';
     socialNetwork.placeholder = e.target.name;
     document.getElementsByClassName('social-media-input')[0].focus();
+
+    console.log(e.target.name);
+    console.log(formData[e.target.name]);
   };
 
   //Cloudinary
@@ -202,13 +201,11 @@ const RegisterCreative = () => {
       city,
       website,
       category,
-      youtube,
-      twitter,
-      facebook,
-      linkedin,
+      behance,
+      deviantArt,
+      vimeo,
       instagram,
       flickr,
-      deviantArt,
       pinterest,
       services
     };
@@ -377,9 +374,9 @@ const RegisterCreative = () => {
                         className='social-media-button'
                         onClick={e => handleSocialIcon(e)}>
                         <img
-                          name='twitter'
+                          name='deviantArt'
                           className='social-media-icon'
-                          src={require('../images/twitter.svg')}
+                          src={require('../images/social-icon-deviantart.png')}
                         />
                       </button>
 
@@ -389,7 +386,7 @@ const RegisterCreative = () => {
                         <img
                           name='flickr'
                           className='social-media-icon'
-                          src={require('../images/flickr.svg')}
+                          src={require('../images/social-icon-flickr.svg')}
                         />
                       </button>
 
@@ -397,9 +394,9 @@ const RegisterCreative = () => {
                         className='social-media-button'
                         onClick={e => handleSocialIcon(e)}>
                         <img
-                          name='facebook'
+                          name='pinterest'
                           className='social-media-icon'
-                          src={require('../images/facebook.svg')}
+                          src={require('../images/social-icon-pinterest.png')}
                         />
                       </button>
 
@@ -409,7 +406,7 @@ const RegisterCreative = () => {
                         <img
                           name='instagram'
                           className='social-media-icon'
-                          src={require('../images/instagram.svg')}
+                          src={require('../images/social-icon-instagram.svg')}
                         />
                       </button>
 
@@ -417,9 +414,9 @@ const RegisterCreative = () => {
                         className='social-media-button'
                         onClick={e => handleSocialIcon(e)}>
                         <img
-                          name='youtube'
+                          name='behance'
                           className='social-media-icon'
-                          src={require('../images/youtube.svg')}
+                          src={require('../images/social-icon-behance.png')}
                         />
                       </button>
 
@@ -427,9 +424,9 @@ const RegisterCreative = () => {
                         className='social-media-button'
                         onClick={e => handleSocialIcon(e)}>
                         <img
-                          name='linkedin'
+                          name='vimeo'
                           className='social-media-icon'
-                          src={require('../images/linkedin.svg')}
+                          src={require('../images/social-icon-vimeo.png')}
                         />
                       </button>
                     </div>

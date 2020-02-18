@@ -446,16 +446,16 @@
 }
 @keyframes social-media-button-hover-animation {
   0% {
-    background-color: #0ad82e;
-    box-shadow: 0px 0px 15px 10px #0ad82e;
+    background-color: #afaaff;
+    box-shadow: 0px 0px 15px 10px #afaaff;
   }
   50% {
-    background-color: #0ad82e;
-    box-shadow: 0px 0px 15px 14px #0ad82e;
+    background-color: #afaaff;
+    box-shadow: 0px 0px 20px 15px #afaaff;
   }
   100% {
-    background-color: #0ad82e;
-    box-shadow: 0px 0px 15px 10px #0ad82e;
+    background-color: #afaaff;
+    box-shadow: 0px 0px 15px 10px #afaaff;
   }
 }
 .social-media-icon {
