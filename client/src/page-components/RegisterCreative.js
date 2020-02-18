@@ -73,6 +73,7 @@ const RegisterCreative = () => {
     }
 
     console.log(e.target.name);
+    console.log(formData.category);
   };
 
   useEffect(() => {
@@ -249,9 +250,9 @@ const RegisterCreative = () => {
         <div className='register-creative-body'>
           <div className='creative-image-container'>
             <div className='creative-image-container-2'></div>
-            <div className='image-lightning-1'></div>
+            <div className='creative-image-lightning-1'></div>
             <div className='creative-image-lightning-2'></div>
-            <div className='image-lightning-3'></div>
+            <div className='creative-image-lightning-3'></div>
           </div>
           <div className='register-container'>
             <div className='creative-headline'>
