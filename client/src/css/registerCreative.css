@@ -276,7 +276,7 @@
 }
 .available-container {
   margin: 30px 0px;
-  width: 280px;
+  width: 400px;
   height: 40px;
   display: flex;
   align-items: center;
@@ -296,7 +296,7 @@
   margin: 8px 0px;
 }
 .creative-line-long {
-  width: 440px;
+  width: 400px;
   height: 1px;
   background-color: #9ba1a2;
   margin: 8px 0px;
@@ -474,7 +474,7 @@
   color: #707070;
 }
 .social-media-input-animation {
-  animation: input-grow-horizontal 1s ease-in-out 1 forwards;
+  animation: input-grow-horizontal 0.5s ease-in-out 1 forwards;
 }
 @keyframes input-grow-horizontal {
   0% {
