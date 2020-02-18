@@ -1,4 +1,6 @@
 .header {
+  position: absolute;
+  z-index: 1;
   display: grid;
   grid-template-columns: 1fr 365px 40px;
   height: 80px;
