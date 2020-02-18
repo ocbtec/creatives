@@ -10,9 +10,14 @@ const CategoryButton = props => {
           props.handleCategoryClick(e);
         }}>
         {/* <img src={require(`../images/${props.categoryIcon}`)} /> */}
-        <img src={require(`../images/linkedin.svg`)} />
+        <img
+          className='category-icon'
+          src={require(`../images/linkedin.svg`)}
+        />
 
-        <p>{props.categoryName}</p>
+        <p className={props.categoryName + ' category-label'}>
+          {props.categoryName}
+        </p>
       </button>
     </Fragment>
   );
