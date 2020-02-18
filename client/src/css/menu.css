@@ -2,7 +2,7 @@
   position: absolute;
   display: flex;
   flex-direction: column;
-  right: -300px;
+  right: -1000px;
   opacity: 0.95;
   z-index: 1;
 }
@@ -14,19 +14,25 @@
 }
 .menu-item {
   background-image: url('../images/menu-structure.png');
-  color: #fce2db;
+  color: #ffcb9e;
   list-style: none;
   height: 80px;
-  width: 300px;
+  width: 375px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0px 35px 0 55px;
+  padding: 0px 47px 0 60px;
   font-size: 16pt;
 }
 .menu-item:hover {
   color: #fefefe;
+  font-size: 18pt;
   background-image: url('../images/menu-structure-hover.png');
+}
+.menu-item:hover > .icon {
+  width: 35px;
+  height: 35px;
+  transform: translate(2px, 0px);
 }
 .icon {
   width: 30px;
@@ -34,7 +40,7 @@
 }
 @keyframes menu-fade-in {
   0% {
-    right: -300px;
+    right: -1000px;
   }
   100% {
     right: 0px;
@@ -45,6 +51,6 @@
     right: 0px;
   }
   100% {
-    right: -300px;
+    right: -1000px;
   }
 }
