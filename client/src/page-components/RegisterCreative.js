@@ -85,8 +85,6 @@ const RegisterCreative = () => {
   const onChange = e => {
     e.target.files && uploadToCloudinary(e);
     setFormData({ ...formData, [e.target.name]: e.target.value });
-
-    console.log(formData);
   };
 
   const handleSocialIcon = e => {
@@ -101,9 +99,6 @@ const RegisterCreative = () => {
     socialNetwork.placeholder = e.target.name;
     console.log(e.target.name);
     console.log(e.currentTarget);
-
-    e.currentTarget.style.cssText =
-      'box-shadow: 0px 0px 15px 10px #7A73E8; background-color: #7A73E8;';
   };
 
   //Cloudinary
