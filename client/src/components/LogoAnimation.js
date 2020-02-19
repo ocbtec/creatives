@@ -41,6 +41,7 @@ const LogoAnimation = props => {
                 userName={props.userName}
                 avatarImage={props.avatarImage}
                 token={props.token}
+                categories={props.categories}
               />
             );
           })}
