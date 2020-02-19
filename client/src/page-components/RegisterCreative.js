@@ -69,9 +69,6 @@ const RegisterCreative = () => {
         'background-color: #758184; border: 4px solid #fefefe;';
       categoryLabel.style = 'color: #fefefe; font-size: 11pt;';
     }
-
-    console.log(e.target.name);
-    console.log(formData.category);
   };
 
   useEffect(() => {
@@ -103,6 +100,10 @@ const RegisterCreative = () => {
   const onChange = e => {
     e.target.files && uploadToCloudinary(e);
     setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const checkboxClick = e => {
+    setFormData({ ...formData, [e.target.name]: e.target.checked });
   };
 
   const handleSocialIcon = e => {
@@ -327,7 +328,7 @@ const RegisterCreative = () => {
                       type='checkbox'
                       placeholder='Make Email public'
                       name='emailVisible'
-                      onChange={e => onChange(e)}
+                      onClick={e => checkboxClick(e)}
                       defaultChecked={emailVisible}
                     />
                     <p className='checkbox-label'>display email publicly</p>
@@ -340,7 +341,7 @@ const RegisterCreative = () => {
                       type='checkbox'
                       placeholder='Allow Email Notifications'
                       name='emailNotificationAllowed'
-                      onChange={e => onChange(e)}
+                      onClick={e => checkboxClick(e)}
                       defaultChecked={emailNotificationAllowed}
                     />
                     <div>
@@ -358,7 +359,7 @@ const RegisterCreative = () => {
                       type='checkbox'
                       placeholder='Subscribe to our Newsletter'
                       name='subscribeToNewsletter'
-                      onChange={e => onChange(e)}
+                      onClick={e => checkboxClick(e)}
                       defaultChecked={subscribeToNewsletter}
                     />
                     <p className='checkbox-label'>subscribe to newsletter</p>
@@ -460,9 +461,9 @@ const RegisterCreative = () => {
                   <input
                     className='input-checkbox'
                     type='checkbox'
-                    name='emailNotificationAllowed'
-                    onChange={e => onChange(e)}
-                    defaultChecked={emailNotificationAllowed}
+                    name='services'
+                    onClick={e => checkboxClick(e)}
+                    defaultChecked={services}
                   />
                   <div>
                     <p className='checkbox-label-available'>
