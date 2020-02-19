@@ -45,18 +45,24 @@ const RegisterCreative = props => {
     }
   });
 
+  const [selectedCategoryIcon, setSelectedCategoryIcon] = useState({
+    selection: '',
+    index: Number
+  });
+
   document.addEventListener('keypress', e => {
     e.keyCode === 13 && e.preventDefault();
   });
 
-  useEffect(() => {
-    getCategories();
-  }, []);
-
   let categoryIcon;
-  console.log(categories.categoryIconPath);
+  let categoryIndex;
   const handleCategoryClick = e => {
     e.preventDefault();
+
+    props.location.state.categories.map((category, index) => {
+      category.categoryName === e.target.name && (categoryIndex = index);
+      return categoryIndex;
+    });
 
     let categoryCheck = formData.category.indexOf(e.target.name);
     let categoryLabel = document.getElementsByClassName(e.target.name)[0];
@@ -65,14 +71,21 @@ const RegisterCreative = props => {
       formData.category.splice(categoryCheck, 1);
       e.currentTarget.style = 'background-color: #c4c4c4; border: none;';
       categoryLabel.style = 'color: #616869; font-size: 10pt;';
-      categoryIcon = `../images/${categories.categoryIconPath}-deselect.png`;
+      categoryIcon = `deselect`;
+      setSelectedCategoryIcon({
+        selection: categoryIcon,
+        index: categoryIndex
+      });
     } else {
       formData.category.push(e.target.name);
       e.currentTarget.style =
         'background-color: #758184; border: 4px solid #fefefe;';
       categoryLabel.style = 'color: #fefefe; font-size: 11pt;';
-      categoryIcon = `../images/${categories.categoryIconPath}-select.png`;
-      console.log(categoryIcon);
+      categoryIcon = `select`;
+      setSelectedCategoryIcon({
+        selection: categoryIcon,
+        index: categoryIndex
+      });
     }
   };
 
@@ -449,8 +462,10 @@ const RegisterCreative = props => {
                       <CategoryButton
                         key={category._id}
                         categoryName={category.categoryName}
-                        categoryIcon={categoryIcon}
+                        categoryIcon={selectedCategoryIcon.selection}
                         handleCategoryClick={handleCategoryClick}
+                        categories={props.location.state.categories}
+                        index={selectedCategoryIcon.index}
                       />
                     );
                   })}
