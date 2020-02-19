@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 
 const CategoryButton = props => {
+  console.log(props);
   return (
     <Fragment>
       <button
@@ -9,11 +10,7 @@ const CategoryButton = props => {
         onClick={e => {
           props.handleCategoryClick(e);
         }}>
-        {/* <img src={require('../images/${props.categoryIcon}')} /> */}
-        <img
-          className='category-icon'
-          src={require('../images/category-icon-gardener-deselect.png')}
-        />
+        <img className='category-icon' src={props.categoryIcon} />
 
         <p className={props.categoryName + ' category-label'}>
           {props.categoryName}
