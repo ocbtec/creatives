@@ -13,14 +13,6 @@ const CategoryButton = props => {
   });
   console.log(props.index);
 
-  let imageIcon;
-  props.categoryIcon === 'select'
-    ? (imageIcon = iconPathSelect[props.index])
-    : (imageIcon = iconPathDeselect[props.index]);
-
-  let bla = require([imageIcon]);
-  // console.log(bla);
-
   return (
     <Fragment>
       <button
