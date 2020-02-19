@@ -53,6 +53,16 @@ const RegisterCreative = () => {
     setCategories(res.data);
   };
 
+  document.addEventListener('keypress', e => {
+    e.keyCode === 13 && e.preventDefault();
+  });
+
+  useEffect(() => {
+    getCategories();
+  }, []);
+
+  let categoryIcon;
+  console.log(categories.categoryIconPath);
   const handleCategoryClick = e => {
     e.preventDefault();
 
@@ -63,17 +73,16 @@ const RegisterCreative = () => {
       formData.category.splice(categoryCheck, 1);
       e.currentTarget.style = 'background-color: #c4c4c4; border: none;';
       categoryLabel.style = 'color: #616869; font-size: 10pt;';
+      categoryIcon = `../images/${categories.categoryIconPath}-deselect.png`;
     } else {
       formData.category.push(e.target.name);
       e.currentTarget.style =
         'background-color: #758184; border: 4px solid #fefefe;';
       categoryLabel.style = 'color: #fefefe; font-size: 11pt;';
+      categoryIcon = `../images/${categories.categoryIconPath}-select.png`;
+      console.log(categoryIcon);
     }
   };
-
-  useEffect(() => {
-    getCategories();
-  }, []);
 
   //De-structure form Data
   const {
@@ -98,6 +107,7 @@ const RegisterCreative = () => {
 
   //OnChange event Listener for all input fields and buttons
   const onChange = e => {
+    e.preventDefault();
     e.target.files && uploadToCloudinary(e);
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -118,9 +128,6 @@ const RegisterCreative = () => {
     socialNetwork.className = 'social-media-input social-media-input-animation';
     socialNetwork.placeholder = e.target.name;
     document.getElementsByClassName('social-media-input')[0].focus();
-
-    console.log(e.target.name);
-    console.log(formData[e.target.name]);
   };
 
   //Cloudinary
@@ -437,10 +444,9 @@ const RegisterCreative = () => {
                       onChange={e => onChange(e)}></input>
                   </div>
                 </div>
-                <div className='error-message'>{errorValue}</div>
               </div>
 
-              <div className='categories-container'>
+              <div className='creative-categories-container'>
                 <div className='select-categories-label'>
                   Select your categories
                 </div>
@@ -451,7 +457,7 @@ const RegisterCreative = () => {
                       <CategoryButton
                         key={category._id}
                         categoryName={category.categoryName}
-                        categoryIcon={category.categoryIconPath}
+                        categoryIcon={categoryIcon}
                         handleCategoryClick={handleCategoryClick}
                       />
                     );
@@ -513,7 +519,7 @@ const RegisterCreative = () => {
                   Register
                 </button>
 
-                <div className='error-message'>{errorValue}</div>
+                <div className='creative-error-message'>{errorValue}</div>
               </div>
             </form>
           </div>

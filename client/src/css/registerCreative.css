@@ -235,6 +235,7 @@
   margin-bottom: 10px;
   border: 1px solid #cacaca;
   color: #707070;
+  background-color: #ffffff00 !important;
 }
 ::-webkit-input-placeholder {
   /* Chrome/Opera/Safari */
@@ -340,7 +341,7 @@
   height: 20px;
   color: #606a6c;
 }
-.error-message {
+.creative-error-message {
   position: absolute;
   bottom: 50px;
   left: 0;
@@ -373,7 +374,8 @@
   cursor: pointer;
   margin-top: 20px;
 }
-.categories-container {
+.creative-categories-container {
+  position: relative;
   width: 50%;
   height: 100%;
   display: flex;
