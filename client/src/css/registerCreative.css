@@ -253,6 +253,7 @@
   display: flex;
   flex-direction: column;
   width: 280px;
+  margin-top: 20px;
 }
 .checkbox-container-inner {
   width: 280px;
@@ -343,7 +344,7 @@
 }
 .creative-error-message {
   position: absolute;
-  bottom: 50px;
+  bottom: 55px;
   left: 0;
   color: #ee2b2b;
   font-size: 10pt;
@@ -372,7 +373,7 @@
   color: #fefefe;
   font-size: 14pt;
   cursor: pointer;
-  margin-top: 20px;
+  margin-top: 40px;
 }
 .creative-categories-container {
   position: relative;
