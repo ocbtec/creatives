@@ -1,4 +1,5 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
+import axios from 'axios';
 import LogoAnimation from '../components/LogoAnimation';
 import '../css/landingPage.css';
 
@@ -14,6 +15,20 @@ const LandingPage = props => {
     avatarImage = props.avatarImage;
     token = props.token;
   }
+
+  const [categories, setCategories] = useState([]);
+
+  const getCategories = async () => {
+    const res = await axios.get(
+      'https://creatives-api.herokuapp.com/api/getAllCategories'
+    );
+    setCategories(res.data);
+  };
+
+  useEffect(() => {
+    getCategories();
+  }, []);
+
   return (
     <Fragment>
       <div className='landing-page-container'>
@@ -21,6 +36,7 @@ const LandingPage = props => {
           userName={userName}
           avatarImage={avatarImage}
           token={token}
+          categories={categories}
         />
       </div>
     </Fragment>

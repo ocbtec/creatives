@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { Fragment, useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 import Header from '../components/Header';
@@ -8,7 +8,7 @@ import CategoryButton from '../components/CategoryButton';
 
 import '../css/registerCreative.css';
 
-const RegisterCreative = () => {
+const RegisterCreative = props => {
   //states
   const [formData, setFormData] = useState({
     name: '',
@@ -20,12 +20,12 @@ const RegisterCreative = () => {
     avatar: '',
     city: '',
     website: '',
-    behance: '',
     deviantArt: '',
-    vimeo: '',
-    instagram: '',
     flickr: '',
     pinterest: '',
+    instagram: '',
+    behance: '',
+    vimeo: '',
     services: false,
     category: []
   });
@@ -44,14 +44,6 @@ const RegisterCreative = () => {
       avatarPath: ''
     }
   });
-  const [categories, setCategories] = useState([]);
-
-  const getCategories = async () => {
-    const res = await axios.get(
-      'https://creatives-api.herokuapp.com/api/getAllCategories'
-    );
-    setCategories(res.data);
-  };
 
   document.addEventListener('keypress', e => {
     e.keyCode === 13 && e.preventDefault();
@@ -452,7 +444,7 @@ const RegisterCreative = () => {
                 </div>
                 <div className='select-categories-label-2'>at least one</div>
                 <div className='select-category-container'>
-                  {categories.map(category => {
+                  {props.location.state.categories.map(category => {
                     return (
                       <CategoryButton
                         key={category._id}

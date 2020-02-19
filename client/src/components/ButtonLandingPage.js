@@ -9,7 +9,8 @@ const ButtonLandingPage = props => {
         state: {
           userName: props.userName,
           avatarImage: props.avatarImage,
-          token: props.token
+          token: props.token,
+          categories: props.categories
         }
       }}>
       <button id={props.idButton} className='button'>
