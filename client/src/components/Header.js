@@ -5,7 +5,7 @@ import Menu from './Menu';
 
 import '../css/header.css';
 
-const Header = ({ userName, avatarImage, token }) => {
+const Header = ({ userName, avatarImage, token, creative }) => {
   return (
     <Fragment>
       <div className='header'>
@@ -34,7 +34,12 @@ const Header = ({ userName, avatarImage, token }) => {
           />
         )}
       </div>
-      <Menu userName={userName} avatarImage={avatarImage} token={token} />
+      <Menu
+        userName={userName}
+        avatarImage={avatarImage}
+        token={token}
+        creative={creative}
+      />
     </Fragment>
   );
 };

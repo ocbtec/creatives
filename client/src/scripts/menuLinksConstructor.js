@@ -68,6 +68,18 @@ export const loginLink = new MenuLink(
   )
 );
 
+export const logoutLink = new MenuLink(
+  '/logout',
+  'Logout',
+  (
+    <img
+      className='icon'
+      src={require('../images/logout-icon.png')}
+      alt='logout-icon'
+    />
+  )
+);
+
 export const userProfileLink = new MenuLink(
   '/userupdate',
   'Profile',
