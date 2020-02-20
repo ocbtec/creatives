@@ -45,13 +45,10 @@ const RegisterCreative = props => {
     }
   });
 
-  const [selectedCategoryIcon, setSelectedCategoryIcon] = useState('');
-
   document.addEventListener('keypress', e => {
     e.keyCode === 13 && e.preventDefault();
   });
 
-  let categoryIcon;
   let categoryIndex;
   const handleCategoryClick = e => {
     e.preventDefault();
@@ -68,17 +65,10 @@ const RegisterCreative = props => {
       formData.category.splice(categoryCheck, 1);
       e.currentTarget.style = 'background-color: #c4c4c4; border: none;';
       categoryLabel.style = 'color: #616869; font-size: 10pt;';
-      // categoryIcon = `/images/${props.location.state.categories[categoryIndex].categoryIconPath}-deselect.png`;
-      // setSelectedCategoryIcon(categoryIcon);
     } else {
       formData.category.push(e.target.name);
-      e.currentTarget.style =
-        // 'background-color: #758184; border: 4px solid #fefefe;';
-        'border: 4px solid #758184;';
-      //categoryLabel.style = 'color: #fefefe; font-size: 11pt;';
+      e.currentTarget.style = 'border: 4px solid #758184;';
       categoryLabel.style = 'font-size: 12pt;';
-      // categoryIcon = `/images/${props.location.state.categories[categoryIndex].categoryIconPath}-select.png`;
-      // setSelectedCategoryIcon(categoryIcon);
     }
   };
 
@@ -249,7 +239,12 @@ const RegisterCreative = props => {
   return (
     <Fragment>
       <div className='main-container-register-creative'>
-        <Header userName={user.name} avatarImage={user.avatar} token={token} />
+        <Header
+          userName={user.name}
+          avatarImage={user.avatar}
+          token={token}
+          creative={user.creative}
+        />
         <div className='register-creative-body'>
           <div className='creative-image-container'>
             <div className='creative-image-container-2'></div>
