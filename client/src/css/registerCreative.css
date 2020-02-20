@@ -257,6 +257,7 @@
   display: flex;
   flex-direction: column;
   width: 280px;
+  margin-top: 20px;
 }
 .checkbox-container-inner {
   width: 280px;
@@ -347,7 +348,11 @@
 }
 .creative-error-message {
   position: absolute;
+<<<<<<< HEAD
   bottom: 60px;
+=======
+  bottom: 55px;
+>>>>>>> 326f5e94ca994eeb1a156c67dc41f5f284f362b9
   left: 0;
   color: #ee2b2b;
   font-size: 10pt;
@@ -376,7 +381,11 @@
   color: #fefefe;
   font-size: 14pt;
   cursor: pointer;
+<<<<<<< HEAD
   margin-top: 50px;
+=======
+  margin-top: 40px;
+>>>>>>> 326f5e94ca994eeb1a156c67dc41f5f284f362b9
 }
 .creative-categories-container {
   position: relative;

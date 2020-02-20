@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 
 const CategoryButton = props => {
+<<<<<<< HEAD
   let iconPathSelect = [];
   let iconPathDeselect = [];
 
@@ -12,6 +13,8 @@ const CategoryButton = props => {
     return [iconPathSelect, iconPathDeselect];
   });
 
+=======
+>>>>>>> 326f5e94ca994eeb1a156c67dc41f5f284f362b9
   return (
     <Fragment>
       <button
@@ -20,7 +23,11 @@ const CategoryButton = props => {
         onClick={e => {
           props.handleCategoryClick(e);
         }}>
-        {/* <img className='category-icon' src={bla} /> */}
+        <img
+          className='category-icon'
+          src={props.categoryIcon}
+          alt={props.categoryName}
+        />
         <p className={props.categoryName + ' category-label'}>
           {props.categoryName}
         </p>

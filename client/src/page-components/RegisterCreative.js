@@ -45,10 +45,7 @@ const RegisterCreative = props => {
     }
   });
 
-  const [selectedCategoryIcon, setSelectedCategoryIcon] = useState({
-    selection: '',
-    index: Number
-  });
+  const [selectedCategoryIcon, setSelectedCategoryIcon] = useState('');
 
   document.addEventListener('keypress', e => {
     e.keyCode === 13 && e.preventDefault();
@@ -71,21 +68,17 @@ const RegisterCreative = props => {
       formData.category.splice(categoryCheck, 1);
       e.currentTarget.style = 'background-color: #c4c4c4; border: none;';
       categoryLabel.style = 'color: #616869; font-size: 10pt;';
-      categoryIcon = `deselect`;
-      setSelectedCategoryIcon({
-        selection: categoryIcon,
-        index: categoryIndex
-      });
+      // categoryIcon = `/images/${props.location.state.categories[categoryIndex].categoryIconPath}-deselect.png`;
+      // setSelectedCategoryIcon(categoryIcon);
     } else {
       formData.category.push(e.target.name);
       e.currentTarget.style =
-        'background-color: #758184; border: 4px solid #fefefe;';
-      categoryLabel.style = 'color: #fefefe; font-size: 11pt;';
-      categoryIcon = `select`;
-      setSelectedCategoryIcon({
-        selection: categoryIcon,
-        index: categoryIndex
-      });
+        // 'background-color: #758184; border: 4px solid #fefefe;';
+        'border: 4px solid #758184;';
+      //categoryLabel.style = 'color: #fefefe; font-size: 11pt;';
+      categoryLabel.style = 'font-size: 12pt;';
+      // categoryIcon = `/images/${props.location.state.categories[categoryIndex].categoryIconPath}-select.png`;
+      // setSelectedCategoryIcon(categoryIcon);
     }
   };
 
@@ -390,6 +383,7 @@ const RegisterCreative = props => {
                           name='deviantArt'
                           className='social-media-icon'
                           src={require('../images/social-icon-deviantart.png')}
+                          alt='deviantArt'
                         />
                       </button>
 
@@ -400,6 +394,7 @@ const RegisterCreative = props => {
                           name='flickr'
                           className='social-media-icon'
                           src={require('../images/social-icon-flickr.svg')}
+                          alt='flickr'
                         />
                       </button>
 
@@ -410,6 +405,7 @@ const RegisterCreative = props => {
                           name='pinterest'
                           className='social-media-icon'
                           src={require('../images/social-icon-pinterest.png')}
+                          alt='pinterest'
                         />
                       </button>
 
@@ -420,6 +416,7 @@ const RegisterCreative = props => {
                           name='instagram'
                           className='social-media-icon'
                           src={require('../images/social-icon-instagram.svg')}
+                          alt='instagram'
                         />
                       </button>
 
@@ -430,6 +427,7 @@ const RegisterCreative = props => {
                           name='behance'
                           className='social-media-icon'
                           src={require('../images/social-icon-behance.png')}
+                          alt='behance'
                         />
                       </button>
 
@@ -440,6 +438,7 @@ const RegisterCreative = props => {
                           name='vimeo'
                           className='social-media-icon'
                           src={require('../images/social-icon-vimeo.png')}
+                          alt='vimeo'
                         />
                       </button>
                     </div>
@@ -457,18 +456,14 @@ const RegisterCreative = props => {
                 </div>
                 <div className='select-categories-label-2'>at least one</div>
                 <div className='select-category-container'>
-                  {props.location.state.categories.map(category => {
-                    return (
-                      <CategoryButton
-                        key={category._id}
-                        categoryName={category.categoryName}
-                        categoryIcon={selectedCategoryIcon.selection}
-                        handleCategoryClick={handleCategoryClick}
-                        categories={props.location.state.categories}
-                        index={selectedCategoryIcon.index}
-                      />
-                    );
-                  })}
+                  {props.location.state.categories.map(category => (
+                    <CategoryButton
+                      key={category._id}
+                      categoryName={category.categoryName}
+                      categoryIcon={`/images/${category.categoryIconPath}-deselect.png`}
+                      handleCategoryClick={handleCategoryClick}
+                    />
+                  ))}
                 </div>
                 <div className='available-container' id='align-items-top'>
                   <input
