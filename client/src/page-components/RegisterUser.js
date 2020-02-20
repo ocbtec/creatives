@@ -45,10 +45,18 @@ const RegisterUser = () => {
     avatar
   } = formData;
 
+  document.addEventListener('keypress', e => {
+    e.keyCode === 13 && e.preventDefault();
+  });
+
   //OnChange event Listener for all input fields and buttons
   const onChange = e => {
     e.target.files && uploadToCloudinary(e);
     setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const checkboxClick = e => {
+    setFormData({ ...formData, [e.target.name]: e.target.checked });
   };
 
   //Cloudinary
@@ -227,7 +235,7 @@ const RegisterUser = () => {
                     type='checkbox'
                     placeholder='Make Email public'
                     name='emailVisible'
-                    onChange={e => onChange(e)}
+                    onClick={e => checkboxClick(e)}
                     defaultChecked={emailVisible}
                   />
                   <p className='checkbox-label'>display email publicly</p>
@@ -238,7 +246,7 @@ const RegisterUser = () => {
                     type='checkbox'
                     placeholder='Allow Email Notifications'
                     name='emailNotificationAllowed'
-                    onChange={e => onChange(e)}
+                    onClick={e => checkboxClick(e)}
                     defaultChecked={emailNotificationAllowed}
                   />
                   <div>
@@ -254,7 +262,7 @@ const RegisterUser = () => {
                     type='checkbox'
                     placeholder='Subscribe to our Newsletter'
                     name='subscribeToNewsletter'
-                    onChange={e => onChange(e)}
+                    onClick={e => checkboxClick(e)}
                     defaultChecked={subscribeToNewsletter}
                   />
                   <p className='checkbox-label'>subscribe to newsletter</p>
