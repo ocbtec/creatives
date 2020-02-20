@@ -22,7 +22,7 @@ const RegisterCreative = props => {
     website: '',
     deviantArt: '',
     flickr: '',
-    pinterest: '',
+    soundcloud: '',
     instagram: '',
     behance: '',
     vimeo: '',
@@ -98,7 +98,7 @@ const RegisterCreative = props => {
     vimeo,
     instagram,
     flickr,
-    pinterest,
+    soundcloud,
     services,
     category
   } = formData;
@@ -212,7 +212,7 @@ const RegisterCreative = props => {
       vimeo,
       instagram,
       flickr,
-      pinterest,
+      soundcloud,
       services
     };
 
@@ -402,10 +402,10 @@ const RegisterCreative = props => {
                         className='social-media-button'
                         onClick={e => handleSocialIcon(e)}>
                         <img
-                          name='pinterest'
+                          name='soundcloud'
                           className='social-media-icon'
-                          src={require('../images/social-icon-pinterest.png')}
-                          alt='pinterest'
+                          src={require('../images/social-icon-soundcloud.png')}
+                          alt='soundcloud'
                         />
                       </button>
 
