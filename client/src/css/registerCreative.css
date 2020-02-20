@@ -1,5 +1,9 @@
-.main-container {
-  height: 100%;
+.main-container-register-creative {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 .register-creative-body {
   width: 100%;
@@ -198,7 +202,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 60px;
+  margin-top: 90px;
 }
 .creative-form-container {
   position: relative;
@@ -343,7 +347,7 @@
 }
 .creative-error-message {
   position: absolute;
-  bottom: 50px;
+  bottom: 60px;
   left: 0;
   color: #ee2b2b;
   font-size: 10pt;
@@ -372,7 +376,7 @@
   color: #fefefe;
   font-size: 14pt;
   cursor: pointer;
-  margin-top: 20px;
+  margin-top: 50px;
 }
 .creative-categories-container {
   position: relative;

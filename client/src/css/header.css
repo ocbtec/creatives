@@ -1,5 +1,6 @@
 .header {
-  position: absolute;
+  position: fixed;
+  top: 0;
   z-index: 1;
   display: grid;
   grid-template-columns: 1fr 365px 40px;
@@ -14,10 +15,6 @@
 }
 .logo {
   height: 40px;
-}
-.burger-menu-container {
-  text-align: right;
-  grid-column: 3;
 }
 .menu-button {
   border: none;

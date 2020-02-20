@@ -255,7 +255,7 @@ const RegisterCreative = props => {
 
   return (
     <Fragment>
-      <div className='main-container'>
+      <div className='main-container-register-creative'>
         <Header userName={user.name} avatarImage={user.avatar} token={token} />
         <div className='register-creative-body'>
           <div className='creative-image-container'>

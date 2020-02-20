@@ -1,18 +1,46 @@
 .terms-container {
+  display: flex;
+}
+.terms-container-left {
+  position: relative;
   overflow-x: hidden;
   overflow-y: scroll;
   height: 100%;
-  width: 90%;
-  margin: 0px 0px 0px 65px;
+  width: 66.6%;
+  padding: 100px 100px 100px 80px;
+}
+.terms-container-right {
+  position: relative;
+  width: 33.4%;
+  height: auto;
+  background-size: cover;
+  background-position: 0px 0px;
+  background-image: url('../images/terms-background-2.jpg');
+  background-color: #23232377;
+  background-blend-mode: screen;
+}
+.headline-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .terms-headline {
   color: #555;
-  margin: 20px 0px;
+  margin: 60px 0px;
+}
+.yawn-icon {
+  width: 40px;
+  height: 40px;
 }
 .terms-p {
   color: #606a6c;
   margin: 20px 0px;
+  line-height: 25px;
 }
+.terms-p > ul {
+  line-height: 30px;
+}
+
 .address {
   color: #606a6c;
   margin: 0;
