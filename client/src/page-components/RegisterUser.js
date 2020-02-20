@@ -315,6 +315,8 @@ const RegisterUser = () => {
         </div>
         <Footer userName={user.name} avatarImage={user.avatar} token={token} />
         {loading ? <Spinner /> : renderRedirect()}
+        {/* setLoading(true)
+        <Spinner /> */}
       </div>
     </Fragment>
   );
