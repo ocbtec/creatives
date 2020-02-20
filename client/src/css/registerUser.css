@@ -235,10 +235,11 @@
 }
 .required-label {
   width: 350px;
-  padding-left: 27px;
   margin-bottom: 10px;
   font-size: 9pt;
   color: #a8a8a8;
+  text-align: right;
+  padding-right: 5px;
 }
 .checkbox-container-outer {
   display: flex;

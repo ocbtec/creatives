@@ -228,6 +228,8 @@ const RegisterUser = () => {
                 autoComplete='new-password'
               />
 
+              <div className='required-label'>* required</div>
+
               <div className='checkbox-container-outer'>
                 <div className='checkbox-container-inner'>
                   <input
@@ -267,7 +269,6 @@ const RegisterUser = () => {
                   />
                   <p className='checkbox-label'>subscribe to newsletter</p>
                 </div>
-                <div className='required-label'>* required</div>
                 <div className='line'></div>
                 <div className='avatar-container'>
                   <div className='avatar-container-left'>
