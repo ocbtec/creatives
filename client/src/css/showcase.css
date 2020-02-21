@@ -1,4 +1,35 @@
+.showcase-main-container {
+  width: 100vw;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
 .showcase-body {
   width: 100%;
   height: 100%;
+  margin-top: 120px;
+  padding: 0px 50px;
+}
+.showcase-headline-container {
+  width: 100%;
+  color: #606a6c;
+}
+.headline-showcase {
+  width: 100%;
+  text-align: left;
+}
+.showcase-works-container {
+  width: 100%;
+  height: auto;
+  margin-top: 40px;
+  padding: 10px;
+  background-color: #eeeeee;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.work-examples {
+  font-size: 12pt;
+  margin-top: 10px;
 }
