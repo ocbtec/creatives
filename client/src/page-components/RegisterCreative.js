@@ -66,13 +66,15 @@ const RegisterCreative = props => {
       .replace(' ', '-');
 
     if (categoryCheck > -1) {
+      // deselected
       formData.category.splice(categoryCheck, 1);
-      e.target.style = 'background-color: #c4c4c4; border: none;';
+      e.target.className = 'category-button-deselect';
       categoryLabel.style = 'color: #616869; font-size: 10pt;';
       e.target.firstChild.src = `./images/category-icon-${categoryIconPath}-deselect.png`;
     } else {
+      // selected
       formData.category.push(e.target.name);
-      e.target.style = 'border: 4px solid #fefefe; background-color: #8cadb5';
+      e.target.className = 'category-button-select';
       categoryLabel.style = 'color: #fefefe;font-size: 12pt;';
       e.target.firstChild.src = `./images/category-icon-${categoryIconPath}-select.png`;
     }
