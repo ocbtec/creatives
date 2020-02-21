@@ -28,9 +28,108 @@
   color: #606a6c;
   margin: 60px 0px;
 }
+.sleep-container {
+  position: relative;
+  width: 100px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .yawn-icon {
   width: 40px;
   height: 40px;
+  animation: turning-head 20s ease 5s infinite;
+}
+@keyframes turning-head {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(20deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(-20deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+.sleeping-z-1 {
+  position: absolute;
+  color: #606a6c;
+  top: 70px;
+  left: 50px;
+  opacity: 0;
+  animation: sleeping-z-1-animation 8s ease 3s infinite !important;
+}
+.sleeping-z-2 {
+  position: absolute;
+  color: #606a6c;
+  top: 70px;
+  left: 50px;
+  opacity: 0;
+  animation: sleeping-z-1-animation 8s ease 6s infinite !important;
+}
+.sleeping-z-3 {
+  position: absolute;
+  color: #606a6c;
+  top: 70px;
+  left: 50px;
+  opacity: 0;
+  animation: sleeping-z-1-animation 8s ease 9s infinite !important;
+}
+@keyframes sleeping-z-1-animation {
+  0% {
+    top: 70px;
+    left: 50px;
+    opacity: 1;
+    /* font-size: 5pt; */
+  }
+  10% {
+    top: 63px;
+    left: 70px;
+  }
+  20% {
+    top: 56px;
+    left: 30px;
+  }
+  30% {
+    top: 49px;
+    left: 70px;
+  }
+  40% {
+    top: 42px;
+    left: 30px;
+  }
+  50% {
+    top: 35px;
+    left: 70px;
+  }
+  60% {
+    top: 28px;
+    left: 30px;
+  }
+  70% {
+    top: 21px;
+    left: 70px;
+  }
+  80% {
+    top: 14px;
+    left: 30px;
+  }
+  90% {
+    top: 7px;
+    left: 70px;
+  }
+  100% {
+    top: 0px;
+    left: 30px;
+    opacity: 0;
+  }
 }
 .terms-p {
   color: #606a6c;
