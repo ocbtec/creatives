@@ -17,6 +17,13 @@ body {
   flex-grow: 1;
   overflow-x: hidden;
 }
+.headline {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  color: #606a6c;
+  margin-bottom: 20px;
+}
 a {
   text-decoration: none;
 }
