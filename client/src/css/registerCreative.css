@@ -339,6 +339,7 @@
   width: 44px;
   margin-right: 10px;
   clip-path: circle(22px at center);
+  object-fit: cover;
 }
 .choose-file {
   width: 100%;
@@ -406,9 +407,10 @@
   border: none;
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 .category-icon {
-  width: 22px;
+  width: auto;
   height: 22px;
   margin: 0px 8px;
   pointer-events: none;
