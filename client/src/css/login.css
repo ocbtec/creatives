@@ -1,4 +1,52 @@
 .login-body {
   width: 100%;
   height: 100%;
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  margin-top: 80px;
+}
+.login-container {
+  height: 100%;
+  width: 35%;
+  min-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* background-color: lightgreen; */
+  justify-content: center;
+}
+.login-image-container {
+  height: 100%;
+  width: 75%;
+  background-color: lightsalmon;
+  background-image: url('/images/login-background-image.jpg');
+  background-size: cover;
+}
+.login-headline {
+  width: 350px;
+  color: #606a6c;
+  font-size: 20pt;
+  margin-bottom: 0;
+}
+.login-logo {
+  width: 100px;
+  margin: 40px 0px;
+}
+.login-input-text {
+  width: 350px;
+  height: 25px;
+  border-radius: 5px;
+  padding-left: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #cacaca;
+  color: #707070;
+}
+.forgot-password {
+  color: #606a6c;
+  font-size: 9pt;
+  text-decoration: underline;
+  width: 350px;
+  text-align: left;
+  margin: 5px 0px;
 }
