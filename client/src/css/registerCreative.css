@@ -398,7 +398,7 @@
   border-radius: 5px;
   box-shadow: 5px 5px 10px 0px #d2d2d2;
 }
-.category-button {
+.category-button-deselect {
   width: 180px;
   height: 48px;
   background-color: #c4c4c4;
@@ -409,11 +409,31 @@
   align-items: center;
   cursor: pointer;
 }
+.category-button-select {
+  width: 180px;
+  height: 48px;
+  background-color: #8cadb5;
+  border: 4px solid #fefefe !important;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.category-button-deselect:hover {
+  background-color: #c4d2d6;
+  border: 2px solid #dbdbdb;
+}
 .category-icon {
   width: auto;
   height: 22px;
-  margin: 0px 8px;
+  margin: 0px 10px;
   pointer-events: none;
+}
+#photographer {
+  height: 20px;
 }
 .category-label {
   color: #616869;
