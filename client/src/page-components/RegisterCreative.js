@@ -61,15 +61,20 @@ const RegisterCreative = props => {
     let categoryCheck = formData.category.indexOf(e.target.name);
     let categoryLabel = document.getElementsByClassName(e.target.name)[0];
 
+    let categoryIconPath = e.target.firstChild.alt
+      .toLowerCase()
+      .replace(' ', '-');
+
     if (categoryCheck > -1) {
       formData.category.splice(categoryCheck, 1);
-      e.currentTarget.style = 'background-color: #c4c4c4; border: none;';
+      e.target.style = 'background-color: #c4c4c4; border: none;';
       categoryLabel.style = 'color: #616869; font-size: 10pt;';
+      e.target.firstChild.src = `./images/category-icon-${categoryIconPath}-deselect.png`;
     } else {
       formData.category.push(e.target.name);
-      e.currentTarget.style =
-        'border: 4px solid #fefefe; background-color: #8cadb5';
-      categoryLabel.style = 'font-size: 12pt;';
+      e.target.style = 'border: 4px solid #fefefe; background-color: #8cadb5';
+      categoryLabel.style = 'color: #fefefe;font-size: 12pt;';
+      e.target.firstChild.src = `./images/category-icon-${categoryIconPath}-select.png`;
     }
   };
 
@@ -237,6 +242,8 @@ const RegisterCreative = props => {
   const listErrors = errors.map(error => error.msg);
   let errorValue;
   listErrors.length > 0 && (errorValue = listErrors);
+
+  console.log(props.location.state.categories);
 
   return (
     <Fragment>
@@ -457,7 +464,7 @@ const RegisterCreative = props => {
                     <CategoryButton
                       key={category._id}
                       categoryName={category.categoryName}
-                      categoryIcon={`/images/${category.categoryIconPath}.png`}
+                      categoryIcon={`/images/${category.categoryIconPath}-deselect.png`}
                       handleCategoryClick={handleCategoryClick}
                     />
                   ))}
