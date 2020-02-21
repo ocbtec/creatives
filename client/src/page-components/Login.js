@@ -1,4 +1,5 @@
 import React, { Fragment, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 import Header from '../components/Header';
@@ -102,33 +103,22 @@ const Login = () => {
           token={token}
           creative={user.creative}
         />
-        <div className='register-user-body'>
-          <div className='image-container'>
-            <div className='image-container-2'></div>
-            <div className='image-lightning-1'></div>
-            <div className='image-lightning-2'></div>
-            <div className='image-lightning-3'></div>
-          </div>
-          <div className='register-user-container'>
-            <div className='flex-item headline'>
-              <img
-                className='register-icon'
-                src={require('../images/register-user-icon.svg')}
-                alt='Register-Icon'
-              />
-              <h1>Login</h1>
-            </div>
-            <div className='flex-item headline-2'>
+        <div className='login-body'>
+          <div className='login-container'>
+            <h1 className='login-headline'>Welcome back to CREATIVES</h1>
+            <img
+              className='login-logo'
+              src='./images/logo-inner-ball.png'
+              alt='logo'
+            />
+            <div className='headline'>
               Please enter email and password to Login
             </div>
             <form
               className='form-container flex-item'
               onSubmit={e => onSubmit(e)}>
-              <input style={{ display: 'none' }} />
-              <input type='password' style={{ display: 'none' }} />
-
               <input
-                className='input-text'
+                className='login-input-text'
                 type='email'
                 placeholder='* Email'
                 name='email'
@@ -138,7 +128,7 @@ const Login = () => {
               />
 
               <input
-                className='input-text'
+                className='login-input-text'
                 type='password'
                 placeholder='* Password'
                 name='password'
@@ -149,18 +139,16 @@ const Login = () => {
                 autoComplete='new-password'
               />
 
-              <button
-                // style={{
-                //   pointerEvents: registerButtonActive.button.active,
-                //   opacity: registerButtonActive.button.opacity
-                // }}
-                className='register-button'>
-                Login
-              </button>
+              <Link>
+                <div className='forgot-password'>forgot password?</div>
+              </Link>
+
+              <button className='register-button'>Login</button>
 
               <div className='error-message'>{errorValue}</div>
             </form>
           </div>
+          <div className='login-image-container'></div>
         </div>
         <Footer userName={user.name} avatarImage={user.avatar} token={token} />
         {loading ? <Spinner /> : renderRedirect()}
