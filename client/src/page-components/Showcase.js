@@ -19,8 +19,6 @@ const Showcase = props => {
     getShowcase();
   }, []);
 
-  console.log(showcase);
-
   return (
     <Fragment>
       <div className='showcase-main-container'>
@@ -37,9 +35,10 @@ const Showcase = props => {
           </div>
           <div className='showcase-works-container'>
             {showcase.map(creative => {
-              return creative.works.map(work => {
+              return creative.works.map((work, index) => {
                 return (
                   <WorkItem
+                    key={index}
                     creativeName={creative.name}
                     creativeAvatar={creative.avatar}
                     fileTitle={work.fileTitle}

@@ -25,7 +25,6 @@ const LandingPage = props => {
       'https://creatives-api.herokuapp.com/api/getAllCategories'
     );
     setCategories(res.data);
-    console.log(res.data);
   };
 
   useEffect(() => {

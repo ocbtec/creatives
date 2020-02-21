@@ -13,13 +13,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* background-color: lightgreen; */
   justify-content: center;
 }
 .login-image-container {
   height: 100%;
   width: 75%;
-  background-color: lightsalmon;
   background-image: url('/images/login-background-image.jpg');
   background-size: cover;
 }

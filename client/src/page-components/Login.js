@@ -139,7 +139,7 @@ const Login = () => {
                 autoComplete='new-password'
               />
 
-              <Link>
+              <Link to='/'>
                 <div className='forgot-password'>forgot password?</div>
               </Link>
 

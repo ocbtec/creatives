@@ -107,13 +107,13 @@ const Terms = props => {
             organizations may link to our Web site without prior written
             approval:
           </p>
-          <p className='terms-p'>
+          <div className='terms-p'>
             <ul style={{ marginLeft: '20px' }}>
               <li>Government agencies</li>
               <li>Search engines</li>
               <li>News organizations</li>
             </ul>
-          </p>
+          </div>
           <p className='terms-p'>
             Online directory distributors when they list us in the directory may
             link to our Web site in the same manner as they hyperlink to the Web
@@ -124,7 +124,7 @@ const Terms = props => {
             page, to publications or to other Web site information so long as
             the link:
           </p>
-          <p className='terms-p'>
+          <div className='terms-p'>
             <ul style={{ listStyle: 'none' }}>
               <li>(a) is not in any way misleading </li>
               <li>
@@ -133,7 +133,7 @@ const Terms = props => {
               </li>
               <li>(c) fits within the context of the linking party's site.</li>
             </ul>
-          </p>
+          </div>
           <p className='terms-p'>
             We may consider and approve in our sole discretion other link
             requests from the following types of organizations: commonly-known
@@ -149,7 +149,7 @@ const Terms = props => {
             We will approve link requests from these organizations if we
             determine that:
           </p>
-          <p className='terms-p'>
+          <div className='terms-p'>
             <ul style={{ marginLeft: '20px' }}>
               <li>
                 (a) the link would not reflect unfavorably on us or our
@@ -173,12 +173,12 @@ const Terms = props => {
                 organization.
               </li>
             </ul>
-          </p>
+          </div>
           <p className='terms-p'>
             These organizations may link to our home page, to publications or to
             other Web site information so long as the link:
           </p>
-          <p className='terms-p'>
+          <div className='terms-p'>
             <ul style={{ marginLeft: '20px' }}>
               <li>(a) is not in any way misleading</li>
               <li>
@@ -187,7 +187,7 @@ const Terms = props => {
               </li>
               <li>(c) fits within the context of the linking party's site.</li>
             </ul>
-          </p>
+          </div>
           <p className='terms-p'>
             If you are among the organizations listed in paragraph 2 above and
             are interested in linking to our website, you must notify us by
@@ -226,8 +226,8 @@ const Terms = props => {
             on this website is correct, we do not warrant its completeness or
             accuracy; nor do we commit to ensuring that the website remains
             available or that the material on the website is kept up to date.
-            <h1 className='terms-headline'>Content Liability</h1>
           </p>
+          <h1 className='terms-headline'>Content Liability</h1>
           <p className='terms-p'>
             We shall have no responsibility or liability for any content
             appearing on your Web site. You agree to indemnify and defend us
@@ -250,7 +250,7 @@ const Terms = props => {
             under applicable law. The limitations and exclusions of liability
             set out in this Section and elsewhere in this disclaimer:
           </p>
-          <p className='terms-p'>
+          <div className='terms-p'>
             <ul style={{ marginLeft: '20px' }}>
               <li>(a) are subject to the preceding paragraph and</li>
               <li>
@@ -260,7 +260,7 @@ const Terms = props => {
                 and for breach of statutory duty.
               </li>
             </ul>
-          </p>
+          </div>
           <p className='terms-p'>
             To the extent that the website and the information and services on
             the website are provided free of charge, we will not be liable for

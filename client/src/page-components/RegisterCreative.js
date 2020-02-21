@@ -243,8 +243,6 @@ const RegisterCreative = props => {
   let errorValue;
   listErrors.length > 0 && (errorValue = listErrors);
 
-  console.log(props.location.state.categories);
-
   return (
     <Fragment>
       <div className='main-container-register-creative'>

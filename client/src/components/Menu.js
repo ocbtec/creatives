@@ -16,7 +16,6 @@ import '../css/menu.css';
 // static links
 let menuDisplayed = false;
 const Menu = props => {
-  console.log(props);
   const [linksArray, setLinksArray] = useState([
     homeLink,
     aboutLink,
@@ -26,8 +25,6 @@ const Menu = props => {
 
   const menuFadeIn = () => {
     // logged in as creative
-    console.log(typeof props.creative);
-
     if (props.creative === 'true') {
       if (!linksArray.includes(worksLink)) {
         setLinksArray([
@@ -36,23 +33,19 @@ const Menu = props => {
           creativeProfileLink,
           logoutLink
         ]);
-        console.log('creative logged in');
       }
     }
     // logged in as user
     else if (props.creative === 'false') {
       if (!linksArray.includes(userProfileLink)) {
         setLinksArray([...linksArray, userProfileLink, logoutLink]);
-        console.log('user logged in');
       }
     }
     // logged out
     else if (props.token === undefined || props.token === '') {
       if (!linksArray.includes(loginLink)) {
         setLinksArray([...linksArray, loginLink]);
-        console.log('logged out');
       }
-      console.log(props);
     }
 
     let menu = document.getElementsByClassName('menu')[0];
