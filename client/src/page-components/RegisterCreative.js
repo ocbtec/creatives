@@ -172,7 +172,8 @@ const RegisterCreative = props => {
             state: {
               userName: user.name,
               avatarImage: user.avatar,
-              token: token
+              token: token,
+              creative: user.creative
             }
           }}
         />

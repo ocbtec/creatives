@@ -113,7 +113,8 @@ const RegisterUser = () => {
             state: {
               userName: user.name,
               avatarImage: user.avatar,
-              token: token
+              token: token,
+              creative: user.creative
             }
           }}
         />
@@ -170,7 +171,12 @@ const RegisterUser = () => {
   return (
     <Fragment>
       <div className='main-container'>
-        <Header userName={user.name} avatarImage={user.avatar} token={token} />
+        <Header
+          userName={user.name}
+          avatarImage={user.avatar}
+          token={token}
+          creative={user.creative}
+        />
         <div className='register-user-body'>
           <div className='image-container'>
             <div className='image-container-2'></div>

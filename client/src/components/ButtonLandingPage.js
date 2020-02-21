@@ -10,7 +10,8 @@ const ButtonLandingPage = props => {
           userName: props.userName,
           avatarImage: props.avatarImage,
           token: props.token,
-          categories: props.categories
+          categories: props.categories,
+          creative: props.creative
         }
       }}>
       <button id={props.idButton} className='button'>
