@@ -16,7 +16,8 @@ const Header = ({ userName, avatarImage, token, creative }) => {
               state: {
                 userName: userName,
                 avatarImage: avatarImage,
-                token: token
+                token: token,
+                creative: creative
               }
             }}>
             <img

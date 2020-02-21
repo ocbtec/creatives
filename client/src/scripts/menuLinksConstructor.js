@@ -92,6 +92,18 @@ export const userProfileLink = new MenuLink(
   )
 );
 
+export const creativeProfileLink = new MenuLink(
+  '/creativeupdate',
+  'Profile',
+  (
+    <img
+      className='icon'
+      src={require('../images/user-icon.png')}
+      alt='user-icon'
+    />
+  )
+);
+
 export const worksLink = new MenuLink(
   '/works',
   'Works',

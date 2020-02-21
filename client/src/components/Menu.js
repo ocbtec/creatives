@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import MenuLink from './MenuLink';
 import {
   homeLink,
@@ -7,25 +7,52 @@ import {
   searchLink,
   loginLink,
   userProfileLink,
+  creativeProfileLink,
   worksLink,
   logoutLink
 } from '../scripts/menuLinksConstructor';
 import '../css/menu.css';
 
 // static links
-const linksArray = [homeLink, aboutLink, showcaseLink, searchLink];
-
 let menuDisplayed = false;
 const Menu = props => {
+  console.log(props);
+  const [linksArray, setLinksArray] = useState([
+    homeLink,
+    aboutLink,
+    showcaseLink,
+    searchLink
+  ]);
+
   const menuFadeIn = () => {
+    // logged in as creative
+    console.log(typeof props.creative);
+
+    if (props.creative === 'true') {
+      if (!linksArray.includes(worksLink)) {
+        setLinksArray([
+          ...linksArray,
+          worksLink,
+          creativeProfileLink,
+          logoutLink
+        ]);
+        console.log('creative logged in');
+      }
+    }
+    // logged in as user
+    else if (props.creative === 'false') {
+      if (!linksArray.includes(userProfileLink)) {
+        setLinksArray([...linksArray, userProfileLink, logoutLink]);
+        console.log('user logged in');
+      }
+    }
     // logged out
-    if (!props.token) {
-      linksArray.push(loginLink);
-    } else if (props.creative === false) {
-      linksArray.push(userProfileLink, logoutLink);
-      console.log(linksArray);
-    } else if (props.creative === true) {
-      linksArray.push(userProfileLink, worksLink, logoutLink);
+    else if (props.token === undefined || props.token === '') {
+      if (!linksArray.includes(loginLink)) {
+        setLinksArray([...linksArray, loginLink]);
+        console.log('logged out');
+      }
+      console.log(props);
     }
 
     let menu = document.getElementsByClassName('menu')[0];
@@ -71,6 +98,7 @@ const Menu = props => {
                 userName={props.userName}
                 avatarImage={props.avatarImage}
                 token={props.token}
+                creative={props.creative}
               />
             );
           })}
