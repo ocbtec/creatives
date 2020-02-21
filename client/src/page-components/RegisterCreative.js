@@ -67,7 +67,8 @@ const RegisterCreative = props => {
       categoryLabel.style = 'color: #616869; font-size: 10pt;';
     } else {
       formData.category.push(e.target.name);
-      e.currentTarget.style = 'border: 4px solid #758184;';
+      e.currentTarget.style =
+        'border: 4px solid #fefefe; background-color: #8cadb5';
       categoryLabel.style = 'font-size: 12pt;';
     }
   };
@@ -456,7 +457,7 @@ const RegisterCreative = props => {
                     <CategoryButton
                       key={category._id}
                       categoryName={category.categoryName}
-                      categoryIcon={`/images/${category.categoryIconPath}-deselect.png`}
+                      categoryIcon={`/images/${category.categoryIconPath}.png`}
                       handleCategoryClick={handleCategoryClick}
                     />
                   ))}
