@@ -29,6 +29,7 @@ const Showcase = props => {
           avatarImage={props.location.state.avatarImage}
           token={props.location.state.token}
           creative={props.location.state.creative}
+          categories={props.categories}
         />
         <div className='showcase-body'>
           <div className='showcase-headline-container'>
