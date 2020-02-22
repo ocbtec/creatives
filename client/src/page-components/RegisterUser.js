@@ -170,7 +170,7 @@ const RegisterUser = props => {
 
   return (
     <Fragment>
-      <div className='main-container'>
+      <div className='register-user-main-container'>
         <Header
           userName={user.name}
           avatarImage={user.avatar}
@@ -320,12 +320,7 @@ const RegisterUser = props => {
             </form>
           </div>
         </div>
-        <Footer
-          userName={user.name}
-          avatarImage={user.avatar}
-          token={token}
-          creative={user.creative}
-        />
+        <Footer userName={user.name} avatarImage={user.avatar} token={token} />
         {loading ? <Spinner /> : renderRedirect()}
       </div>
     </Fragment>
