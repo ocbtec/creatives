@@ -18,33 +18,46 @@ const WorkItem = props => {
 
   return (
     <div className='work-item'>
-      <div className='title-container'>
-        <div className='title-left'>
-          <div className='title-left-icon-container'>
-            <div
-              className='title-left-icon'
-              style={{
-                backgroundImage: 'url(./images/works-icon-dark.png)'
-              }}></div>
-            <div className='title-left-label'>Title</div>
-          </div>
-        </div>
-        <div className='title-right'>{props.fileTitle}</div>
-      </div>
-      <div
-        className='work-image-container'
-        style={{ backgroundImage: `url(${props.filePath})` }}></div>
       <div className='flex-container'>
-        <div className='category-icon'>
-          <img src={`./images/${categoryIcon}.png`} alt='Category icon' />
+        <div className='title-left'>Title</div>
+        <div className='flex-right'>
+          <div
+            className='title-right-icon'
+            style={{
+              backgroundImage: 'url(./images/works-icon-dark.png)'
+            }}></div>
+          <div>{props.fileTitle}</div>
         </div>
-        <div>Category</div>
-        <div className='category-name'>{props.fileCategory}</div>
-        <div>
-          <img src={`${props.creativeAvatar}`} alt='Avatar' />
+      </div>
+      <div className='work-image-wrapper'>
+        <div
+          className='work-image-container'
+          style={{ backgroundImage: `url(${props.filePath})` }}></div>
+      </div>
+      <div className='flex-container'>
+        <div className='category-left'>Category</div>
+        <div className='flex-right'>
+          <div className='showcase-category-icon-container'>
+            <img
+              className='showcase-category-icon'
+              src={`./images/${categoryIcon}-deselect.png`}
+              alt='Category icon'
+            />
+          </div>
+          <div>{props.fileCategory}</div>
         </div>
-        <div>Creator</div>
-        <div>{props.creativeName}</div>
+      </div>
+      <div id='flex-container-creator' className='flex-container'>
+        <div className='creator-left'>Creator</div>
+        <div className='flex-right'>
+          <img
+            className='showcase-avatar-image'
+            src={`${props.creativeAvatar}`}
+            alt='Avatar'
+          />
+
+          <div className='flex-item-right'>{props.creativeName}</div>
+        </div>
       </div>
     </div>
   );
