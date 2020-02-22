@@ -170,7 +170,7 @@ const RegisterUser = props => {
 
   return (
     <Fragment>
-      <div className='main-container'>
+      <div className='register-user-main-container'>
         <Header
           userName={user.name}
           avatarImage={user.avatar}
