@@ -18,11 +18,17 @@ const Terms = props => {
         <div className='terms-container-left'>
           <div className='headline-container'>
             <h1 className='terms-headline'>Terms &amp; Conditions</h1>
-            <img
-              className='yawn-icon'
-              src={require('../images/yawn-icon.png')}
-              alt='yawn'
-            />
+            <div className='sleep-container'>
+              <div className='sleeping-z-1'>z</div>
+              <div className='sleeping-z-2'>z</div>
+              <div className='sleeping-z-3'>z</div>
+
+              <img
+                className='yawn-icon'
+                src={require('../images/yawn-icon.png')}
+                alt='yawn'
+              />
+            </div>
           </div>
           <p className='terms-p'>
             These terms and conditions outline the rules and regulations for the
