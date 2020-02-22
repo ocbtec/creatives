@@ -11,12 +11,14 @@ const UserUpdate = props => {
           userName={props.location.state.userName}
           avatarImage={props.location.state.avatarImage}
           token={props.location.state.token}
+          creative={props.location.state.creative}
         />
         <div className='user-update-body'>User Update</div>
         <Footer
           userName={props.location.state.userName}
           avatarImage={props.location.state.avatarImage}
           token={props.location.state.token}
+          creative={props.location.state.creative}
         />
       </div>
     </Fragment>

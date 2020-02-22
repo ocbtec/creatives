@@ -12,6 +12,7 @@ const Terms = props => {
         userName={props.location.state.userName}
         avatarImage={props.location.state.avatarImage}
         token={props.location.state.token}
+        creative={props.location.state.creative}
       />
       {/* <BubbleAnimation /> */}
       <div className='terms-container'>
@@ -278,7 +279,12 @@ const Terms = props => {
         </div>
         <div className='terms-container-right'></div>
       </div>
-      <Footer />
+      <Footer
+        userName={props.location.state.userName}
+        avatarImage={props.location.state.avatarImage}
+        token={props.location.state.token}
+        creative={props.location.state.creative}
+      />
     </Fragment>
   );
 };

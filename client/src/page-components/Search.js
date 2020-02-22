@@ -94,10 +94,10 @@ const Search = props => {
     <Fragment>
       <div className='main-container'>
         <Header
-          userName={props.userName}
-          avatarImage={props.avatarImage}
-          token={props.token}
-          creative={props.creative}
+          userName={props.location.state.userName}
+          avatarImage={props.location.state.avatarImage}
+          token={props.location.state.token}
+          creative={props.location.state.creative}
         />
         <div className='login-body'>
           <div className='login-container'>
@@ -141,9 +141,10 @@ const Search = props => {
           <div className='login-image-container'></div>
         </div>
         <Footer
-          userName={props.userName}
-          avatarImage={props.avatarImage}
-          token={props.token}
+          userName={props.location.state.userName}
+          avatarImage={props.location.state.avatarImage}
+          token={props.location.state.token}
+          creative={props.location.state.creative}
         />
         {loading ? <Spinner /> : renderRedirect()}
       </div>
