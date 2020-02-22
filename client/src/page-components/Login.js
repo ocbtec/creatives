@@ -8,7 +8,7 @@ import { Spinner } from '../components/Spinner';
 
 import '../css/login.css';
 
-const Login = () => {
+const Login = props => {
   //states
   const [formData, setFormData] = useState({
     email: '',
@@ -102,6 +102,7 @@ const Login = () => {
           avatarImage={user.avatar}
           token={token}
           creative={user.creative}
+          categories={props.categories}
         />
         <div className='login-body'>
           <div className='login-container'>

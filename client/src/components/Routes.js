@@ -11,6 +11,7 @@ import About from '../page-components/About';
 import Search from '../page-components/Search';
 import UserUpdate from '../page-components/UserUpdate';
 import Works from '../page-components/Works';
+import Results from '../page-components/Results';
 import Logout from '../components/Logout';
 
 const Routes = () => (
@@ -26,6 +27,7 @@ const Routes = () => (
       <Route path='/search' component={Search} exact />
       <Route path='/userupdate' component={UserUpdate} exact />
       <Route path='/works' component={Works} exact />
+      <Route path='/results' component={Results} exact />
       <Route path='/' component={Logout} exact />
     </Switch>
   </BrowserRouter>
