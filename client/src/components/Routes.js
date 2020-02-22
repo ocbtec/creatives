@@ -13,6 +13,7 @@ import UserUpdate from '../page-components/UserUpdate';
 import Works from '../page-components/Works';
 import Results from '../page-components/Results';
 import Logout from '../components/Logout';
+import NotFound404 from '../page-components/NotFound404';
 
 const Routes = () => (
   <BrowserRouter>
@@ -29,6 +30,7 @@ const Routes = () => (
       <Route path='/works' component={Works} exact />
       <Route path='/results' component={Results} exact />
       <Route path='/' component={Logout} exact />
+      <Route path='/404' component={NotFound404} exact />
     </Switch>
   </BrowserRouter>
 );
