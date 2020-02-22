@@ -1,13 +1,13 @@
 .menu-container {
   position: absolute;
-  top: -80px;
+  top: 0px;
   width: 100vw;
   height: 100vh;
 }
 .burger-menu-container {
   position: fixed;
   z-index: 10;
-  top: 30px;
+  top: 20px;
   right: 45px;
 }
 .menu {
@@ -18,7 +18,7 @@
   right: -1000px;
   opacity: 0.95;
   z-index: 1;
-  margin-top: 80px;
+  margin-top: 60px;
 }
 .menu-fade-in {
   animation: menu-fade-in 0.4s ease 1 forwards;

@@ -13,7 +13,7 @@ const NavbarDisplay = ({ userName, avatarImage }) => {
     <Fragment>
       <div className='navbar-display'>
         <MessageIcon />
-        <p className='pipe-divider'>|</p>
+        <p className='pipe-divider'></p>
         <Link to='/' className='avatar-link'>
           <img
             className='avatar-image'
