@@ -531,7 +531,12 @@ const RegisterCreative = props => {
             </form>
           </div>
         </div>
-        <Footer userName={user.name} avatarImage={user.avatar} token={token} />
+        <Footer
+          userName={user.name}
+          avatarImage={user.avatar}
+          token={token}
+          creative={user.creative}
+        />
         {loading ? <Spinner /> : renderRedirect()}
       </div>
     </Fragment>
