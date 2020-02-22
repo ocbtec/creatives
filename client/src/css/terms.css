@@ -39,19 +39,22 @@
 .yawn-icon {
   width: 40px;
   height: 40px;
-  animation: turning-head 20s ease 5s infinite;
+  animation: turning-head 10s infinite;
 }
 @keyframes turning-head {
   0% {
     transform: rotate(0deg);
   }
-  25% {
+  20% {
     transform: rotate(20deg);
   }
-  50% {
-    transform: rotate(0deg);
+  40% {
+    transform: rotate(-20deg);
   }
-  75% {
+  60% {
+    transform: rotate(20deg);
+  }
+  80% {
     transform: rotate(-20deg);
   }
   100% {
