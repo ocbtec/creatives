@@ -10,7 +10,8 @@ const MenuLink = props => {
           userName: props.userName,
           avatarImage: props.avatarImage,
           token: props.token,
-          creative: props.creative
+          creative: props.creative,
+          categories: props.categories
         }
       }}>
       <li className='menu-item'>

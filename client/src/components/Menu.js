@@ -92,6 +92,7 @@ const Menu = props => {
                 avatarImage={props.avatarImage}
                 token={props.token}
                 creative={props.creative}
+                categories={props.categories}
               />
             );
           })}
