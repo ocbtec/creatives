@@ -9,7 +9,7 @@ const Header = ({ userName, avatarImage, token, creative }) => {
   return (
     <Fragment>
       <div className='header'>
-        <div className='logo-container'>
+        <div className='header-logo-container'>
           <Link
             to={{
               pathname: '/',
@@ -21,7 +21,7 @@ const Header = ({ userName, avatarImage, token, creative }) => {
               }
             }}>
             <img
-              className='logo'
+              className='header-logo'
               src={require('../images/logo.svg')}
               alt='logo'
             />

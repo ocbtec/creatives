@@ -68,3 +68,117 @@
     right: -1000px;
   }
 }
+
+.menu-button {
+  border: none;
+  background-color: #00000000;
+  outline: none;
+  position: relative;
+  height: 20px;
+  width: 40px;
+  cursor: pointer;
+}
+
+.menubar-1 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 38px;
+  height: 2px;
+  border-radius: 5px;
+  background-color: #dedfde;
+}
+.menubar-1-open-menu {
+  animation: menubar-1-transition-open 0.5s ease 1 forwards;
+}
+@keyframes menubar-1-transition-open {
+  0% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+  100% {
+    transform: translate(0px, 8px) rotate(-30deg);
+  }
+}
+.menubar-1-close-menu {
+  animation: menubar-1-transition-close 0.5s ease 1 forwards;
+}
+@keyframes menubar-1-transition-close {
+  0% {
+    transform: translate(0px, 8px) rotate(-30deg);
+  }
+  100% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+}
+.menubar-2 {
+  position: absolute;
+  top: 8px;
+  right: 0;
+  width: 32px;
+  height: 2px;
+  border-radius: 5px;
+  background-color: #dedfde;
+}
+.menubar-2-open-menu {
+  animation: menubar-2-transition-open 0.8s ease 1 forwards;
+}
+@keyframes menubar-2-transition-open {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  100% {
+    transform: translate(200px, 0px);
+  }
+}
+.menubar-2-close-menu {
+  animation: menubar-2-transition-close 0.5s ease 1 forwards;
+}
+@keyframes menubar-2-transition-close {
+  0% {
+    transform: translate(0px, -100px);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
+.menubar-3 {
+  position: absolute;
+  top: 16px;
+  right: 0;
+  width: 22px;
+  height: 2px;
+  border-radius: 5px;
+  background-color: #dedfde;
+}
+.menubar-3-open-menu {
+  animation: menubar-3-transition-open 0.5s ease 1 forwards;
+}
+@keyframes menubar-3-transition-open {
+  0% {
+    transform: translate(0px, 0px) rotate(0deg);
+    width: 22px;
+  }
+  100% {
+    transform: translate(0px, -8px) rotate(30deg);
+    width: 38px;
+  }
+}
+.menubar-3-close-menu {
+  animation: menubar-3-transition-close 0.5s ease 1 forwards;
+}
+@keyframes menubar-3-transition-close {
+  0% {
+    transform: translate(0px, -8px) rotate(30deg);
+    width: 38px;
+  }
+  100% {
+    transform: translate(0px, 0px) rotate(0deg);
+    width: 22px;
+  }
+}
+.burger-menu {
+  height: 20px;
+}
+.burger-menu:hover {
+  cursor: pointer;
+}

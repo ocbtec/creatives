@@ -23,7 +23,7 @@ const Search = props => {
   const [redirect, setRedirect] = useState(false);
 
   //De-structure form Data
-  const { userType, city, text, category, tags } = formData;
+  const { type, city, text, category, tags } = formData;
   //OnChange event Listener for all input fields and buttons
   const onChange = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value });

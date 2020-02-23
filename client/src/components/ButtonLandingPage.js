@@ -14,7 +14,7 @@ const ButtonLandingPage = props => {
           creative: props.creative
         }
       }}>
-      <button id={props.idButton} className='button'>
+      <button id={props.idButton} className='logoAnimation-button'>
         <div id={props.idText}>{props.buttonText}</div>
       </button>
     </Link>
