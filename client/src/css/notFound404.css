@@ -1,0 +1,47 @@
+.not-found-body {
+  width: 100%;
+  height: 100%;
+  margin-top: 60px;
+  display: flex;
+  flex-grow: 1;
+}
+.left-side-image-container {
+  width: 66.6%;
+  height: 100%;
+  background-image: url('/images/404-cat.jpg');
+  background-size: cover;
+}
+.right-side {
+  width: 33.3%;
+  /* min-width: ; */
+  display: flex;
+  align-items: center;
+}
+
+.right-side-flex {
+  width: 100%;
+  height: 300px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  color: #606a6c;
+}
+.not-found-item {
+  width: 250px;
+  text-align: center;
+  line-height: 25px;
+}
+#back-button {
+  width: 250px;
+  height: 40px;
+  border-radius: 10px;
+  border-style: none;
+  background-color: #606a6c;
+  /* color: #fefefe; */
+  color: #3b22ac;
+  font-size: 14pt;
+  cursor: pointer;
+  margin-top: 340px;
+}

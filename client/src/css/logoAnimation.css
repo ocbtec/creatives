@@ -75,7 +75,7 @@
   width: 100%;
   height: 100%;
 }
-.button {
+.logoAnimation-button {
   position: absolute;
   width: 50%;
   height: 50%;
@@ -87,7 +87,7 @@
   opacity: 0;
   animation: button-fade-in 2s ease 2s 1 forwards;
 }
-.button:hover {
+.logoAnimation-button:hover {
   color: #b6b6b6;
   background: #00000055;
   border: 1px solid white;

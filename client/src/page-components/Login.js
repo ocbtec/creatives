@@ -140,7 +140,7 @@ const Login = props => {
                 autoComplete='new-password'
               />
 
-              <Link to='/'>
+              <Link to='/forgotPassword'>
                 <div className='forgot-password'>forgot password?</div>
               </Link>
 
