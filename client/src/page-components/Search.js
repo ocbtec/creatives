@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 import Header from '../components/Header';
@@ -21,12 +21,37 @@ const Search = props => {
   const [errors, setErrors] = useState([]);
   const [loading, setLoading] = useState(false);
   const [redirect, setRedirect] = useState(false);
+  const [checked, setChecked] = useState(false);
+  const [categoryTags, setCategoryTags] = useState([]);
+
+  let filteredTags;
+
+  const fetchTags = () => {
+    props.location.state.categories.forEach(category => {
+      if (category.categoryName === formData.category) {
+        setCategoryTags(category.categoryTags);
+      }
+    });
+  };
+
+  useEffect(() => {
+    fetchTags();
+  }, [checked]);
 
   //De-structure form Data
   const { type, city, text, category, tags } = formData;
   //OnChange event Listener for all input fields and buttons
   const onChange = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  document.addEventListener('keypress', e => {
+    e.keyCode === 13 && e.preventDefault();
+  });
+
+  const radioButtonClick = (e, index) => {
+    setFormData({ ...formData, category: e.target.name });
+    setChecked(index);
   };
 
   //Redirect handler
@@ -134,6 +159,32 @@ const Search = props => {
                 <div className='forgot-password'>forgot password?</div>
               </Link>
              */}
+
+              {props.location.state.categories.map((category, index) => {
+                return (
+                  <label htmlFor={category.categoryName}>
+                    <input
+                      key={category._id}
+                      type='radio'
+                      checked={checked === index ? true : false}
+                      id={category.categoryName}
+                      name={category.categoryName}
+                      value={category.categoryName}
+                      onChange={e => radioButtonClick(e, index)}
+                    />
+                    {category.categoryName}
+                  </label>
+                );
+              })}
+
+              {/* {props.location.state.categories.filter(category => {
+                filteredTags =
+                  category.categoryName === [...formData.category] && category; */}
+
+              {/* })} */}
+
+              <p>{categoryTags}</p>
+
               <div className='error-message'>{errorValue}</div>
               <button className='register-button'>Search</button>
             </form>

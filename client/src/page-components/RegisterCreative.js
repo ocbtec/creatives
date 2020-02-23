@@ -253,7 +253,7 @@ const RegisterCreative = props => {
           avatarImage={user.avatar}
           token={token}
           creative={user.creative}
-          categories={props.categories}
+          categories={props.location.state.categories}
         />
         <div className='register-creative-body'>
           <div className='creative-image-container'>
