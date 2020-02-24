@@ -34,6 +34,7 @@ const NotFound404 = props => {
           userName={props.userName}
           avatarImage={props.avatarImage}
           token={props.token}
+          categories={props.location.state.categories}
         />
       </div>
     </Fragment>

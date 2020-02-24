@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom';
 import '../css/footer.css';
 
 const Footer = props => {
-  console.log(props);
-
   return (
     <Fragment>
       <div className='footer'>

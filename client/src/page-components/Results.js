@@ -23,6 +23,7 @@ const Results = props => {
           avatarImage={props.location.state.avatarImage}
           token={props.location.state.token}
           creative={props.location.state.creative}
+          categories={props.location.state.categories}
         />
       </div>
     </Fragment>
