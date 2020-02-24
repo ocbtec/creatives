@@ -4,6 +4,11 @@ import Footer from '../components/Footer';
 import '../css/notFound404.css';
 
 const NotFound404 = props => {
+  let categoriesProps;
+  props.location.state !== undefined
+    ? (categoriesProps = props.location.state.categories)
+    : (categoriesProps = props.categories);
+
   const backClick = () => {
     props.history.go(-1);
   };
@@ -34,7 +39,7 @@ const NotFound404 = props => {
           userName={props.userName}
           avatarImage={props.avatarImage}
           token={props.token}
-          categories={props.location.state.categories}
+          categories={categoriesProps}
         />
       </div>
     </Fragment>
