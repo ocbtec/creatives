@@ -18,6 +18,7 @@ const Works = props => (
         userName={props.location.state.userName}
         avatarImage={props.location.state.avatarImage}
         token={props.location.state.token}
+        categories={props.location.state.categories}
       />
     </div>
   </Fragment>

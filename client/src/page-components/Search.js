@@ -25,24 +25,17 @@ const Search = props => {
   const [categoryTags, setCategoryTags] = useState([]);
 
   let categoriesProps;
-  console.log(props.location.state.categories);
-  console.log(props.categories);
-
   props.location.state.categories !== undefined
     ? (categoriesProps = props.location.state.categories)
     : (categoriesProps = props.categories);
 
-  const fetchTags = () => {
+  useEffect(() => {
     categoriesProps.forEach(category => {
       if (category.categoryName === formData.category) {
         setCategoryTags(category.categoryTags);
       }
     });
-  };
-
-  useEffect(() => {
-    fetchTags();
-  }, [checked]);
+  }, [categoriesProps, formData.category, checked]);
 
   //De-structure form Data
   const { type, city, text, category, tags } = formData;
@@ -158,6 +151,7 @@ const Search = props => {
                 <img
                   className='search-creatives-toggle-image'
                   src='/images/yawn-icon.png'
+                  alt='Creatives icon'
                 />
               </button>
 
@@ -169,14 +163,15 @@ const Search = props => {
                 <img
                   className='search-creations-toggle-image'
                   src='/images/user-icon.png'
+                  alt='Creations icon'
                 />
               </button>
 
               {categoriesProps.map((category, index) => {
                 return (
-                  <label htmlFor={category.categoryName}>
+                  <label key={index} htmlFor={category.categoryName}>
                     <input
-                      key={category._id}
+                      key={index}
                       type='radio'
                       checked={checked === index ? true : false}
                       id={category.categoryName}

@@ -6,6 +6,8 @@ import '../css/terms.css';
 // import BubbleAnimation from "../components/BubbleAnimation";
 
 const Terms = props => {
+  console.log(props);
+
   return (
     <Fragment>
       <Header

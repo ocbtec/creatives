@@ -536,6 +536,7 @@ const RegisterCreative = props => {
           avatarImage={user.avatar}
           token={token}
           creative={user.creative}
+          categories={props.location.state.categories}
         />
         {loading ? <Spinner /> : renderRedirect()}
       </div>
