@@ -93,6 +93,10 @@
   border: 1px solid white;
   cursor: pointer;
 }
+
+.logoAnimation-button-deactivated {
+  pointer-events: none;
+}
 @keyframes button-fade-in {
   0% {
     opacity: 0;
