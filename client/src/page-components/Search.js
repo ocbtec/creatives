@@ -159,7 +159,7 @@ const Search = props => {
                 <div className='forgot-password'>forgot password?</div>
               </Link>
              */}
-
+              {console.log(props.location.state.categories)}
               {props.location.state.categories.map((category, index) => {
                 return (
                   <label htmlFor={category.categoryName}>
