@@ -71,7 +71,12 @@ const Search = props => {
           to={{
             pathname: '/results',
             state: {
-              searchResults: searchResults
+              searchResults: searchResults,
+              userName: props.location.state.userName,
+              avatarImage: props.location.state.avatarImage,
+              token: props.location.state.token,
+              creative: props.location.state.creative,
+              categories: categoriesProps
             }
           }}
         />

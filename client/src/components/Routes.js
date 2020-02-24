@@ -29,7 +29,7 @@ const Routes = () => (
       <Route path='/userupdate' component={UserUpdate} exact />
       <Route path='/works' component={Works} exact />
       <Route path='/results' component={Results} exact />
-      <Route path='/' component={Logout} exact />
+      <Route path='/logout' component={Logout} exact />
       <Route component={NotFound404} />
     </Switch>
   </BrowserRouter>

@@ -104,6 +104,7 @@ const Login = props => {
           token={token}
           creative={user.creative}
           categories={props.location.state.categories}
+          handleLogout={props.handleLogout}
         />
         <div className='login-body'>
           <div className='login-container'>
