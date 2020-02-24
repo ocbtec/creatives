@@ -176,7 +176,7 @@ const RegisterUser = props => {
           avatarImage={user.avatar}
           token={token}
           creative={user.creative}
-          categories={props.categories}
+          categories={props.location.state.categories}
         />
         <div className='register-user-body'>
           <div className='image-container'>

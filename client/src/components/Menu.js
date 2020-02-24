@@ -16,6 +16,8 @@ import '../css/menu.css';
 // static links
 let menuDisplayed = false;
 const Menu = props => {
+  console.log(props);
+
   const [linksArray, setLinksArray] = useState([
     homeLink,
     aboutLink,
