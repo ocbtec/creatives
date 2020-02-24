@@ -10,7 +10,7 @@ import '../css/search.css';
 const Search = props => {
   //States
   const [formData, setFormData] = useState({
-    type: '',
+    type: 'creations',
     city: '',
     text: '',
     category: '',
@@ -45,11 +45,16 @@ const Search = props => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const typeToggleClick = e => {
+    e.preventDefault();
+    setFormData({ ...formData, type: e.currentTarget.name });
+  };
+
   document.addEventListener('keypress', e => {
     e.keyCode === 13 && e.preventDefault();
   });
 
-  const radioButtonClick = (e, index) => {
+  const radioCategoryClick = (e, index) => {
     setFormData({ ...formData, category: e.target.name });
     setChecked(index);
   };
@@ -81,11 +86,11 @@ const Search = props => {
     setLoading(true);
     //Create search object
     const search = {
-      type: '',
-      city: '',
-      text: '',
-      category: '',
-      tags: ''
+      type,
+      category,
+      city,
+      text,
+      tags
     };
 
     //Post to backend
@@ -97,11 +102,16 @@ const Search = props => {
       };
       const body = JSON.stringify(search);
       const res = await axios.get(
-        'https://creatives-api.herokuapp.com/api/search',
+        // 'https://creatives-api.herokuapp.com/api/search',
+
+        'http://localhost:5000/api/search',
         body,
         config
       );
+      console.log(body);
+
       setSearchResults(res.data);
+      console.log(res.data);
       setLoading(false);
       handleRedirect();
     } catch (err) {
@@ -136,30 +146,28 @@ const Search = props => {
             <form
               className='form-container flex-item'
               onSubmit={e => onSubmit(e)}>
-              {/* <input
-                className='login-input-text'
-                type='email'
-                placeholder='* Email'
-                name='email'
-                onChange={e => onChange(e)}
-                required
-              /> */}
-              {/*  <input
-                className='login-input-text'
-                type='password'
-                placeholder='* Password'
-                name='password'
-                value={password}
-                onChange={e => onChange(e)}
-                required
-                minLength='6'
-                autoComplete='new-password'
-              />
-              <Link>
-                <div className='forgot-password'>forgot password?</div>
-              </Link>
-             */}
-              {console.log(props.location.state.categories)}
+              <button
+                className='search-creatives-toggle'
+                name='creatives'
+                value='creatives'
+                onClick={e => typeToggleClick(e)}>
+                <img
+                  className='search-creatives-toggle-image'
+                  src='/images/yawn-icon.png'
+                />
+              </button>
+
+              <button
+                className='search-creations-toggle'
+                name='creations'
+                value='creations'
+                onClick={e => typeToggleClick(e)}>
+                <img
+                  className='search-creations-toggle-image'
+                  src='/images/user-icon.png'
+                />
+              </button>
+
               {props.location.state.categories.map((category, index) => {
                 return (
                   <label htmlFor={category.categoryName}>
@@ -170,20 +178,31 @@ const Search = props => {
                       id={category.categoryName}
                       name={category.categoryName}
                       value={category.categoryName}
-                      onChange={e => radioButtonClick(e, index)}
+                      onChange={e => radioCategoryClick(e, index)}
                     />
                     {category.categoryName}
                   </label>
                 );
               })}
 
-              {/* {props.location.state.categories.filter(category => {
-                filteredTags =
-                  category.categoryName === [...formData.category] && category; */}
-
-              {/* })} */}
-
               <p>{categoryTags}</p>
+              <input
+                className='search-text-input'
+                type='text'
+                placeholder='Creative / Creation'
+                name='text'
+                value={text}
+                onChange={e => onChange(e)}
+              />
+
+              <input
+                className='search-city-input'
+                type='text'
+                placeholder='City'
+                name='city'
+                value={city}
+                onChange={e => onChange(e)}
+              />
 
               <div className='error-message'>{errorValue}</div>
               <button className='register-button'>Search</button>
