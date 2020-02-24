@@ -24,8 +24,6 @@ const Search = props => {
   const [checked, setChecked] = useState(false);
   const [categoryTags, setCategoryTags] = useState([]);
 
-  console.log(props.location.state);
-
   let categoriesProps;
   props.location.state.categories !== undefined
     ? (categoriesProps = props.location.state.categories)

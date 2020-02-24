@@ -22,7 +22,6 @@
 }
 .not-found-right-side {
   width: 33.3%;
-  /* min-width: ; */
   display: flex;
   align-items: center;
 }

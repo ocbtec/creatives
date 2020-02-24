@@ -8,8 +8,6 @@ import { Spinner } from '../components/Spinner';
 import '../css/registerUser.css';
 
 const RegisterUser = props => {
-  console.log(props);
-
   //states
   const [formData, setFormData] = useState({
     name: '',
