@@ -6,6 +6,8 @@ import '../css/landingPage.css';
 let userName, avatarImage, token, creative;
 
 const LandingPage = props => {
+  console.log(props);
+
   if (props.location.state !== undefined) {
     userName = props.location.state.userName;
     avatarImage = props.location.state.avatarImage;

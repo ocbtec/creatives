@@ -8,6 +8,8 @@ import { Spinner } from '../components/Spinner';
 import '../css/registerUser.css';
 
 const RegisterUser = props => {
+  console.log(props);
+
   //states
   const [formData, setFormData] = useState({
     name: '',
@@ -114,7 +116,8 @@ const RegisterUser = props => {
               userName: user.name,
               avatarImage: user.avatar,
               token: token,
-              creative: user.creative
+              creative: user.creative,
+              categories: props.location.state.categories
             }
           }}
         />
