@@ -101,17 +101,14 @@ const Search = props => {
         }
       };
       const body = JSON.stringify(search);
-      const res = await axios.get(
-        // 'https://creatives-api.herokuapp.com/api/search',
-
-        'http://localhost:5000/api/search',
+      console.log(body);
+      const res = await axios.post(
+        'https://creatives-api.herokuapp.com/api/search',
         body,
         config
       );
-      console.log(body);
 
       setSearchResults(res.data);
-      console.log(res.data);
       setLoading(false);
       handleRedirect();
     } catch (err) {
