@@ -45,7 +45,8 @@ const Login = props => {
               userName: user.name,
               avatarImage: user.avatar,
               token: token,
-              creative: user.creative
+              creative: user.creative,
+              categories: props.location.state.categories
             }
           }}
         />
@@ -102,7 +103,7 @@ const Login = props => {
           avatarImage={user.avatar}
           token={token}
           creative={user.creative}
-          categories={props.categories}
+          categories={props.location.state.categories}
         />
         <div className='login-body'>
           <div className='login-container'>
@@ -156,6 +157,7 @@ const Login = props => {
           avatarImage={user.avatar}
           token={token}
           creative={user.creative}
+          categories={props.location.state.categories}
         />
         {loading ? <Spinner /> : renderRedirect()}
       </div>

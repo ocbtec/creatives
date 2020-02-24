@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import '../css/footer.css';
 
 const Footer = props => {
+  console.log(props);
+
   return (
     <Fragment>
       <div className='footer'>
@@ -16,7 +18,11 @@ const Footer = props => {
                 userName: props.userName,
                 avatarImage: props.avatarImage,
                 token: props.token,
-                creative: props.creative
+                creative: props.creative,
+                // categories: props.location.state.categories
+                //   ? props.location.state.categories
+                //   : props.categories
+                categories: props.categories
               }
             }}>
             Terms & Conditions

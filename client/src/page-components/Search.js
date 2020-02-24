@@ -24,10 +24,16 @@ const Search = props => {
   const [checked, setChecked] = useState(false);
   const [categoryTags, setCategoryTags] = useState([]);
 
-  let filteredTags;
+  let categoriesProps;
+  console.log(props.location.state.categories);
+  console.log(props.categories);
+
+  props.location.state.categories !== undefined
+    ? (categoriesProps = props.location.state.categories)
+    : (categoriesProps = props.categories);
 
   const fetchTags = () => {
-    props.location.state.categories.forEach(category => {
+    categoriesProps.forEach(category => {
       if (category.categoryName === formData.category) {
         setCategoryTags(category.categoryTags);
       }
@@ -130,6 +136,7 @@ const Search = props => {
           avatarImage={props.location.state.avatarImage}
           token={props.location.state.token}
           creative={props.location.state.creative}
+          categories={categoriesProps}
         />
         <div className='login-body'>
           <div className='login-container'>
@@ -165,7 +172,7 @@ const Search = props => {
                 />
               </button>
 
-              {props.location.state.categories.map((category, index) => {
+              {categoriesProps.map((category, index) => {
                 return (
                   <label htmlFor={category.categoryName}>
                     <input
@@ -212,6 +219,7 @@ const Search = props => {
           avatarImage={props.location.state.avatarImage}
           token={props.location.state.token}
           creative={props.location.state.creative}
+          categories={categoriesProps}
         />
         {loading ? <Spinner /> : renderRedirect()}
       </div>
