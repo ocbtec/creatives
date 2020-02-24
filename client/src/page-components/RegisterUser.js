@@ -179,14 +179,14 @@ const RegisterUser = props => {
           categories={props.location.state.categories}
         />
         <div className='register-user-body'>
-          <div className='image-container'>
+          <div className='register-user-image-container'>
             <div className='image-container-2'></div>
             <div className='image-lightning-1'></div>
             <div className='image-lightning-2'></div>
             <div className='image-lightning-3'></div>
           </div>
           <div className='register-user-container'>
-            <div className='flex-item headline'>
+            <div className='headline'>
               <img
                 className='register-icon'
                 src={require('../images/register-user-icon.svg')}
@@ -194,14 +194,10 @@ const RegisterUser = props => {
               />
               <h1>Register as User</h1>
             </div>
-            <div className='flex-item headline-2'>
+            <div className='headline-2'>
               Please fill in all fields to Register
             </div>
-            <form
-              className='form-container flex-item'
-              onSubmit={e => onSubmit(e)}>
-              <input style={{ display: 'none' }} />
-              <input type='password' style={{ display: 'none' }} />
+            <form className='user-form-container' onSubmit={e => onSubmit(e)}>
               <input
                 id='userName'
                 className='input-text'
@@ -312,11 +308,11 @@ const RegisterUser = props => {
                     pointerEvents: registerButtonActive.button.active,
                     opacity: registerButtonActive.button.opacity
                   }}
-                  className='register-button'>
+                  className='user-register-button'>
                   Register
                 </button>
               </div>
-              <div className='error-message'>{errorValue}</div>
+              <div className='register-user-error-message'>{errorValue}</div>
             </form>
           </div>
         </div>

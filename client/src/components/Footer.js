@@ -23,7 +23,7 @@ const Footer = props => {
                 categories: props.categories
               }
             }}>
-            Terms & Conditions
+            Terms &amp; Conditions
           </Link>
         </p>
       </div>

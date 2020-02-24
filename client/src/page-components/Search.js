@@ -145,9 +145,7 @@ const Search = props => {
               alt='logo'
             />
             <div className='headline'>Please enter your search criteria</div>
-            <form
-              className='form-container flex-item'
-              onSubmit={e => onSubmit(e)}>
+            <form className='form-container' onSubmit={e => onSubmit(e)}>
               <button
                 className='search-creatives-toggle'
                 name='creatives'
@@ -212,7 +210,7 @@ const Search = props => {
               <button className='register-button'>Search</button>
             </form>
           </div>
-          <div className='login-image-container'></div>
+          <div className='search-image-container'></div>
         </div>
         <Footer
           userName={props.location.state.userName}

@@ -6,7 +6,7 @@ import '../css/about.css';
 const About = props => {
   return (
     <Fragment>
-      <div className='main-container'>
+      <div className='about-main-container'>
         <Header
           userName={props.location.state.userName}
           avatarImage={props.location.state.avatarImage}

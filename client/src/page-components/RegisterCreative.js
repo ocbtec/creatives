@@ -247,7 +247,7 @@ const RegisterCreative = props => {
 
   return (
     <Fragment>
-      <div className='main-container-register-creative'>
+      <div className='register-creative-main-container'>
         <Header
           userName={user.name}
           avatarImage={user.avatar}
@@ -262,10 +262,10 @@ const RegisterCreative = props => {
             <div className='creative-image-lightning-2'></div>
             <div className='creative-image-lightning-3'></div>
           </div>
-          <div className='register-container'>
+          <div className='creative-register-container'>
             <div className='creative-headline'>
               <img
-                className='register-icon'
+                className='creative-register-icon'
                 src={require('../images/register-user-icon.svg')}
                 alt='Register-Icon'
               />
@@ -274,9 +274,7 @@ const RegisterCreative = props => {
             <form
               className='creative-form-container'
               onSubmit={e => onSubmit(e)}>
-              <div className='input-container'>
-                <input style={{ display: 'none' }} />
-                <input type='password' style={{ display: 'none' }} />
+              <div className='creative-input-container'>
                 <input
                   id='userName'
                   className='creative-input-text'
@@ -332,9 +330,9 @@ const RegisterCreative = props => {
                 <div className='creative-required-label'>* required</div>
 
                 <div className='creative-checkbox-container-outer'>
-                  <div className='checkbox-container-inner'>
+                  <div className='creative-checkbox-container-inner'>
                     <input
-                      className='input-checkbox'
+                      className='creative-input-checkbox'
                       type='checkbox'
                       placeholder='Make Email public'
                       name='emailVisible'
@@ -344,10 +342,10 @@ const RegisterCreative = props => {
                     <p className='checkbox-label'>display email publicly</p>
                   </div>
                   <div
-                    className='checkbox-container-inner'
+                    className='creative-checkbox-container-inner'
                     id='align-items-top'>
                     <input
-                      className='input-checkbox'
+                      className='creative-input-checkbox'
                       type='checkbox'
                       placeholder='Allow Email Notifications'
                       name='emailNotificationAllowed'
@@ -363,9 +361,9 @@ const RegisterCreative = props => {
                       </p>
                     </div>
                   </div>
-                  <div className='checkbox-container-inner'>
+                  <div className='creative-checkbox-container-inner'>
                     <input
-                      className='input-checkbox'
+                      className='creative-input-checkbox'
                       type='checkbox'
                       placeholder='Subscribe to our Newsletter'
                       name='subscribeToNewsletter'
@@ -490,16 +488,16 @@ const RegisterCreative = props => {
                 <div className='creative-line-long'></div>
                 <div className='avatar-container'>
                   <div className='avatar-container-left'>
-                    <div className='upload-avatar'>
+                    <div className='creative-upload-avatar'>
                       {registerButtonActive.button.avatarPath === '' ? (
                         <img
-                          className='user-icon'
+                          className='creative-user-icon'
                           src={require('../images/user-icon-dark.png')}
                           alt='User icon'
                         />
                       ) : (
                         <img
-                          className='user-icon'
+                          className='creative-user-icon'
                           src={registerButtonActive.button.avatarPath}
                           alt='User icon'
                         />
@@ -507,7 +505,7 @@ const RegisterCreative = props => {
                       <span>{registerButtonActive.button.userName}</span>
                     </div>
                     <input
-                      className='choose-file'
+                      className='creative-choose-file'
                       type='file'
                       placeholder='Upload an avatar'
                       name='avatar'

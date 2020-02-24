@@ -1,4 +1,4 @@
-.main-container-register-creative {
+.register-creative-main-container {
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -189,14 +189,14 @@
   height: 100%;
   width: 100%;
 }
-.register-container {
+.creative-register-container {
   width: 66.6%;
   height: auto;
   display: flex;
   flex-direction: column;
   margin-bottom: 40px;
 }
-.input-container {
+.creative-input-container {
   width: 50%;
   height: 100%;
   display: flex;
@@ -209,7 +209,7 @@
   width: 100%;
   display: flex;
 }
-.register-icon {
+.creative-register-icon {
   margin-right: 15px;
   width: 40px;
 }
@@ -258,14 +258,14 @@
   flex-direction: column;
   width: 280px;
 }
-.checkbox-container-inner {
+.creative-checkbox-container-inner {
   width: 280px;
   height: 40px;
   display: flex;
   align-items: center;
   margin-bottom: 5px;
 }
-.input-checkbox {
+.creative-input-checkbox {
   width: 15px;
   height: 15px;
 }
@@ -326,7 +326,7 @@
   height: 80px;
   width: 175px;
 }
-.upload-avatar {
+.creative-upload-avatar {
   color: #606a6c;
   font-size: 11pt;
   width: 100%;
@@ -334,14 +334,14 @@
   display: flex;
   align-items: center;
 }
-.user-icon {
+.creative-user-icon {
   height: 44px;
   width: 44px;
   margin-right: 10px;
   clip-path: circle(22px at center);
   object-fit: cover;
 }
-.choose-file {
+.creative-choose-file {
   width: 100%;
   height: 20px;
   color: #606a6c;

@@ -13,8 +13,8 @@ const buttonArray = [loginButton, showcaseButton, userButton, creativeButton];
 const LogoAnimation = props => {
   return (
     <Fragment>
-      <div className='container'>
-        <div className='background-absolute'>
+      <div className='logo-animation-container'>
+        <div className='logo-animation-background-absolute'>
           <img id='waves' src={require('../images/waves.jpg')} alt='waves' />
         </div>
         <div className='animated-logo-small-part'>
@@ -29,7 +29,7 @@ const LogoAnimation = props => {
             alt='animated-logo-1'
           />
         </div>
-        <div className='button-container'>
+        <div className='logo-animation-button-container'>
           {buttonArray.map((obj, index) => {
             return (
               <ButtonLandingPage
