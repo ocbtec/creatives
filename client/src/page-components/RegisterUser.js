@@ -71,6 +71,7 @@ const RegisterUser = props => {
       }
     });
 
+    setLoading(true);
     const files = x.target.files;
     const data = new FormData();
     data.append('file', files[0]);
@@ -84,6 +85,7 @@ const RegisterUser = props => {
     );
     const file = await cloudinaryRes.json();
     setImage(file.secure_url);
+    setLoading(false);
 
     if (file) {
       setRegisterButtonActive({
@@ -301,6 +303,7 @@ const RegisterUser = props => {
                       onChange={e => onChange(e)}
                     />
                   </div>
+                  {loading ? <Spinner /> : null}
                 </div>
 
                 <div className='line'></div>
