@@ -41,6 +41,12 @@
   width: 100px;
   margin: 40px 0px;
 }
+.login-form-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .login-input-text {
   width: 350px;
   height: 25px;
@@ -57,4 +63,15 @@
   width: 350px;
   text-align: left;
   margin: 5px 0px;
+}
+.login-button {
+  width: 350px;
+  height: 40px;
+  border-radius: 10px;
+  border-style: none;
+  background-color: #606a6c;
+  color: #fefefe;
+  font-size: 14pt;
+  cursor: pointer;
+  margin-top: 40px;
 }

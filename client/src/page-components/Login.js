@@ -117,9 +117,7 @@ const Login = props => {
             <div className='headline'>
               Please enter email and password to Login
             </div>
-            <form
-              className='form-container flex-item'
-              onSubmit={e => onSubmit(e)}>
+            <form className='login-form-container' onSubmit={e => onSubmit(e)}>
               <input
                 className='login-input-text'
                 type='email'
@@ -146,7 +144,7 @@ const Login = props => {
                 <div className='forgot-password'>forgot password?</div>
               </Link>
 
-              <button className='register-button'>Login</button>
+              <button className='login-button'>Login</button>
 
               <div className='error-message'>{errorValue}</div>
             </form>

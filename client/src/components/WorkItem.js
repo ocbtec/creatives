@@ -18,11 +18,11 @@ const WorkItem = props => {
 
   return (
     <div className='work-item'>
-      <div className='flex-container'>
-        <div className='title-left'>Title</div>
-        <div className='flex-right'>
+      <div className='work-item-flex-container'>
+        <div className='work-item-title-left'>Title</div>
+        <div className='work-item-flex-right'>
           <div
-            className='title-right-icon'
+            className='work-item-title-right-icon'
             style={{
               backgroundImage: 'url(./images/works-icon-dark.png)'
             }}></div>
@@ -34,9 +34,9 @@ const WorkItem = props => {
           className='work-image-container'
           style={{ backgroundImage: `url(${props.filePath})` }}></div>
       </div>
-      <div className='flex-container'>
-        <div className='category-left'>Category</div>
-        <div className='flex-right'>
+      <div className='work-item-flex-container'>
+        <div className='work-item-category-left'>Category</div>
+        <div className='work-item-flex-right'>
           <div className='showcase-category-icon-container'>
             <img
               className='showcase-category-icon'
@@ -47,16 +47,16 @@ const WorkItem = props => {
           <div>{props.fileCategory}</div>
         </div>
       </div>
-      <div id='flex-container-creator' className='flex-container'>
-        <div className='creator-left'>Creator</div>
-        <div className='flex-right'>
+      <div id='flex-container-creator' className='work-item-flex-container'>
+        <div className='work-item-creator-left'>Creator</div>
+        <div className='work-item-flex-right'>
           <img
             className='showcase-avatar-image'
             src={`${props.creativeAvatar}`}
             alt='Avatar'
           />
 
-          <div className='flex-item-right'>{props.creativeName}</div>
+          <div className='work-item-flex-item-right'>{props.creativeName}</div>
         </div>
       </div>
     </div>

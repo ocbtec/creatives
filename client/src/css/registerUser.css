@@ -13,7 +13,7 @@
   align-items: center;
   margin-top: 60px;
 }
-.image-container {
+.register-user-image-container {
   position: relative;
   width: 50%;
   height: 100%;
@@ -203,7 +203,7 @@
   justify-content: space-evenly;
   margin: 40px 0px;
 }
-.form-container {
+.user-form-container {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -309,7 +309,7 @@
   height: 20px;
   color: #606a6c;
 }
-.error-message {
+.register-user-error-message {
   position: absolute;
   bottom: 50px;
   left: 0;
@@ -331,7 +331,7 @@
     color: #a72929;
   }
 }
-.register-button {
+.user-register-button {
   width: 350px;
   height: 40px;
   border-radius: 10px;
