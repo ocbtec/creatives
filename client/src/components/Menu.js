@@ -25,6 +25,8 @@ const Menu = props => {
     searchLink
   ]);
 
+  const [menuDisplayed, setMenuDisplayed] = useState(false);
+
   const menuFadeIn = () => {
     // logged in as creative
     if (props.creative === 'true') {
@@ -62,14 +64,14 @@ const Menu = props => {
         el.className = `menubars menubar-${index + 1} menubar-${index +
           1}-open-menu`;
       });
-      menuDisplayed = !menuDisplayed;
+      setMenuDisplayed(!menuDisplayed);
     } else {
       menu.className = 'menu menu-fade-out';
       menubars.forEach((el, index) => {
         el.className = `menubars menubar-${index + 1} menubar-${index +
           1}-close-menu`;
       });
-      menuDisplayed = !menuDisplayed;
+      setMenuDisplayed(!menuDisplayed);
     }
   };
   return (
