@@ -1,13 +1,30 @@
-.spinner-container {
+.avatar-spinner {
+  width: 175px;
+  height: 100%;
+  top: 0;
+  right: 0;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.avatar-spinner-image {
+  width: 70px;
+  height: 70px;
+}
+.register-spinner {
+  position: absolute !important;
+  top: 0;
+  left: 0;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   position: absolute;
   background-color: #33333368;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.spinner {
+.register-spinner-image {
   width: 100px;
   height: 100px;
 }

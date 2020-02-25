@@ -1,13 +1,15 @@
 .register-creative-main-container {
+  position: relative;
   width: 100vw;
   height: 100vh;
-  display: flex;
+  /* display: flex; */
+  min-height: 760px;
   flex-direction: column;
   flex-grow: 1;
 }
 .register-creative-body {
   width: 100%;
-  height: auto;
+  height: 100%;
   display: flex;
   flex-grow: 1;
   align-items: center;
@@ -311,15 +313,16 @@
   height: 100%;
   display: flex;
 }
-.avatar-container {
+.creative-avatar-container {
+  position: relative;
   display: flex;
   flex-direction: column;
-  width: 280px;
+  width: 400px;
   height: 70px;
   margin: 18px 0px;
   justify-content: space-between;
 }
-.avatar-container-left {
+.creative-avatar-container-left {
   display: flex;
   flex-direction: column;
   justify-content: space-between;

@@ -24,7 +24,8 @@ const RegisterUser = props => {
   const [image, setImage] = useState('');
   const [errors, setErrors] = useState([]);
   const [redirect, setRedirect] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const [loadingAvatar, setLoadingAvatar] = useState(false);
+  const [loadingRegister, setLoadingRegister] = useState(false);
   const [registerButtonActive, setRegisterButtonActive] = useState({
     button: {
       active: '',
@@ -71,7 +72,7 @@ const RegisterUser = props => {
       }
     });
 
-    setLoading(true);
+    setLoadingAvatar(true);
     const files = x.target.files;
     const data = new FormData();
     data.append('file', files[0]);
@@ -85,7 +86,7 @@ const RegisterUser = props => {
     );
     const file = await cloudinaryRes.json();
     setImage(file.secure_url);
-    setLoading(false);
+    setLoadingAvatar(false);
 
     if (file) {
       setRegisterButtonActive({
@@ -128,7 +129,7 @@ const RegisterUser = props => {
   //OnSubmit event handler
   const onSubmit = async e => {
     e.preventDefault();
-    setLoading(true);
+    setLoadingRegister(true);
 
     //Create user object
     const newUser = {
@@ -158,11 +159,11 @@ const RegisterUser = props => {
 
       setToken(res.data.token);
       setUser(res.data.user);
-      setLoading(false);
+      setLoadingRegister(false);
       handleRedirect();
     } catch (err) {
       setErrors(err.response.data.errors);
-      setLoading(false);
+      setLoadingRegister(false);
     }
   };
 
@@ -303,7 +304,8 @@ const RegisterUser = props => {
                       onChange={e => onChange(e)}
                     />
                   </div>
-                  {loading ? <Spinner /> : null}
+                  {loadingAvatar ? <Spinner name='avatar-spinner' /> : null}
+                  <Spinner name='avatar-spinner' />
                 </div>
 
                 <div className='line'></div>
@@ -326,7 +328,12 @@ const RegisterUser = props => {
           token={token}
           categories={props.location.state.categories}
         />
-        {loading ? <Spinner /> : renderRedirect()}
+        {loadingRegister ? (
+          <Spinner name='register-spinner' />
+        ) : (
+          renderRedirect()
+        )}
+        <Spinner name='register-spinner' />
       </div>
     </Fragment>
   );

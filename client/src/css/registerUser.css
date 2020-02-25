@@ -1,7 +1,8 @@
 .register-user-main-container {
+  position: relative;
   width: 100vw;
   height: 100vh;
-  display: flex;
+  min-height: 620px;
   flex-direction: column;
   flex-grow: 1;
 }
@@ -276,6 +277,7 @@
   margin: 5px 0px;
 }
 .avatar-container {
+  position: relative;
   display: flex;
   flex-direction: column;
   width: 350px;
