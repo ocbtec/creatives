@@ -17,15 +17,20 @@ const About = props => {
         <div className='about-body'>
           <h1>About</h1>
           <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. It has survived not
-            only five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged. It was popularised in the 1960s
-            with the release of Letraset sheets containing Lorem Ipsum passages,
-            and more recently with desktop publishing software like Aldus
-            PageMaker including versions of Lorem Ipsum.
+            Hi. Welcome to Creatives. We designed this site with the idea of
+            creating a platform for creative folk to show their works. A
+            creative person is anybody that has a talent for creating. Whether
+            it be an artist, photographer, musician or a web developer. The site
+            allows a creative to register and give us details they would want to
+            share. Such as social media links, email, and of course upload
+            examples of their work. All these details are searchable by other
+            creatives as well as normal users. Normal users are people who want
+            to either contact a creative for a particular purchase or contract
+            them to create a specific work. Such as a mural or a water feature
+            in their garden. The site allows the user/creative to communicate
+            with each other via email and or via direct messaging on the site.
+            As creators of the site we do not get involved with any financial
+            transactions between the users.
           </p>
         </div>
         <Footer
