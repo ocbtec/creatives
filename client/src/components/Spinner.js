@@ -1,11 +1,13 @@
 import React from 'react';
 import '../css/spinner.css';
 
-export const Spinner = () => {
+export const Spinner = props => {
+  console.log(props.name);
+
   return (
-    <div className='spinner-container'>
+    <div className={props.name}>
       <img
-        className='spinner'
+        className={`${props.name}-image`}
         src={require('../images/spin-gear.png')}
         alt='Spinner'
       />

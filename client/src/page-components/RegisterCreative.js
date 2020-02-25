@@ -35,7 +35,8 @@ const RegisterCreative = props => {
   const [image, setImage] = useState('');
   const [errors, setErrors] = useState([]);
   const [redirect, setRedirect] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const [loadingAvatar, setLoadingAvatar] = useState(false);
+  const [loadingRegister, setLoadingRegister] = useState(false);
   const [registerButtonActive, setRegisterButtonActive] = useState({
     button: {
       active: '',
@@ -138,7 +139,7 @@ const RegisterCreative = props => {
       }
     });
 
-    setLoading(true);
+    setLoadingAvatar(true);
     const files = x.target.files;
     const data = new FormData();
     data.append('file', files[0]);
@@ -152,7 +153,7 @@ const RegisterCreative = props => {
     );
     const file = await cloudinaryRes.json();
     setImage(file.secure_url);
-    setLoading(false);
+    setLoadingAvatar(false);
 
     if (file) {
       setRegisterButtonActive({
@@ -195,7 +196,7 @@ const RegisterCreative = props => {
   //OnSubmit event handler
   const onSubmit = async e => {
     e.preventDefault();
-    setLoading(true);
+    setLoadingRegister(true);
 
     //Create user object
     const newUser = {
@@ -235,11 +236,11 @@ const RegisterCreative = props => {
 
       setToken(res.data.token);
       setUser(res.data.creative);
-      setLoading(false);
+      setLoadingRegister(false);
       handleRedirect();
     } catch (err) {
       setErrors(err.response.data.errors);
-      setLoading(false);
+      setLoadingRegister(false);
     }
   };
 
@@ -489,8 +490,8 @@ const RegisterCreative = props => {
                   </div>
                 </div>
                 <div className='creative-line-long'></div>
-                <div className='avatar-container'>
-                  <div className='avatar-container-left'>
+                <div className='creative-avatar-container'>
+                  <div className='creative-avatar-container-left'>
                     <div className='creative-upload-avatar'>
                       {registerButtonActive.button.avatarPath === '' ? (
                         <img
@@ -516,7 +517,8 @@ const RegisterCreative = props => {
                       onChange={e => onChange(e)}
                     />
                   </div>
-                  {loading ? <Spinner /> : null}
+                  {loadingAvatar ? <Spinner name='avatar-spinner' /> : null}
+                  <Spinner name='avatar-spinner' />
                 </div>
                 <div className='creative-line-long'></div>
                 <button
@@ -540,7 +542,12 @@ const RegisterCreative = props => {
           creative={user.creative}
           categories={props.location.state.categories}
         />
-        {loading ? <Spinner /> : renderRedirect()}
+        {loadingRegister ? (
+          <Spinner name='register-spinner' />
+        ) : (
+          renderRedirect()
+        )}
+        <Spinner name='register-spinner' />
       </div>
     </Fragment>
   );

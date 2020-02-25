@@ -14,7 +14,6 @@ import {
 import '../css/menu.css';
 
 // static links
-let menuDisplayed = false;
 const Menu = props => {
   // console.log(props);
 

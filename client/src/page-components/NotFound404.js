@@ -16,7 +16,7 @@ const NotFound404 = props => {
   return (
     <Fragment>
       <div className='not-found-main-container'>
-        <Header />
+        <Header displayMenu={false} />
         <div className='not-found-body'>
           <div className='not-found-left-side-image-container'></div>
           <div className='not-found-right-side'>

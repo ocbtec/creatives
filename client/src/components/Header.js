@@ -1,11 +1,25 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import NavbarDisplay from './NavbarDisplay';
 import Menu from './Menu';
 
 import '../css/header.css';
 
-const Header = ({ userName, avatarImage, token, creative, categories }) => {
+const Header = ({
+  userName,
+  avatarImage,
+  token,
+  creative,
+  categories,
+  displayMenu = true
+}) => {
+  const [showMenu, setShowMenu] = useState(true);
+  console.log(displayMenu);
+
+  useEffect(() => {
+    setShowMenu(displayMenu);
+  }, []);
+
   return (
     <Fragment>
       <div className='header'>
@@ -35,13 +49,15 @@ const Header = ({ userName, avatarImage, token, creative, categories }) => {
           />
         )}
       </div>
-      <Menu
-        userName={userName}
-        avatarImage={avatarImage}
-        token={token}
-        creative={creative}
-        categories={categories}
-      />
+      {showMenu === true && (
+        <Menu
+          userName={userName}
+          avatarImage={avatarImage}
+          token={token}
+          creative={creative}
+          categories={categories}
+        />
+      )}
     </Fragment>
   );
 };
