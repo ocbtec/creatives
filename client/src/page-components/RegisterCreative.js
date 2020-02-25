@@ -518,7 +518,6 @@ const RegisterCreative = props => {
                     />
                   </div>
                   {loadingAvatar ? <Spinner name='avatar-spinner' /> : null}
-                  <Spinner name='avatar-spinner' />
                 </div>
                 <div className='creative-line-long'></div>
                 <button
@@ -547,7 +546,6 @@ const RegisterCreative = props => {
         ) : (
           renderRedirect()
         )}
-        <Spinner name='register-spinner' />
       </div>
     </Fragment>
   );
