@@ -305,7 +305,6 @@ const RegisterUser = props => {
                     />
                   </div>
                   {loadingAvatar ? <Spinner name='avatar-spinner' /> : null}
-                  <Spinner name='avatar-spinner' />
                 </div>
 
                 <div className='line'></div>
@@ -333,7 +332,6 @@ const RegisterUser = props => {
         ) : (
           renderRedirect()
         )}
-        <Spinner name='register-spinner' />
       </div>
     </Fragment>
   );
