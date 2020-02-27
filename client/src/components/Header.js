@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { Fragment, useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import NavbarDisplay from './NavbarDisplay';
 import Menu from './Menu';
@@ -15,9 +15,13 @@ const Header = ({
 }) => {
   const [showMenu, setShowMenu] = useState(true);
 
-  useEffect(() => {
+  const getShowMenu = useCallback(() => {
     setShowMenu(displayMenu);
-  }, []);
+  }, [displayMenu]);
+
+  useEffect(() => {
+    getShowMenu();
+  }, [getShowMenu]);
 
   return (
     <Fragment>
