@@ -14,13 +14,13 @@ const NavbarDisplay = ({ userName, avatarImage }) => {
       <div className='navbar-display'>
         <MessageIcon />
         <p className='pipe-divider'></p>
-        <Link to='/' className='avatar-link'>
+        <Link to='/profile' className='avatar-link'>
           <img
             className='avatar-image'
             src={avatarImage}
             alt='profile avatar'></img>
         </Link>
-        <Link to='/'>{<p className='user-name'>{userName}</p>}</Link>
+        <Link to='/profile'>{<p className='user-name'>{userName}</p>}</Link>
       </div>
     </Fragment>
   );

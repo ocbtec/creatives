@@ -3,16 +3,20 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import WorkItem from '../components/WorkItem';
 import axios from 'axios';
+import { Spinner } from '../components/Spinner';
 import '../css/showcase.css';
 
 const Showcase = props => {
   const [showcase, setShowcase] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const getShowcase = async () => {
+    setLoading(true);
     const res = await axios.get(
       'https://creatives-api.herokuapp.com/api/showcase'
     );
     setShowcase(res.data);
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -50,12 +54,8 @@ const Showcase = props => {
                 );
               });
             })}
-
-            {/* workItemTitle={workItem} */}
-            {/* workItemImage={workItemImage[index]} */}
-            {/* workItemCategory={workItemCategory[index]} */}
-            {/* workItemCreator={workItemCreator[index]} */}
           </div>
+          {loading && <Spinner name='showcase-spinner' />}
         </div>
         <Footer
           userName={props.location.state.userName}

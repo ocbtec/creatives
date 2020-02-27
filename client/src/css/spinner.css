@@ -12,7 +12,8 @@
   width: 70px;
   height: 70px;
 }
-.register-spinner {
+.register-spinner,
+.showcase-spinner {
   position: absolute !important;
   top: 0;
   left: 0;
@@ -24,7 +25,8 @@
   justify-content: center;
   align-items: center;
 }
-.register-spinner-image {
+.register-spinner-image,
+.showcase-spinner-image {
   width: 100px;
   height: 100px;
 }

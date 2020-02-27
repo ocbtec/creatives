@@ -23,6 +23,7 @@ const Search = props => {
   const [redirect, setRedirect] = useState(false);
   const [checked, setChecked] = useState(false);
   const [categoryTags, setCategoryTags] = useState([]);
+  const [clickFlag, setClickFlag] = useState(false);
 
   let categoriesProps;
   props.location.state.categories !== undefined
@@ -44,9 +45,30 @@ const Search = props => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  let creationsSelected = 'select';
+  let creativesSelected = 'deselect';
+
   const typeToggleClick = e => {
     e.preventDefault();
     setFormData({ ...formData, type: e.currentTarget.name });
+
+    console.log(e.target);
+    console.log(e.currentTarget.name);
+
+    if (e.target.name === 'creatives') {
+      e.target.src = `/images/${e.target.name}-icon-select.png`;
+      document.querySelector(
+        `.search-creations-toggle-image`
+      ).src = `/images/creations-icon-deselect.png`;
+      setClickFlag(true);
+    }
+    if (e.target.name === 'creations') {
+      e.target.src = `/images/${e.target.name}-icon-select.png`;
+      document.querySelector(
+        `.search-creatives-toggle-image`
+      ).src = `/images/creatives-icon-deselect.png`;
+      setClickFlag(false);
+    }
   };
 
   document.addEventListener('keypress', e => {
@@ -128,7 +150,7 @@ const Search = props => {
 
   return (
     <Fragment>
-      <div className='main-container'>
+      <div className='search-main-container'>
         <Header
           userName={props.location.state.userName}
           avatarImage={props.location.state.avatarImage}
@@ -136,58 +158,35 @@ const Search = props => {
           creative={props.location.state.creative}
           categories={categoriesProps}
         />
-        <div className='login-body'>
-          <div className='login-container'>
-            <h1 className='login-headline'>Welcome back to CREATIVES</h1>
-            <img
-              className='login-logo'
-              src='./images/logo-inner-ball.png'
-              alt='logo'
-            />
-            <div className='headline'>Please enter your search criteria</div>
-            <form className='form-container' onSubmit={e => onSubmit(e)}>
-              <button
-                className='search-creatives-toggle'
-                name='creatives'
-                value='creatives'
-                onClick={e => typeToggleClick(e)}>
+        <div className='search-body'>
+          <div className='search-headline-container'>
+            <h1 className='search-headline'>Search</h1>
+            <div className='search-headline-2'>
+              Look up Creatives or Creations
+            </div>
+          </div>
+          <div className='search-container'>
+            <form
+              className='search-container-flex-1 search-form-container'
+              onSubmit={e => onSubmit(e)}>
+              <div className='search-select-label'>Select</div>
+              <div className='search-select-main-buttons'>
                 <img
                   className='search-creatives-toggle-image'
-                  src='/images/yawn-icon.png'
+                  src={`/images/creatives-icon-${creativesSelected}.png`}
                   alt='Creatives icon'
+                  name='creatives'
+                  onClick={e => typeToggleClick(e)}
                 />
-              </button>
-
-              <button
-                className='search-creations-toggle'
-                name='creations'
-                value='creations'
-                onClick={e => typeToggleClick(e)}>
                 <img
                   className='search-creations-toggle-image'
-                  src='/images/user-icon.png'
+                  src={`/images/creations-icon-${creationsSelected}.png`}
                   alt='Creations icon'
+                  name='creations'
+                  onClick={e => typeToggleClick(e)}
                 />
-              </button>
+              </div>
 
-              {categoriesProps.map((category, index) => {
-                return (
-                  <label key={index} htmlFor={category.categoryName}>
-                    <input
-                      key={index}
-                      type='radio'
-                      checked={checked === index ? true : false}
-                      id={category.categoryName}
-                      name={category.categoryName}
-                      value={category.categoryName}
-                      onChange={e => radioCategoryClick(e, index)}
-                    />
-                    {category.categoryName}
-                  </label>
-                );
-              })}
-
-              <p>{categoryTags}</p>
               <input
                 className='search-text-input'
                 type='text'
@@ -207,10 +206,34 @@ const Search = props => {
               />
 
               <div className='error-message'>{errorValue}</div>
-              <button className='register-button'>Search</button>
+              <button className='search-button'>Search</button>
             </form>
+            <div className='search-container-flex-2'>
+              <h2>Categories</h2>
+              <div className='search-category-buttons'>
+                {categoriesProps.map((category, index) => {
+                  return (
+                    <label key={index} htmlFor={category.categoryName}>
+                      <input
+                        key={index}
+                        type='radio'
+                        checked={checked === index ? true : false}
+                        id={category.categoryName}
+                        name={category.categoryName}
+                        value={category.categoryName}
+                        onChange={e => radioCategoryClick(e, index)}
+                      />
+                      {category.categoryName}
+                    </label>
+                  );
+                })}
+                <p>{categoryTags}</p>
+              </div>
+            </div>
+            <div className='search-container-flex-3'>
+              <h2>Tags</h2>
+            </div>
           </div>
-          <div className='search-image-container'></div>
         </div>
         <Footer
           userName={props.location.state.userName}
@@ -219,7 +242,7 @@ const Search = props => {
           creative={props.location.state.creative}
           categories={categoriesProps}
         />
-        {loading ? <Spinner /> : renderRedirect()}
+        {loading ? <Spinner name='register-spinner' /> : renderRedirect()}
       </div>
     </Fragment>
   );

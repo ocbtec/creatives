@@ -485,7 +485,7 @@ const RegisterCreative = props => {
                       available for services
                     </p>
                     <p className='checkbox-label-2'>
-                      hereby you offer to create customized art pieces
+                      available to create customized creations
                     </p>
                   </div>
                 </div>

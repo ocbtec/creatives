@@ -5,7 +5,6 @@ import axios from 'axios';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Spinner } from '../components/Spinner';
-
 import '../css/login.css';
 
 const Login = props => {
@@ -18,8 +17,8 @@ const Login = props => {
   const [token, setToken] = useState('');
   const [user, setUser] = useState({});
   const [errors, setErrors] = useState([]);
-  const [loading, setLoading] = useState(false);
   const [redirect, setRedirect] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   //De-structure form Data
   const { email, password } = formData;
@@ -57,6 +56,7 @@ const Login = props => {
   //OnSubmit event handler
   const onSubmit = async e => {
     e.preventDefault();
+
     setLoading(true);
 
     //Create user object
@@ -158,7 +158,7 @@ const Login = props => {
           creative={user.creative}
           categories={props.location.state.categories}
         />
-        {loading ? <Spinner /> : renderRedirect()}
+        {loading ? <Spinner name='register-spinner' /> : renderRedirect()}
       </div>
     </Fragment>
   );
