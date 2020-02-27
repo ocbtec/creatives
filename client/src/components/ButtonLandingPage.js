@@ -6,6 +6,7 @@ const ButtonLandingPage = props => {
   props.token && props.buttonText !== 'Showcase'
     ? (deactivated = 'logoAnimation-button logoAnimation-button-deactivated')
     : (deactivated = 'logoAnimation-button');
+
   return (
     <Link
       to={{

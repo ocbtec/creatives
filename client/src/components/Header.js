@@ -14,7 +14,6 @@ const Header = ({
   displayMenu = true
 }) => {
   const [showMenu, setShowMenu] = useState(true);
-  console.log(displayMenu);
 
   useEffect(() => {
     setShowMenu(displayMenu);

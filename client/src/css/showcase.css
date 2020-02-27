@@ -22,8 +22,8 @@
 }
 .showcase-works-container {
   width: 100%;
-  height: auto;
-  min-height: 100vh;
+  /* height: auto; */
+  min-height: 100%;
   margin: 40px 0px;
   padding: 10px;
   background-color: #e1e1e1;
