@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { Fragment, useState, useEffect, useCallback } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import axios from 'axios';
@@ -8,16 +8,16 @@ import '../css/creativeDetail.css';
 const CreativeDetail = props => {
   const [creativeDetail, setCreativeDetail] = useState([]);
 
-  useEffect(() => {
-    getCreativeDetail();
-  }, []);
-
-  const getCreativeDetail = async () => {
+  const getCreativeDetail = useCallback(async () => {
     const res = await axios.get(
       `https://creatives-api.herokuapp.com/api/getCreativebyName/${props.location.state.creativeName}`
     );
     setCreativeDetail(res.data);
-  };
+  }, [props.location.state.creativeName]);
+
+  useEffect(() => {
+    getCreativeDetail();
+  }, [getCreativeDetail]);
 
   //Convert data to an array
   const creatives = Object.values(creativeDetail);
