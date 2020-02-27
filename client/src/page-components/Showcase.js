@@ -46,15 +46,11 @@ const Showcase = props => {
                     fileCategory={work.fileCategory}
                     tags={work.tags}
                     filePath={work.filePath}
+                    workId={work._id}
                   />
                 );
               });
             })}
-
-            {/* workItemTitle={workItem} */}
-            {/* workItemImage={workItemImage[index]} */}
-            {/* workItemCategory={workItemCategory[index]} */}
-            {/* workItemCreator={workItemCreator[index]} */}
           </div>
         </div>
         <Footer
