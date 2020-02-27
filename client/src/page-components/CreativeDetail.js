@@ -8,10 +8,6 @@ import '../css/creativeDetail.css';
 const CreativeDetail = props => {
   const [creativeDetail, setCreativeDetail] = useState([]);
 
-  // let tags = [];
-  // let tag;
-  // let user, fileCategory, fileTitle, fileDescription, creationDate, filePath;
-
   useEffect(() => {
     getCreativeDetail();
   }, []);
@@ -23,54 +19,74 @@ const CreativeDetail = props => {
     setCreativeDetail(res.data);
   };
 
-  //Get social data
+  //Convert data to an array
   const creatives = Object.values(creativeDetail);
-  const x = creatives[0];
-  const y = { ...x };
 
-  const z = Object.entries(y).filter(zz => zz[1] !== '');
+  //Get social data
+  const social = creatives[0];
+  const socialSpread = { ...social };
+  const socialFiltered = Object.entries(socialSpread).filter(x => x[1] !== '');
+  const socialIcons = socialFiltered.map(icon => (
+    <p id='social' key={icon}>
+      {icon}
+    </p>
+  ));
 
-  console.log(z);
-  console.log(creativeDetail);
-  console.log(typeof x);
-  console.log(typeof y);
-  console.log(creatives);
+  //Get categories
+  const categories = creatives[1];
+  const categoriesSpread = { ...categories };
+  const categoriesFiltered = Object.entries(categoriesSpread).map(x => x);
+  const categoryIcons = categoriesFiltered.map(icon => (
+    <p id='categories' key={icon}>
+      {icon[1]}
+    </p>
+  ));
 
-  // workDetail.map(work => {
-  //   tags = work.tags;
-  //   user = work.user;
-  //   fileCategory = work.fileCategory;
-  //   fileTitle = work.fileTitle;
-  //   fileDescription = work.fileDescription;
-  //   creationDate = work.creationDate;
-  //   filePath = work.filePath;
-  // });
-  // tag = tags.map(tag => <p key={tag}>{tag}</p>);
+  //Deconstruct creatives Object
+  const {
+    name,
+    email,
+    emailVisible,
+    avatar,
+    city,
+    website,
+    services
+  } = creativeDetail;
+
+  //Show string services
+  let servicesString = '';
+  services ? (servicesString = 'Yes') : (servicesString = 'No');
+
+  //Create Mailto link
+  const mailTo = `mailto:${email}`;
 
   return (
     <Fragment>
       <div className='workDetail-main-container'>
         <Header />
         <div className='workDetail-body'>
-          {/*       <p>{props.location.state.creativeName}</p>
-  //         <br />
-  //         <img
-  //           src={props.location.state.creativeAvatar}
-  //           alt={props.location.state.creativeName}
-  //         />
-  //         <br />
-  //         <p>{user}</p>
-  //         <br />
-  //         <p>{fileCategory}</p>
-  //         <br />
-  //         <p>{fileTitle}</p>
-  //         <br />
-  //         <p>{fileDescription}</p>
-  //         <br />
-  //         <p>{creationDate}</p>
-  //         <br />
-  //         <img src={filePath} alt={fileTitle} />
-          // {tag}*/}
+          <label htmlFor='social'>Social Icons</label>
+          {socialIcons}
+          <br />
+          <br />
+          <label htmlFor='categories'>Categories</label>
+          {categoryIcons}
+          <p>{name}</p>
+          <br />
+          {emailVisible && <a href={mailTo}>{email}</a>}
+
+          <br />
+          <img src={avatar} alt={name} />
+          <br />
+          <label htmlFor='city'>City</label>
+          <p id='city'>{city}</p>
+          <br />
+          <label htmlFor='website'>Website</label>
+          <p id='website'>{website}</p>
+          <br />
+          <label htmlFor='services'>Services</label>
+          <p id='services'>{servicesString}</p>
+          <br />
         </div>
         <Footer />
       </div>
