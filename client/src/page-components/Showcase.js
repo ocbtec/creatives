@@ -50,6 +50,7 @@ const Showcase = props => {
                     fileCategory={work.fileCategory}
                     tags={work.tags}
                     filePath={work.filePath}
+                    workId={work._id}
                   />
                 );
               });

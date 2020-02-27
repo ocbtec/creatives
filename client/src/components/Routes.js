@@ -12,6 +12,8 @@ import Search from '../page-components/Search';
 import UserUpdate from '../page-components/UserUpdate';
 import Works from '../page-components/Works';
 import Results from '../page-components/Results';
+import WorkDetail from '../page-components/WorkDetail';
+import CreativeDetail from '../page-components/CreativeDetail';
 import Logout from '../components/Logout';
 import NotFound404 from '../page-components/NotFound404';
 
@@ -29,6 +31,8 @@ const Routes = () => (
       <Route path='/userupdate' component={UserUpdate} exact />
       <Route path='/works' component={Works} exact />
       <Route path='/results' component={Results} exact />
+      <Route path='/workDetail' component={WorkDetail} exact />
+      <Route path='/creativeDetail' component={CreativeDetail} exact />
       <Route path='/logout' component={Logout} exact />
       <Route component={NotFound404} />
     </Switch>

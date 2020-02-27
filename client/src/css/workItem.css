@@ -91,3 +91,7 @@
 #flex-container-creator {
   border-top: none;
 }
+
+.work-item-link:visited {
+  color: #606a6c;
+}
