@@ -63,7 +63,14 @@ const CreativeDetail = props => {
   return (
     <Fragment>
       <div className='workDetail-main-container'>
-        <Header />
+        <Header
+          userName={props.location.state.userName}
+          avatarImage={props.location.state.avatarImage}
+          token={props.location.state.token}
+          creative={props.location.state.creative}
+          categories={props.location.state.categories}
+        />
+
         <div className='workDetail-body'>
           <label htmlFor='social'>Social Icons</label>
           {socialIcons}
@@ -88,7 +95,13 @@ const CreativeDetail = props => {
           <p id='services'>{servicesString}</p>
           <br />
         </div>
-        <Footer />
+        <Footer
+          userName={props.location.state.userName}
+          avatarImage={props.location.state.avatarImage}
+          token={props.location.state.token}
+          creative={props.location.state.creative}
+          categories={props.location.state.categories}
+        />
       </div>
     </Fragment>
   );
