@@ -39,7 +39,14 @@ const WorkDetail = props => {
   return (
     <Fragment>
       <div className='workDetail-main-container'>
-        <Header />
+        <Header
+          userName={props.location.state.userName}
+          avatarImage={props.location.state.avatarImage}
+          token={props.location.state.token}
+          creative={props.location.state.creative}
+          categories={props.location.state.categories}
+        />
+
         <div className='workDetail-body'>
           <p>{props.location.state.creativeName}</p>
           <br />
@@ -61,7 +68,13 @@ const WorkDetail = props => {
           <img src={filePath} alt={fileTitle} />
           {tag}
         </div>
-        <Footer />
+        <Footer
+          userName={props.location.state.userName}
+          avatarImage={props.location.state.avatarImage}
+          token={props.location.state.token}
+          creative={props.location.state.creative}
+          categories={props.location.state.categories}
+        />
       </div>
     </Fragment>
   );

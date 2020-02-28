@@ -4,7 +4,9 @@ import MessageIcon from './MessageIcon';
 
 import '../css/navbarDisplay.css';
 
-const NavbarDisplay = ({ userName, avatarImage }) => {
+const NavbarDisplay = ({ userName, avatarImage, creative }) => {
+  let path = '';
+  creative ? (path = '/creativeProfile') : (path = '/userProfile');
   avatarImage === '' &&
     (avatarImage =
       'https://p7.hiclipart.com/preview/516/431/747/computer-icons-female-user-profile-female-girl-wife-woman-icon.jpg');
@@ -20,7 +22,7 @@ const NavbarDisplay = ({ userName, avatarImage }) => {
             src={avatarImage}
             alt='profile avatar'></img>
         </Link>
-        <Link to='/profile'>{<p className='user-name'>{userName}</p>}</Link>
+        <Link to={path}>{<p className='user-name'>{userName}</p>}</Link>
       </div>
     </Fragment>
   );

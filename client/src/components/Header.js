@@ -49,6 +49,7 @@ const Header = ({
             userName={userName}
             avatarImage={avatarImage}
             token={token}
+            creative={creative}
           />
         )}
       </div>
