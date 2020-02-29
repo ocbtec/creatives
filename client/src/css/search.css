@@ -34,10 +34,18 @@
   width: 165px;
   height: 57px;
   position: absolute;
-  top: -10px;
-  left: 20px;
-  /* opacity: 0.9; */
-  z-index: -1;
+  top: -15px;
+  left: -60px;
+  opacity: 0.8;
+}
+.headline-color-overlay-2 {
+  background-image: url('/images/headline-color-overlay.png');
+  width: 165px;
+  height: 57px;
+  position: absolute;
+  top: -15px;
+  left: -80px;
+  opacity: 0.8;
 }
 .search-headline-2 {
   padding: 0px 60px;
@@ -46,6 +54,7 @@
   margin: 20px 0px;
 }
 .search-h2 {
+  position: relative;
   color: #606a6c;
   margin: 40px 0px;
 }
@@ -87,6 +96,7 @@
   height: 50px;
 }
 .search-select-label {
+  position: relative;
   color: #606a6c;
   margin-top: 40px;
 }
