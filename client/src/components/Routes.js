@@ -16,6 +16,7 @@ import WorkDetail from '../page-components/WorkDetail';
 import CreativeDetail from '../page-components/CreativeDetail';
 import Logout from '../components/Logout';
 import NotFound404 from '../page-components/NotFound404';
+import Contact from '../page-components/Contact';
 
 const Routes = () => (
   <BrowserRouter>
@@ -34,6 +35,7 @@ const Routes = () => (
       <Route path='/workDetail' component={WorkDetail} exact />
       <Route path='/creativeDetail' component={CreativeDetail} exact />
       <Route path='/logout' component={Logout} exact />
+      <Route path='/contact' component={Contact} exact />
       <Route component={NotFound404} />
     </Switch>
   </BrowserRouter>

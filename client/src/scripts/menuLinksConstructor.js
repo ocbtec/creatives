@@ -56,6 +56,18 @@ export const searchLink = new MenuLink(
   )
 );
 
+export const contactLink = new MenuLink(
+  '/contact',
+  'Contact',
+  (
+    <img
+      className='icon'
+      src={'/images/contact-page-icon.png'}
+      alt='contact-icon'
+    />
+  )
+);
+
 export const loginLink = new MenuLink(
   '/login',
   'Login',
