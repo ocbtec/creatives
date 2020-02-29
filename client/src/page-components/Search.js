@@ -229,10 +229,7 @@ const Search = props => {
         />
         <div className='search-body'>
           <div className='search-headline-container'>
-            <h1 className='search-headline'>
-              Search
-              <div className='headline-color-overlay'></div>
-            </h1>
+            <h1 className='search-headline'>Search</h1>
             <h2 className='search-headline-2'>
               Look up Creatives or Creations
             </h2>
@@ -241,7 +238,9 @@ const Search = props => {
             <form
               className='search-container-flex-1'
               onSubmit={e => onSubmit(e)}>
-              <h2 className='search-select-label'>Select</h2>
+              <h2 className='search-select-label'>
+                Select<div className='headline-color-overlay'></div>
+              </h2>
               <div className='search-select-main-buttons'>
                 <div className='creativ-icon-container'>
                   <img
@@ -285,7 +284,10 @@ const Search = props => {
               <button className='search-button'>Search</button>
             </form>
             <div className='search-container-flex-2'>
-              <h2 className='search-h2'>Category</h2>
+              <h2 className='search-h2'>
+                Category
+                <div className='headline-color-overlay'></div>
+              </h2>
               <div className='search-optional-label'>optional</div>
               <div className='search-category-container'>
                 {categoriesProps.map((category, index) => {
@@ -311,7 +313,10 @@ const Search = props => {
               </div>
             </div>
             <div className='search-container-flex-3'>
-              <h2 className='search-h2'>Tags</h2>
+              <h2 className='search-h2'>
+                Tags
+                <div className='headline-color-overlay-2'></div>
+              </h2>
               <div className='search-optional-label'>optional</div>
               <div className='search-tags-container'>
                 {categoryTags.map(tag => {
