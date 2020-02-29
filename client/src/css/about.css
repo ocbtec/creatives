@@ -6,6 +6,7 @@
   flex-direction: column;
   flex-grow: 1;
   overflow-x: hidden;
+  color: #606a6c;
 }
 .about-body {
   height: 100%;

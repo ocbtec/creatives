@@ -6,6 +6,7 @@ import {
   showcaseLink,
   searchLink,
   loginLink,
+  contactLink,
   userProfileLink,
   creativeProfileLink,
   worksLink,
@@ -21,7 +22,8 @@ const Menu = props => {
     homeLink,
     aboutLink,
     showcaseLink,
-    searchLink
+    searchLink,
+    contactLink
   ]);
 
   const [menuDisplayed, setMenuDisplayed] = useState(false);
