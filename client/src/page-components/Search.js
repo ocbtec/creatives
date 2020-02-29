@@ -14,7 +14,8 @@ const Search = props => {
     city: '',
     text: '',
     category: '',
-    tags: []
+    tags: [],
+    selectedTags: []
   });
 
   const [searchResults, setSearchResults] = useState({});
@@ -23,6 +24,7 @@ const Search = props => {
   const [redirect, setRedirect] = useState(false);
   const [checked, setChecked] = useState(false);
   const [categoryTags, setCategoryTags] = useState([]);
+  const [selectedTags, setSelectedTags] = useState([]);
   const [clickFlag, setClickFlag] = useState(false);
 
   let categoriesProps;
@@ -81,6 +83,9 @@ const Search = props => {
   });
 
   const radioCategoryClick = (e, index) => {
+    setSelectedTags([]);
+    console.log(formData.selectedTags);
+
     setFormData({ ...formData, category: e.target.name });
     setChecked(index);
 
@@ -114,28 +119,33 @@ const Search = props => {
       } else {
         setDeselectedCategories();
         setSelectedCategory();
+
+        // formData.selectedTags = [''];
       }
     });
   };
 
   const tagSelect = e => {
-    let categoryCheck = formData.tags.indexOf(e.target);
-    console.log(categoryCheck);
+    let categoryCheck = formData.tags.indexOf(e.target.id);
+    // console.log(categoryCheck);
     // console.log(formData.tags);
-    console.log(e.target);
-    console.log(e.target.id);
+    // console.log(e.target);
+    // console.log(e.target.id);
     // console.log(categoryTags);
 
     if (categoryCheck > -1) {
       // deselected
       formData.tags.splice(categoryCheck, 1);
+      formData.selectedTags.splice(categoryCheck, 1);
       e.target.className = 'tag-deselect';
     } else {
       // selected
       formData.tags.push(e.target.id);
+      formData.selectedTags.push(e.target.id);
       e.target.className = 'tag-select';
 
       console.log(formData.tags);
+      console.log(formData.selectedTags);
     }
   };
 
@@ -219,16 +229,19 @@ const Search = props => {
         />
         <div className='search-body'>
           <div className='search-headline-container'>
-            <h1 className='search-headline'>Search</h1>
-            <div className='search-headline-2'>
+            <h1 className='search-headline'>
+              Search
+              <div className='headline-color-overlay'></div>
+            </h1>
+            <h2 className='search-headline-2'>
               Look up Creatives or Creations
-            </div>
+            </h2>
           </div>
           <div className='search-container'>
             <form
               className='search-container-flex-1'
               onSubmit={e => onSubmit(e)}>
-              <div className='search-select-label'>Select</div>
+              <h2 className='search-select-label'>Select</h2>
               <div className='search-select-main-buttons'>
                 <div className='creativ-icon-container'>
                   <img
