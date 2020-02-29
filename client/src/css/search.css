@@ -25,17 +25,29 @@
   padding: 0px 60px;
   width: 100%;
   color: #606a6c;
+  position: relative;
+  z-index: 1;
+  text-align: left;
+}
+.headline-color-overlay {
+  background-image: url('/images/headline-color-overlay.png');
+  width: 165px;
+  height: 57px;
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  /* opacity: 0.9; */
+  z-index: -1;
 }
 .search-headline-2 {
   padding: 0px 60px;
   width: 100%;
   color: #606a6c;
-  margin: 10px 0px;
-  font-size: 12pt;
+  margin: 20px 0px;
 }
 .search-h2 {
   color: #606a6c;
-  margin: 20px 0px;
+  margin: 40px 0px;
 }
 .search-container {
   display: flex;
@@ -46,6 +58,7 @@
 }
 .search-container-flex-1 {
   width: 30%;
+  height: 500px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -75,8 +88,7 @@
 }
 .search-select-label {
   color: #606a6c;
-  font-size: 14pt;
-  margin-top: 20px;
+  margin-top: 40px;
 }
 .search-select-main-buttons {
   width: 200px;

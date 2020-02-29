@@ -9,6 +9,7 @@
   align-items: center;
   background-color: #606a6c;
   padding: 0 45px;
+  z-index: 2;
 }
 .header-logo-container {
   grid-column: 1;
