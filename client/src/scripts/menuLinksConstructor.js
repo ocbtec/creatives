@@ -81,7 +81,7 @@ export const logoutLink = new MenuLink(
 );
 
 export const userProfileLink = new MenuLink(
-  '/userupdate',
+  '/userProfilex',
   'Profile',
   (
     <img
@@ -93,7 +93,7 @@ export const userProfileLink = new MenuLink(
 );
 
 export const creativeProfileLink = new MenuLink(
-  '/creativeupdate',
+  '/creativeProfilex',
   'Profile',
   (
     <img
