@@ -9,7 +9,8 @@ import RegisterUser from '../page-components/RegisterUser';
 import Showcase from '../page-components/Showcase';
 import About from '../page-components/About';
 import Search from '../page-components/Search';
-import UserUpdate from '../page-components/UserUpdate';
+import UserProfile from '../page-components/UserProfile';
+import CreativeProfile from '../page-components/CreativeProfile';
 import Works from '../page-components/Works';
 import Results from '../page-components/Results';
 import WorkDetail from '../page-components/WorkDetail';
@@ -29,7 +30,8 @@ const Routes = () => (
       <Route path='/showcase' component={Showcase} exact />
       <Route path='/about' component={About} exact />
       <Route path='/search' component={Search} exact />
-      <Route path='/userupdate' component={UserUpdate} exact />
+      <Route path='/userProfile' component={UserProfile} exact />
+      <Route path='/creativeProfile' component={CreativeProfile} exact />
       <Route path='/works' component={Works} exact />
       <Route path='/results' component={Results} exact />
       <Route path='/workDetail' component={WorkDetail} exact />
