@@ -17,9 +17,6 @@ const Footer = props => {
                 avatarImage: props.avatarImage,
                 token: props.token,
                 creative: props.creative,
-                // categories: props.location.state.categories
-                //   ? props.location.state.categories
-                //   : props.categories
                 categories: props.categories
               }
             }}>

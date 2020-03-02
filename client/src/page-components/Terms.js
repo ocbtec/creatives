@@ -3,11 +3,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import '../css/terms.css';
 
-// import BubbleAnimation from "../components/BubbleAnimation";
-
 const Terms = props => {
-  console.log(props);
-
   return (
     <Fragment>
       <Header
@@ -17,7 +13,6 @@ const Terms = props => {
         creative={props.location.state.creative}
         categories={props.location.state.categories}
       />
-      {/* <BubbleAnimation /> */}
       <div className='terms-container'>
         <div className='terms-container-left'>
           <div className='headline-container'>

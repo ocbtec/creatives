@@ -14,8 +14,7 @@ const Search = props => {
     city: '',
     text: '',
     category: '',
-    tags: [],
-    selectedTags: []
+    tags: []
   });
 
   const [searchResults, setSearchResults] = useState({});
@@ -24,7 +23,6 @@ const Search = props => {
   const [redirect, setRedirect] = useState(false);
   const [checked, setChecked] = useState(false);
   const [categoryTags, setCategoryTags] = useState([]);
-  const [selectedTags, setSelectedTags] = useState([]);
   const [clickFlag, setClickFlag] = useState(false);
 
   let categoriesProps;
@@ -59,7 +57,7 @@ const Search = props => {
       document.querySelector(
         `.search-creations-toggle-image`
       ).src = `/images/creations-icon-deselect.png`;
-      document.querySelector(`.creativ-icon-container`).style =
+      document.querySelector(`.creative-icon-container`).style =
         'border-radius: 50%; background-color: #0ad82e; box-shadow: 0px 0px 30px 20px #0ad82e;';
       document.querySelector(`.creation-icon-container`).style =
         'border-radius: 50%; background-color: #ffffff00; box-shadow: 0px 0px 0px 0px #ffffff00;';
@@ -72,7 +70,7 @@ const Search = props => {
       ).src = `/images/creatives-icon-deselect.png`;
       document.querySelector(`.creation-icon-container`).style =
         'border-radius: 50%; background-color: #0ad82e; box-shadow: 0px 0px 30px 20px #0ad82e;';
-      document.querySelector(`.creativ-icon-container`).style =
+      document.querySelector(`.creative-icon-container`).style =
         'border-radius: 50%; background-color: #ffffff00; box-shadow: 0px 0px 0px 0px #ffffff00;';
       setClickFlag(false);
     }
@@ -83,9 +81,9 @@ const Search = props => {
   });
 
   const radioCategoryClick = (e, index) => {
-    setSelectedTags([]);
-    console.log(formData.selectedTags);
+    console.log(e.target.name);
 
+    formData.tags = [];
     setFormData({ ...formData, category: e.target.name });
     setChecked(index);
 
@@ -93,60 +91,71 @@ const Search = props => {
 
     let categoryCache = e.target.name;
 
-    categoryButtons.forEach(category => {
-      const setSelectedCategory = () => {
-        category.className =
+    const deselectCategories = category => {
+      category.className =
+        'search-category-button search-category-button-deselect';
+      category.firstChild.src = `/images/category-icon-${category.firstChild.id
+        .toLowerCase()
+        .replace(' ', '-')}-deselect.png`;
+      category.lastChild.style = 'color: #616869';
+      // e.target.active = 'false';
+    };
+    const selectCategories = categoryCache => {
+      console.log(e.target.className);
+
+      if (e.target.name === categoryCache && e.target.active === 'true') {
+        e.target.className =
           'search-category-button search-category-button-deselect';
-        category.firstChild.src = `/images/category-icon-${category.firstChild.id
+        e.target.firstChild.src = `/images/category-icon-${e.target.firstChild.id
           .toLowerCase()
           .replace(' ', '-')}-deselect.png`;
-        category.lastChild.style = 'color: #616869';
-      };
-      const setDeselectedCategories = () => {
+        e.target.lastChild.style = 'color: #616869';
+        e.target.active = 'false';
+        console.log('here');
+        console.log(e.target.active);
+      } else {
         e.target.className =
           'search-category-button search-category-button-select';
         e.target.firstChild.src = `/images/category-icon-${e.target.firstChild.id
           .toLowerCase()
           .replace(' ', '-')}-select.png`;
         e.target.lastChild.style = 'color: #fefefe';
-      };
-      // console.log(categoryCache);
-      // console.log(category.name);
-
-      if (categoryCache === category.name) {
-        setDeselectedCategories();
-        return;
-      } else {
-        setDeselectedCategories();
-        setSelectedCategory();
-
-        // formData.selectedTags = [''];
+        e.target.active = 'true';
+        console.log('wrong');
+        console.log(e.target.active);
       }
+      console.log(e.target.className);
+    };
+
+    const deselectTags = () => {
+      let tagButtons = document.querySelectorAll('.tag-select');
+      tagButtons.forEach(tag => {
+        tag.className = 'tag-deselect';
+      });
+    };
+
+    categoryButtons.forEach(category => {
+      deselectCategories(category);
     });
+    deselectTags();
+    setCategoryTags([]);
+    selectCategories(categoryCache);
   };
 
   const tagSelect = e => {
     let categoryCheck = formData.tags.indexOf(e.target.id);
-    // console.log(categoryCheck);
-    // console.log(formData.tags);
-    // console.log(e.target);
-    // console.log(e.target.id);
-    // console.log(categoryTags);
 
     if (categoryCheck > -1) {
       // deselected
       formData.tags.splice(categoryCheck, 1);
-      formData.selectedTags.splice(categoryCheck, 1);
       e.target.className = 'tag-deselect';
     } else {
       // selected
-      formData.tags.push(e.target.id);
-      formData.selectedTags.push(e.target.id);
-      e.target.className = 'tag-select';
 
-      console.log(formData.tags);
-      console.log(formData.selectedTags);
+      formData.tags.push(e.target.id);
+      e.target.className = 'tag-select';
     }
+    console.log(formData.tags);
   };
 
   //Redirect handler
@@ -238,11 +247,9 @@ const Search = props => {
             <form
               className='search-container-flex-1'
               onSubmit={e => onSubmit(e)}>
-              <h2 className='search-select-label'>
-                Select<div className='headline-color-overlay'></div>
-              </h2>
+              <h2 className='search-select-label'>Select</h2>
               <div className='search-select-main-buttons'>
-                <div className='creativ-icon-container'>
+                <div className='creative-icon-container'>
                   <img
                     className='search-creatives-toggle-image'
                     src={`/images/creatives-icon-${creativesSelected}.png`}
@@ -284,10 +291,7 @@ const Search = props => {
               <button className='search-button'>Search</button>
             </form>
             <div className='search-container-flex-2'>
-              <h2 className='search-h2'>
-                Category
-                <div className='headline-color-overlay'></div>
-              </h2>
+              <h2 className='search-h2'>Category</h2>
               <div className='search-optional-label'>optional</div>
               <div className='search-category-container'>
                 {categoriesProps.map((category, index) => {
@@ -297,6 +301,7 @@ const Search = props => {
                       htmlFor={category.categoryName}
                       className='search-category-button search-category-button-deselect'
                       name={category.categoryName}
+                      active='false'
                       onClick={e => radioCategoryClick(e, index)}>
                       <img
                         className='category-icon'
@@ -313,15 +318,13 @@ const Search = props => {
               </div>
             </div>
             <div className='search-container-flex-3'>
-              <h2 className='search-h2'>
-                Tags
-                <div className='headline-color-overlay-2'></div>
-              </h2>
+              <h2 className='search-h2'>Tags</h2>
               <div className='search-optional-label'>optional</div>
               <div className='search-tags-container'>
-                {categoryTags.map(tag => {
+                {categoryTags.map((tag, index) => {
                   return (
                     <div
+                      key={index}
                       className='tag-deselect'
                       id={tag}
                       onClick={e => tagSelect(e)}>

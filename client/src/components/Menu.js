@@ -16,8 +16,6 @@ import '../css/menu.css';
 
 // static links
 const Menu = props => {
-  // console.log(props);
-
   const [linksArray, setLinksArray] = useState([
     homeLink,
     aboutLink,
@@ -55,8 +53,6 @@ const Menu = props => {
 
     let menu = document.getElementsByClassName('menu')[0];
     let menubars = document.querySelectorAll('.menubars');
-    let button = document.getElementsByClassName('menu-button')[0];
-    button.removeAttribute('onlick');
 
     // open menu
     if (menuDisplayed === false) {

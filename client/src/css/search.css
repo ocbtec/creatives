@@ -127,7 +127,7 @@
   cursor: pointer;
   margin-top: 40px;
 }
-.creativ-icon-container {
+.creative-icon-container {
   cursor: pointer;
   border-radius: 50%;
   background-color: #0ad82e;
@@ -145,7 +145,7 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-evenly;
-  background-color: #1019641a;
+  background-color: #102c4e0d;
   border-radius: 5px;
   box-shadow: 5px 5px 10px 0px #d2d2d2;
 }
@@ -173,7 +173,7 @@
   width: 180px;
   height: 48px;
   background-color: #8cadb5;
-  border: 4px solid #fefefe !important;
+  border: 2px solid #fefefe !important;
   border-radius: 5px;
   outline: none;
   border: none;
@@ -187,20 +187,18 @@
   font-size: 9pt;
   color: #a8a8a8;
 }
-.search-tags-container {
-  background-color: #be815317;
-}
 .tag-select {
   width: 160px;
   height: 40px;
   color: #fefefe;
-  background-color: #ffa45e;
+  background-color: #8cadb5;
   border: 2px solid #fefefe;
   border-radius: 40px;
   outline: none;
   text-align: center;
   line-height: 40px;
   cursor: pointer;
+  font-size: 12pt;
 }
 .tag-deselect {
   width: 160px;
@@ -211,11 +209,12 @@
   outline: none;
   border: none;
   text-align: center;
-  line-height: 40px;
+  line-height: 44px;
   cursor: pointer;
 }
 .tag-deselect:hover {
   color: #f0fcfc;
   background-color: #cfcfcf;
   border: 2px solid #dbdbdb;
+  line-height: 40x;
 }
