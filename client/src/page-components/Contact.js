@@ -1,17 +1,65 @@
 import React, { Fragment, useState } from 'react';
+import axios from 'axios';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import { Spinner } from '../components/Spinner';
 import '../css/contact.css';
 
 const Contact = props => {
-  const [errors, setErrors] = useState([]);
+  //states
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+  const [loading, setLoading] = useState(false);
+  const [responseMessage, setResponseMessage] = useState('');
 
-  const onSubmit = e => {
-    return;
+  // //De-structure form Data
+  const { name, email, message } = formData;
+
+  //OnChange event Listener for all input fields and buttons
+  const onChange = e => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const onChange = e => {
-    return;
+  //OnSubmit event handler
+  const onSubmit = async e => {
+    e.preventDefault();
+
+    setLoading(true);
+
+    //Create user object
+    const newMessage = {
+      name,
+      email,
+      message
+    };
+
+    //Post to backend
+    try {
+      const config = {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      };
+      const body = JSON.stringify(newMessage);
+      const res = await axios.post(
+        'https://creatives-api.herokuapp.com/api/sendmail',
+
+        body,
+        config
+      );
+
+      setResponseMessage(res.data.message);
+      setLoading(false);
+    } catch (err) {
+      setLoading(false);
+    }
+  };
+
+  const handleEmailSent = () => {
+    return <p>{responseMessage}</p>;
   };
 
   return (
@@ -40,17 +88,18 @@ const Contact = props => {
                     type='text'
                     placeholder='* Name'
                     name='name'
-                    // value={name}
+                    value={name}
                     maxLength='18'
                     onChange={e => onChange(e)}
                     required
                   />
                   <input
+                    id='email'
                     className='input-text'
                     type='email'
                     placeholder='* Email'
                     name='email'
-                    // value={email}
+                    value={email}
                     onChange={e => onChange(e)}
                     required
                   />
@@ -60,14 +109,18 @@ const Contact = props => {
               </div>
 
               <textarea
-                id='text-body'
+                id='message'
                 rows='5'
                 cols='60'
-                name='description'
-                placeholder='...'></textarea>
+                placeholder=' * Please enter your message'
+                name='message'
+                value={message}
+                onChange={e => onChange(e)}
+                required></textarea>
             </form>
           </div>
           <div className='contact-flex-3'></div>
+          {loading ? <Spinner name='register-spinner' /> : handleEmailSent()}
         </div>
         <Footer
           userName={props.location.state.userName}
