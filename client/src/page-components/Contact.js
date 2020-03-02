@@ -28,7 +28,6 @@ const Contact = props => {
           <div className='contact-flex-1'>
             <div className='contact-header-1-container'>
               <h1 className='contact-header-1'>Contact</h1>
-              <div className='contact-icon'></div>
             </div>
           </div>
           <div className='contact-flex-2'>

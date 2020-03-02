@@ -18,7 +18,6 @@ const About = props => {
           <div className='about-flex-1'>
             <div className='about-header-1-container'>
               <h1 className='about-header-1'>About</h1>
-              <div className='about-icon'></div>
             </div>
             <h2 className='about-header-2'>Hi and welcome to Creatives</h2>
             <p className='about-paragraph'>
