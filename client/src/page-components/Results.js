@@ -19,6 +19,29 @@ const Results = props => {
     getResults();
   }, [getResults]);
 
+  const searches = Object.entries(props.location.state.formData);
+
+  const SearchCriteria = searches.slice(1).map((el, index) => {
+    return el[1].length > 0 && el[0] !== 'tags' ? (
+      <div id={el[1]} key={index}>
+        {el[1]}
+      </div>
+    ) : (
+      el[1].map((el, index) => {
+        return (
+          <div key={index} className='results-tag'>
+            {el}
+          </div>
+        );
+      })
+    );
+  });
+
+  let resultsContainer;
+  results.length === 0
+    ? (resultsContainer = 'no-results-works-container')
+    : (resultsContainer = 'results-works-container');
+
   return (
     <Fragment>
       <div className='results-main-container'>
@@ -31,9 +54,12 @@ const Results = props => {
         />
         <div className='results-body'>
           <div className='results-headline-container'>
-            <h1 className='headline-results'>Results</h1>
+            <div className='headline-results'>{SearchCriteria}</div>
           </div>
-          <div className='results-works-container'>
+          <div className={resultsContainer}>
+            {results.length === 0 && (
+              <div className='no-results-headline'>No results</div>
+            )}
             {results.map(creative => {
               return creative.works.map((work, index) => {
                 return (
