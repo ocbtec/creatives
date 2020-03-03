@@ -1,0 +1,38 @@
+.results-main-container {
+  width: 100vw;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.results-body {
+  width: 100%;
+  min-height: 100vh;
+  height: 100%;
+  margin-top: 120px;
+}
+.results-headline-container {
+  width: 100%;
+  color: #606a6c;
+  margin: 0px 50px;
+}
+.headline-results {
+  width: 100%;
+  text-align: left;
+}
+.results-works-container {
+  width: 100%;
+  margin-top: 40px;
+  padding: 20px;
+  background-color: #e1e1e166;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.work-examples {
+  font-size: 12pt;
+  margin-top: 10px;
+}
+.work-item {
+  border-radius: 15px;
+}

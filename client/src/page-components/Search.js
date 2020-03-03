@@ -8,6 +8,8 @@ import { Spinner } from '../components/Spinner';
 import '../css/search.css';
 
 const Search = props => {
+  console.log(props);
+
   //States
   const [formData, setFormData] = useState({
     type: 'creatives',

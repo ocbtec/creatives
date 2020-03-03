@@ -3,7 +3,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import WorkItem from '../components/WorkItem';
 import { Spinner } from '../components/Spinner';
-import '../css/showcase.css';
+import '../css/results.css';
 
 const Results = props => {
   const [results, setResults] = useState([]);
@@ -21,7 +21,7 @@ const Results = props => {
 
   return (
     <Fragment>
-      <div className='showcase-main-container'>
+      <div className='results-main-container'>
         <Header
           userName={props.location.state.userName}
           avatarImage={props.location.state.avatarImage}
@@ -29,12 +29,11 @@ const Results = props => {
           creative={props.location.state.creative}
           categories={props.location.state.categories}
         />
-        <div className='showcase-body'>
-          <div className='showcase-headline-container'>
-            <h1 className='headline-showcase'>Showcase</h1>
-            <div className='work-examples'>Work examples</div>
+        <div className='results-body'>
+          <div className='results-headline-container'>
+            <h1 className='headline-results'>Results</h1>
           </div>
-          <div className='showcase-works-container'>
+          <div className='results-works-container'>
             {results.map(creative => {
               return creative.works.map((work, index) => {
                 return (
@@ -52,7 +51,25 @@ const Results = props => {
               });
             })}
           </div>
-          {loading && <Spinner name='showcase-spinner' />}
+
+          <button
+            id='results-back-button'
+            onClick={() =>
+              props.history.push({
+                pathname: '/search',
+                state: {
+                  userName: props.location.state.userName,
+                  avatarImage: props.location.state.avatarImage,
+                  token: props.location.state.token,
+                  creative: props.location.state.creative,
+                  categories: props.location.state.categories
+                }
+              })
+            }>
+            <div>Back</div>
+          </button>
+
+          {loading && <Spinner name='results-spinner' />}
         </div>
         <Footer
           userName={props.location.state.userName}
