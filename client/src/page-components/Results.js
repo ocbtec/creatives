@@ -52,22 +52,25 @@ const Results = props => {
             })}
           </div>
 
-          <button
-            id='results-back-button'
-            onClick={() =>
-              props.history.push({
-                pathname: '/search',
-                state: {
-                  userName: props.location.state.userName,
-                  avatarImage: props.location.state.avatarImage,
-                  token: props.location.state.token,
-                  creative: props.location.state.creative,
-                  categories: props.location.state.categories
-                }
-              })
-            }>
-            <div>Back</div>
-          </button>
+          <div className='results-button-container'>
+            <button
+              className='results-back-button'
+              id='results-back-button'
+              onClick={() =>
+                props.history.push({
+                  pathname: '/search',
+                  state: {
+                    userName: props.location.state.userName,
+                    avatarImage: props.location.state.avatarImage,
+                    token: props.location.state.token,
+                    creative: props.location.state.creative,
+                    categories: props.location.state.categories
+                  }
+                })
+              }>
+              Back
+            </button>
+          </div>
 
           {loading && <Spinner name='results-spinner' />}
         </div>
