@@ -21,19 +21,33 @@ const Results = props => {
 
   const searches = Object.entries(props.location.state.formData);
 
+  let counter = 0;
   const SearchCriteria = searches.slice(1).map((el, index) => {
-    return el[1].length > 0 && el[0] !== 'tags' ? (
-      <div id={el[1]} key={index}>
-        {el[1]}
-      </div>
-    ) : (
+    if (el[1].length > 0 && el[0] !== 'tags') {
+      return (
+        <div id={el[1]} key={index}>
+          {el[1]}
+        </div>
+      );
+    } else if (el[1].length > 0) {
       el[1].map((el, index) => {
         return (
           <div key={index} className='results-tag'>
             {el}
           </div>
         );
-      })
+      });
+    }
+    // const noUserInput = [<div className='headline-results'>Results</div>];
+    // return noUserInput[0];
+
+    counter++;
+    return (
+      counter === 1 && (
+        <div key={counter} className='headline-results'>
+          Results
+        </div>
+      )
     );
   });
 
