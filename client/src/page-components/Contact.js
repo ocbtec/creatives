@@ -52,6 +52,9 @@ const Contact = props => {
       );
 
       setResponseMessage(res.data.message);
+      formData.name = '';
+      formData.email = '';
+      formData.message = '';
       setLoading(false);
     } catch (err) {
       setLoading(false);
@@ -106,6 +109,11 @@ const Contact = props => {
                   <div className='required-label'>* required</div>
                 </div>
                 <button className='contact-button'>Send</button>
+                <button
+                  className='contact-button'
+                  onClick={() => props.history.go(-1)}>
+                  Go Back
+                </button>
               </div>
 
               <textarea
@@ -118,9 +126,9 @@ const Contact = props => {
                 onChange={e => onChange(e)}
                 required></textarea>
             </form>
+            {loading ? <Spinner name='register-spinner' /> : handleEmailSent()}
           </div>
           <div className='contact-flex-3'></div>
-          {loading ? <Spinner name='register-spinner' /> : handleEmailSent()}
         </div>
         <Footer
           userName={props.location.state.userName}
