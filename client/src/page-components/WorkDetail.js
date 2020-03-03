@@ -36,9 +36,12 @@ const WorkDetail = props => {
   });
   tag = tags.map(tag => <p key={tag}>{tag}</p>);
 
+  // let date = creationDate.substring;
+  console.log(workDetail);
+
   return (
     <Fragment>
-      <div className='workDetail-main-container'>
+      <div className='work-detail-main-container'>
         <Header
           userName={props.location.state.userName}
           avatarImage={props.location.state.avatarImage}
@@ -47,26 +50,42 @@ const WorkDetail = props => {
           categories={props.location.state.categories}
         />
 
-        <div className='workDetail-body'>
-          <p>{props.location.state.creativeName}</p>
-          <br />
-          <img
-            src={props.location.state.creativeAvatar}
-            alt={props.location.state.creativeName}
-          />
-          <br />
-          <p>{user}</p>
-          <br />
-          <p>{fileCategory}</p>
-          <br />
-          <p>{fileTitle}</p>
-          <br />
-          <p>{fileDescription}</p>
-          <br />
-          <p>{creationDate}</p>
-          <br />
-          <img src={filePath} alt={fileTitle} />
-          {tag}
+        <div className='work-detail-body'>
+          <div className='work-detail-flex-left'>
+            <img
+              className='work-detail-image-img'
+              src={filePath}
+              alt={fileTitle}
+            />
+            <div className='work-detail-tag-container'>
+              {tag.map((tag, index) => {
+                return (
+                  <div key={index} className='work-detail-tag'>
+                    {tag}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+          <div className='work-detail-flex-right'>
+            <h1 className='work-detail-creative-name'>
+              {props.location.state.creativeName}
+            </h1>
+            <h2 className='work-detail-title'>{fileTitle}</h2>
+
+            <p>{creationDate}</p>
+
+            {/* <p>{fileCategory}</p> */}
+
+            {/* <p>{fileDescription}</p> */}
+
+            {/* creative image */}
+
+            {/* <img
+              src={props.location.state.creativeAvatar}
+              alt={props.location.state.creativeName}
+            /> */}
+          </div>
         </div>
         <Footer
           userName={props.location.state.userName}
