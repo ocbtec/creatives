@@ -2,6 +2,7 @@ import React, { Fragment, useState, useEffect, useCallback } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 import '../css/workDetail.css';
 
@@ -10,7 +11,7 @@ const WorkDetail = props => {
 
   let tags = [];
   let tag;
-  let user, fileCategory, fileTitle, fileDescription, creationDate, filePath;
+  let fileCategory, fileTitle, fileDescription, creationDate, filePath;
 
   //UseCallback is used to prevent the useEffect missing dependency warning.
   const getWorkDetail = useCallback(async () => {
@@ -26,7 +27,6 @@ const WorkDetail = props => {
 
   workDetail.map(work => {
     tags = work.tags;
-    user = work.user;
     fileCategory = work.fileCategory;
     fileTitle = work.fileTitle;
     fileDescription = work.fileDescription;
@@ -36,8 +36,7 @@ const WorkDetail = props => {
   });
   tag = tags.map(tag => <p key={tag}>{tag}</p>);
 
-  // let date = creationDate.substring;
-  console.log(workDetail);
+  creationDate = workDetail.length !== 0 && creationDate.substr(0, 4);
 
   return (
     <Fragment>
@@ -71,22 +70,30 @@ const WorkDetail = props => {
             <h1 className='work-detail-creative-name'>
               {props.location.state.creativeName}
             </h1>
-            <h2 className='work-detail-title'>{fileTitle}</h2>
+            <h2 className='work-detail-title'>
+              {fileTitle}, {creationDate}
+            </h2>
+            <p>{fileCategory}</p>
+            <p>{fileDescription}</p>
 
-            <p>{creationDate}</p>
-
-            {/* <p>{fileCategory}</p> */}
-
-            {/* <p>{fileDescription}</p> */}
-
-            {/* creative image */}
-
-            {/* <img
+            <img
               src={props.location.state.creativeAvatar}
               alt={props.location.state.creativeName}
-            /> */}
+            />
           </div>
         </div>
+
+        <div className='work-detail-button-container'>
+          <button
+            className='work-detail-button-back'
+            onClick={() => props.history.go(-1)}>
+            Back
+          </button>
+          <Link to='/message'>
+            <button className='work-detail-button-contact'>Contact</button>
+          </Link>
+        </div>
+
         <Footer
           userName={props.location.state.userName}
           avatarImage={props.location.state.avatarImage}

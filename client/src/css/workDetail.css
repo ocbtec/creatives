@@ -55,3 +55,14 @@
 .work-detail-title {
   margin: 20px 0px;
 }
+.work-detail-button-back,
+.work-detail-button-contact {
+  width: 250px;
+  height: 40px;
+  border-radius: 10px;
+  border-style: none;
+  background-color: #606a6c;
+  color: #fefefe;
+  font-size: 14pt;
+  cursor: pointer;
+}
