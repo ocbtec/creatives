@@ -1,7 +1,7 @@
 .work-item {
   width: 22%;
   height: 300px;
-  margin-bottom: 60px;
+  margin: 40px 0px;
   display: flex;
   flex-direction: column;
 }
