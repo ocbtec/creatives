@@ -8,13 +8,11 @@ import { Spinner } from '../components/Spinner';
 import '../css/search.css';
 
 const Search = props => {
-  console.log(props);
-
   //States
   const [formData, setFormData] = useState({
     type: 'creatives',
-    city: '',
     text: '',
+    city: '',
     category: '',
     tags: []
   });
@@ -60,7 +58,7 @@ const Search = props => {
         `.search-creations-toggle-image`
       ).src = `/images/creations-icon-deselect.png`;
       document.querySelector(`.creative-icon-container`).style =
-        'border-radius: 50%; background-color: #0ad82e; box-shadow: 0px 0px 30px 20px #0ad82e;';
+        'border-radius: 50%; background-color: #0ad82e; box-shadow: 0px 0px 20px 10px #0ad82e;';
       document.querySelector(`.creation-icon-container`).style =
         'border-radius: 50%; background-color: #ffffff00; box-shadow: 0px 0px 0px 0px #ffffff00;';
       setClickFlag(true);
@@ -71,7 +69,7 @@ const Search = props => {
         `.search-creatives-toggle-image`
       ).src = `/images/creatives-icon-deselect.png`;
       document.querySelector(`.creation-icon-container`).style =
-        'border-radius: 50%; background-color: #0ad82e; box-shadow: 0px 0px 30px 20px #0ad82e;';
+        'border-radius: 50%; background-color: #0ad82e; box-shadow: 0px 0px 20px 10px #0ad82e;';
       document.querySelector(`.creative-icon-container`).style =
         'border-radius: 50%; background-color: #ffffff00; box-shadow: 0px 0px 0px 0px #ffffff00;';
       setClickFlag(false);
@@ -100,11 +98,8 @@ const Search = props => {
         .toLowerCase()
         .replace(' ', '-')}-deselect.png`;
       category.lastChild.style = 'color: #616869';
-      // e.target.active = 'false';
     };
     const selectCategories = categoryCache => {
-      console.log(e.target.className);
-
       if (e.target.name === categoryCache && e.target.active === 'true') {
         e.target.className =
           'search-category-button search-category-button-deselect';
@@ -113,8 +108,6 @@ const Search = props => {
           .replace(' ', '-')}-deselect.png`;
         e.target.lastChild.style = 'color: #616869';
         e.target.active = 'false';
-        console.log('here');
-        console.log(e.target.active);
       } else {
         e.target.className =
           'search-category-button search-category-button-select';
@@ -123,10 +116,7 @@ const Search = props => {
           .replace(' ', '-')}-select.png`;
         e.target.lastChild.style = 'color: #fefefe';
         e.target.active = 'true';
-        console.log('wrong');
-        console.log(e.target.active);
       }
-      console.log(e.target.className);
     };
 
     const deselectTags = () => {
@@ -178,7 +168,8 @@ const Search = props => {
               avatarImage: props.location.state.avatarImage,
               token: props.location.state.token,
               creative: props.location.state.creative,
-              categories: categoriesProps
+              categories: categoriesProps,
+              formData: formData
             }
           }}
         />
@@ -207,7 +198,6 @@ const Search = props => {
         }
       };
       const body = JSON.stringify(search);
-      console.log(body);
       const res = await axios.post(
         'https://creatives-api.herokuapp.com/api/search',
         body,
