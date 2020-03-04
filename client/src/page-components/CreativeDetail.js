@@ -2,10 +2,13 @@ import React, { Fragment, useState, useEffect, useCallback } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 import '../css/creativeDetail.css';
 
 const CreativeDetail = props => {
+  console.log(props);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -41,7 +44,7 @@ const CreativeDetail = props => {
   const categoriesSpread = { ...categories };
   const categoriesFiltered = Object.entries(categoriesSpread).map(x => x);
   const categoryIcons = categoriesFiltered.map(icon => (
-    <p id='categories' key={icon}>
+    <p className='creative-detail-category' key={icon}>
       {icon[1]}
     </p>
   ));
@@ -66,7 +69,7 @@ const CreativeDetail = props => {
 
   return (
     <Fragment>
-      <div className='workDetail-main-container'>
+      {/* <div className='workDetail-main-container'>
         <Header
           userName={props.location.state.userName}
           avatarImage={props.location.state.avatarImage}
@@ -76,28 +79,136 @@ const CreativeDetail = props => {
         />
 
         <div className='workDetail-body'>
-          <label htmlFor='social'>Social Icons</label>
-          {socialIcons}
-          <br />
-          <br />
+        
+
+          
+          
           <label htmlFor='categories'>Categories</label>
           {categoryIcons}
-          <p>{name}</p>
-          <br />
+        
+
           {emailVisible && <a href={mailTo}>{email}</a>}
 
-          <br />
-          <img src={avatar} alt={name} />
-          <br />
-          <label htmlFor='city'>City</label>
-          <p id='city'>{city}</p>
-          <br />
+          
+          
+          
+          
           <label htmlFor='website'>Website</label>
           <p id='website'>{website}</p>
-          <br />
+          
+          
           <label htmlFor='services'>Services</label>
           <p id='services'>{servicesString}</p>
-          <br />
+          
+          
+        </div>
+        <Footer
+          userName={props.location.state.userName}
+          avatarImage={props.location.state.avatarImage}
+          token={props.location.state.token}
+          creative={props.location.state.creative}
+          categories={props.location.state.categories}
+        />
+      </div> */}
+
+      <div className='creative-detail-main-container'>
+        <Header
+          userName={props.location.state.userName}
+          avatarImage={props.location.state.avatarImage}
+          token={props.location.state.token}
+          creative={props.location.state.creative}
+          categories={props.location.state.categories}
+        />
+
+        <div className='creative-detail-body'>
+          <div className='creative-detail-flex-container'>
+            <div className='creative-detail-flex-left'>
+              <div className='creative-detail-name-container'>
+                {props.location.state.creativeName && (
+                  <h1 className='creative-detail-name'>
+                    {props.location.state.creativeName}
+
+                    {/* compare loading to above */}
+                    {/* {name} */}
+                    {/* ************************ */}
+                  </h1>
+                )}
+                <div className='creative-detail-name-ball-1'></div>
+                <div className='creative-detail-name-line'></div>
+                <div className='creative-detail-name-ball-2'></div>
+              </div>
+
+              <div className='creative-detail-city-service-container'>
+                <div className='creative-detail-city-container'>
+                  <img
+                    className='creative-detail-city-icon'
+                    src='/images/location-icon.svg'
+                  />
+                  <p className='creative-detail-city'>{city}</p>
+                </div>
+                <div className='creative-detail-service-container'>
+                  <div>Services</div>
+                  <div className='creative-detail-service-box'>
+                    {services ? (
+                      <div style={{ color: '#bcbcbc' }}>&#9744;</div>
+                    ) : (
+                      <div>&#9745;</div>
+                    )}
+                    {console.log(services)}
+                  </div>
+                </div>
+              </div>
+
+              <p className='creative-item-about'>
+                Leonardo da Vinci (1452-1519) was a painter, architect,
+                inventor, and student of all things scientific. His natural
+                genius crossed so many disciplines that he epitomized the term
+                “Renaissance man.” Today he remains best known for his art,
+                including two paintings that remain among the world’s most
+                famous and admired, Mona Lisa and The Last Supper.
+              </p>
+
+              <div className='creative-detail-category-container'>
+                {categoryIcons}
+              </div>
+
+              <div className='creative-detail-contact-container'>
+                <h2>Feel free to contact me under</h2>
+                <p className='creative-detail-website'>
+                  <a href={`http://${website}`}>{website}</a>
+                </p>
+
+                <div>{socialIcons}</div>
+              </div>
+
+              <h2 className='creative-detail-contact-headline'>
+                Or write me a pm here
+              </h2>
+
+              <button className='creative-detail-button-contact'>
+                <Link
+                  className='creative-detail-button-contact-link'
+                  to='/message'></Link>
+                Contact
+              </button>
+            </div>
+            <div className='creative-detail-flex-right'>
+              {avatar && (
+                <img
+                  className='creative-detail-avatar'
+                  src={avatar}
+                  alt={props.location.state.creativeName}
+                />
+              )}
+            </div>
+          </div>
+          <div className='creative-detail-button-container'>
+            <button
+              className='creative-detail-button-back'
+              onClick={() => props.history.go(-1)}>
+              Back
+            </button>
+          </div>
         </div>
         <Footer
           userName={props.location.state.userName}
