@@ -89,6 +89,7 @@
 .work-detail-creative-container {
   display: flex;
   align-items: center;
+  height: 30px;
 }
 .work-detail-category-icon {
   width: 22px;
@@ -132,4 +133,7 @@
 }
 .work-detail-image-full-view {
   max-height: 700px;
+}
+.work-detail-title-placeholder {
+  height: 66px;
 }

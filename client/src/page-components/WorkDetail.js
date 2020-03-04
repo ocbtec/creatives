@@ -90,17 +90,23 @@ const WorkDetail = props => {
                 {props.location.state.creativeName}
               </h1>
             </div>
-            <h2 className='work-detail-title'>
-              {fileTitle}, {creationDate}
-            </h2>
+
+            <div className='work-detail-title-placeholder'>
+              {filePath && (
+                <h2 className='work-detail-title'>
+                  {fileTitle}, {creationDate}
+                </h2>
+              )}
+            </div>
 
             <div className='work-detail-creative-container'>
-              <img
-                className='work-detail-category-icon'
-                src={`/images/category-icon-${fileCategory &&
-                  fileCategory
+              {filePath && (
+                <img
+                  className='work-detail-category-icon'
+                  src={`/images/category-icon-${fileCategory
                     .toLowerCase()
                     .replace(' ', '-')}-deselect.png`}></img>
+              )}
               <p className='work-detail-category'>{fileCategory}</p>
             </div>
 
