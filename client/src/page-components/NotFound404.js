@@ -25,12 +25,15 @@ const NotFound404 = props => {
           <div className='not-found-left-side-image-container'></div>
           <div className='not-found-right-side'>
             <div className='not-found-right-side-flex'>
-              <h1 className='not-found-item'>404</h1>
-              <div className='not-found-item'>
-                Hm, the page you were looking for doesn't seem to exist anymore.
-              </div>
-              <div className='not-found-item'>
-                Or we just didn’t have enough time to program it ¯\_(ツ)_/¯
+              <h1 className='not-found-headline'>404</h1>
+              <div>
+                <div className='not-found-item'>
+                  Hm, the page you were looking for doesn't seem to exist
+                  anymore.
+                </div>
+                <div className='not-found-item'>
+                  Or we just didn’t have enough time to program it ¯\_(ツ)_/¯
+                </div>
               </div>
 
               <button id='not-found-back-button' onClick={backClick}>
