@@ -31,6 +31,7 @@ const Search = props => {
     : (categoriesProps = props.categories);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     categoriesProps.forEach(category => {
       if (category.categoryName === formData.category) {
         setCategoryTags(category.categoryTags);
@@ -108,6 +109,7 @@ const Search = props => {
           .replace(' ', '-')}-deselect.png`;
         e.target.lastChild.style = 'color: #616869';
         e.target.active = 'false';
+        setFormData({ ...formData, category: '' });
       } else {
         e.target.className =
           'search-category-button search-category-button-select';
@@ -168,8 +170,7 @@ const Search = props => {
               avatarImage: props.location.state.avatarImage,
               token: props.location.state.token,
               creative: props.location.state.creative,
-              categories: categoriesProps,
-              formData: formData
+              categories: categoriesProps
             }
           }}
         />

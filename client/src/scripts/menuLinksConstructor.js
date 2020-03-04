@@ -117,7 +117,7 @@ export const creativeProfileLink = new MenuLink(
 );
 
 export const worksLink = new MenuLink(
-  '/works',
+  '/worksx',
   'Works',
   (
     <img

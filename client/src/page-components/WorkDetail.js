@@ -22,6 +22,7 @@ const WorkDetail = props => {
   }, [props.location.state.workId]);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     getWorkDetail();
   }, [getWorkDetail]);
 
@@ -38,6 +39,17 @@ const WorkDetail = props => {
 
   creationDate = workDetail.length !== 0 && creationDate.substr(0, 4);
 
+  const imageFullViewOpen = () => {
+    document.getElementsByClassName(
+      'image-full-view-container'
+    )[0].style.cssText = 'display: flex';
+  };
+  const imageFullViewClose = () => {
+    document.getElementsByClassName(
+      'image-full-view-container'
+    )[0].style.cssText = 'display: none';
+  };
+
   return (
     <Fragment>
       <div className='work-detail-main-container'>
@@ -52,9 +64,10 @@ const WorkDetail = props => {
         <div className='work-detail-body'>
           <div className='work-detail-flex-left'>
             <img
-              className='work-detail-image-img'
+              className='work-detail-image'
               src={filePath}
               alt={fileTitle}
+              onClick={imageFullViewOpen}
             />
             <div className='work-detail-tag-container'>
               {tag.map((tag, index) => {
@@ -67,19 +80,42 @@ const WorkDetail = props => {
             </div>
           </div>
           <div className='work-detail-flex-right'>
-            <h1 className='work-detail-creative-name'>
-              {props.location.state.creativeName}
-            </h1>
+            <div className='work-detail-name-container'>
+              <img
+                className='work-detail-avatar'
+                src={props.location.state.creativeAvatar}
+                alt={props.location.state.creativeName}
+              />
+              <h1 className='work-detail-creative-name'>
+                {props.location.state.creativeName}
+              </h1>
+            </div>
             <h2 className='work-detail-title'>
               {fileTitle}, {creationDate}
             </h2>
-            <p>{fileCategory}</p>
-            <p>{fileDescription}</p>
 
-            <img
-              src={props.location.state.creativeAvatar}
-              alt={props.location.state.creativeName}
-            />
+            <div className='work-detail-creative-container'>
+              <img
+                className='work-detail-category-icon'
+                src={`/images/category-icon-${fileCategory &&
+                  fileCategory
+                    .toLowerCase()
+                    .replace(' ', '-')}-deselect.png`}></img>
+              <p className='work-detail-category'>{fileCategory}</p>
+            </div>
+
+            {/* <p>{fileDescription}</p> */}
+            <p className='work-item-description'>
+              The protagonist, K., arrives in a village governed by a mysterious
+              bureaucracy operating in a nearby castle. When seeking shelter at
+              the town inn, he claims to be a land surveyor summoned by the
+              castle authorities. He is quickly notified that his castle contact
+              is an official named Klamm, who, in an introductory note, informs
+              K. he will report to the Mayor.
+            </p>
+            <Link to='/message'>
+              <button className='work-detail-button-contact'>Contact</button>
+            </Link>
           </div>
         </div>
 
@@ -89,9 +125,6 @@ const WorkDetail = props => {
             onClick={() => props.history.go(-1)}>
             Back
           </button>
-          <Link to='/message'>
-            <button className='work-detail-button-contact'>Contact</button>
-          </Link>
         </div>
 
         <Footer
@@ -101,6 +134,15 @@ const WorkDetail = props => {
           creative={props.location.state.creative}
           categories={props.location.state.categories}
         />
+      </div>
+      <div className='image-full-view-container' onClick={imageFullViewClose}>
+        <div className='image-full-view-wrapper'>
+          <img
+            className='work-detail-image-full-view'
+            src={filePath}
+            alt={fileTitle}
+          />
+        </div>
       </div>
     </Fragment>
   );

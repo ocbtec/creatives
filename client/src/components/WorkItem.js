@@ -17,7 +17,7 @@ const WorkItem = props => {
   getCategoryIcon();
 
   return (
-    <div className='work-item'>
+    <div className='work-item-container'>
       <Link
         className='work-item-link'
         to={{

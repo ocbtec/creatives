@@ -1,9 +1,13 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import '../css/notFound404.css';
 
 const NotFound404 = props => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   let categoriesProps;
   props.location.state !== undefined
     ? (categoriesProps = props.location.state.categories)

@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import axios from 'axios';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -6,6 +6,10 @@ import { Spinner } from '../components/Spinner';
 import '../css/contact.css';
 
 const Contact = props => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   //states
   const [formData, setFormData] = useState({
     name: '',

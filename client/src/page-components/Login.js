@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Redirect } from 'react-router-dom';
 import axios from 'axios';
@@ -8,6 +8,10 @@ import { Spinner } from '../components/Spinner';
 import '../css/login.css';
 
 const Login = props => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   //states
   const [formData, setFormData] = useState({
     email: '',

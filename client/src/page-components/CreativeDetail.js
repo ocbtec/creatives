@@ -6,6 +6,10 @@ import axios from 'axios';
 import '../css/creativeDetail.css';
 
 const CreativeDetail = props => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const [creativeDetail, setCreativeDetail] = useState([]);
 
   const getCreativeDetail = useCallback(async () => {

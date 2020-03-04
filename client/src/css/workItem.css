@@ -1,4 +1,4 @@
-.work-item {
+.work-item-container {
   width: 22%;
   height: 300px;
   margin: 40px 0px;
@@ -30,7 +30,7 @@
   background-position: center;
   position: relative;
 }
-.work-item:hover {
+.work-item-container:hover {
   transform: scale(1.1);
   background-color: white;
 }

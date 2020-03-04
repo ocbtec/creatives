@@ -1,9 +1,13 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import '../css/terms.css';
 
 const Terms = props => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <Fragment>
       <Header
