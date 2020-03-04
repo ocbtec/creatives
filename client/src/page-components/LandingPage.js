@@ -6,6 +6,10 @@ import '../css/landingPage.css';
 let userName, avatarImage, token, creative;
 
 const LandingPage = props => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   if (props.location.state !== undefined) {
     userName = props.location.state.userName;
     avatarImage = props.location.state.avatarImage;
