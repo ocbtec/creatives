@@ -4,6 +4,8 @@ import axios from 'axios';
 import '../css/workItem.css';
 
 const WorkItem = props => {
+  console.log(props);
+
   const [categoryIcon, setCategoryIcon] = useState('');
 
   const getCategoryIcon = async () => {

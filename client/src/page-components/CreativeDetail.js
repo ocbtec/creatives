@@ -134,12 +134,30 @@ const CreativeDetail = props => {
               <div className='creative-detail-contact-container'>
                 <h2>Feel free to contact me under</h2>
 
-                {emailVisible && <a href={mailTo}>{email}</a>}
-                <p className='creative-detail-website'>
-                  <a href={`http://${website}`}>{website}</a>
-                </p>
+                <div className='creative-detail-email-container'>
+                  <img
+                    className='creative-detail-email-icon'
+                    src='/images/envelope.svg'
+                    alt='Email Icon'
+                  />
+                  {emailVisible && <a href={mailTo}>{email}</a>}
+                  <p className='creative-detail-email'>
+                    <a href={`http://${email}`}>{email}</a>
+                  </p>
+                </div>
 
-                <div>{socialIcons}</div>
+                <div className='creative-detail-website-container'>
+                  <img
+                    className='creative-detail-website-icon'
+                    src='/images/website-icon.png'
+                    alt='website Icon'
+                  />
+                  <p className='creative-detail-website'>
+                    <a href={`http://${website}`}>{website}</a>
+                  </p>
+                </div>
+
+                {/* <div>{socialIcons}</div> */}
               </div>
 
               <h2 className='creative-detail-contact-headline'>

@@ -39,7 +39,8 @@
   transition: transform 0.3s ease-in-out;
 }
 .work-image-container:hover {
-  transform: scale(1.05);
+  -webkit-transform: translate(0) scale(1.05);
+  /* transform: translate(0); */
 }
 .showcase-avatar-icon {
   width: 30px;

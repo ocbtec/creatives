@@ -49,6 +49,7 @@ const WorkDetail = props => {
       'image-full-view-container'
     )[0].style.cssText = 'display: none';
   };
+  console.log(props);
 
   return (
     <Fragment>
