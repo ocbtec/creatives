@@ -83,6 +83,7 @@ const Contact = props => {
           <div className='contact-flex-1'>
             <div className='contact-header-1-container'>
               <h1 className='contact-header-1'>Contact</h1>
+              <h2>Leave us a message</h2>
             </div>
           </div>
           <div className='contact-flex-2'>
@@ -112,12 +113,7 @@ const Contact = props => {
                   />
                   <div className='required-label'>* required</div>
                 </div>
-                <button className='contact-button'>Send</button>
-                <button
-                  className='contact-button'
-                  onClick={() => props.history.go(-1)}>
-                  Go Back
-                </button>
+                <button className='contact-send-button'>Send</button>
               </div>
 
               <textarea
@@ -130,7 +126,13 @@ const Contact = props => {
                 onChange={e => onChange(e)}
                 required></textarea>
             </form>
+
             {loading ? <Spinner name='register-spinner' /> : handleEmailSent()}
+            <button
+              className='contact-go-back-button'
+              onClick={() => props.history.go(-1)}>
+              Go Back
+            </button>
           </div>
           <div className='contact-flex-3'></div>
         </div>

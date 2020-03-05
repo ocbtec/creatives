@@ -14,7 +14,6 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
 }
 .contact-flex-1 {
   width: 100%;
@@ -26,16 +25,20 @@
 }
 .contact-header-1-container {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: flex-start;
   width: 100%;
 }
 .contact-header-1 {
   margin-top: 60px;
+  margin-bottom: 20px;
 }
 .contact-flex-2 {
+  position: relative;
   height: 300px;
-  width: 100%;
   padding: 0px 60px;
+  display: flex;
+  align-items: flex-start;
 }
 #text-body {
   width: 600px;
@@ -47,9 +50,17 @@
 }
 .form-flex-container {
   display: flex;
-  justify-content: space-around;
+  height: 200px;
 }
-.contact-button {
+#message {
+  margin-left: 50px;
+  color: #606a6c;
+  padding: 8px;
+  font-size: 12pt;
+  line-height: 18pt;
+  letter-spacing: 0.5px;
+}
+.contact-send-button {
   width: 350px;
   height: 40px;
   border-radius: 10px;
@@ -58,6 +69,19 @@
   color: #fefefe;
   font-size: 14pt;
   cursor: pointer;
+}
+.contact-go-back-button {
+  width: 350px;
+  height: 40px;
+  border-radius: 10px;
+  border-style: none;
+  background-color: #606a6c;
+  color: #fefefe;
+  font-size: 14pt;
+  cursor: pointer;
+  position: absolute;
+  bottom: 0px;
+  right: 50px;
 }
 .input-section {
   display: flex;
