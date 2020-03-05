@@ -4,16 +4,32 @@ import Footer from '../components/Footer';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
+import { leo, franz, genghis } from '../scripts/aboutText';
+
 import '../css/creativeDetail.css';
 
 const CreativeDetail = props => {
-  console.log(props);
-
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   const [creativeDetail, setCreativeDetail] = useState([]);
+  const [aboutText, setAboutText] = useState('');
+
+  const getAboutText = useCallback(() => {
+    const about = [];
+    about.push(leo, franz, genghis);
+
+    setAboutText(
+      about
+        .map(x => x.name === props.location.state.creativeName && x.text)
+        .filter(y => y !== false)
+    );
+  }, [props.location.state.creativeName]);
+
+  useEffect(() => {
+    getAboutText();
+  }, [getAboutText]);
 
   const getCreativeDetail = useCallback(async () => {
     const res = await axios.get(
@@ -60,57 +76,11 @@ const CreativeDetail = props => {
     services
   } = creativeDetail;
 
-  //Show string services
-  let servicesString = '';
-  services ? (servicesString = 'Yes') : (servicesString = 'No');
-
   //Create Mailto link
   const mailTo = `mailto:${email}`;
 
   return (
     <Fragment>
-      {/* <div className='workDetail-main-container'>
-        <Header
-          userName={props.location.state.userName}
-          avatarImage={props.location.state.avatarImage}
-          token={props.location.state.token}
-          creative={props.location.state.creative}
-          categories={props.location.state.categories}
-        />
-
-        <div className='workDetail-body'>
-        
-
-          
-          
-          <label htmlFor='categories'>Categories</label>
-          {categoryIcons}
-        
-
-          {emailVisible && <a href={mailTo}>{email}</a>}
-
-          
-          
-          
-          
-          <label htmlFor='website'>Website</label>
-          <p id='website'>{website}</p>
-          
-          
-          <label htmlFor='services'>Services</label>
-          <p id='services'>{servicesString}</p>
-          
-          
-        </div>
-        <Footer
-          userName={props.location.state.userName}
-          avatarImage={props.location.state.avatarImage}
-          token={props.location.state.token}
-          creative={props.location.state.creative}
-          categories={props.location.state.categories}
-        />
-      </div> */}
-
       <div className='creative-detail-main-container'>
         <Header
           userName={props.location.state.userName}
@@ -127,10 +97,6 @@ const CreativeDetail = props => {
                 {props.location.state.creativeName && (
                   <h1 className='creative-detail-name'>
                     {props.location.state.creativeName}
-
-                    {/* compare loading to above */}
-                    {/* {name} */}
-                    {/* ************************ */}
                   </h1>
                 )}
                 <div className='creative-detail-name-ball-1'></div>
@@ -143,6 +109,7 @@ const CreativeDetail = props => {
                   <img
                     className='creative-detail-city-icon'
                     src='/images/location-icon.svg'
+                    alt='icon'
                   />
                   <p className='creative-detail-city'>{city}</p>
                 </div>
@@ -154,19 +121,11 @@ const CreativeDetail = props => {
                     ) : (
                       <div>&#9745;</div>
                     )}
-                    {console.log(services)}
                   </div>
                 </div>
               </div>
 
-              <p className='creative-item-about'>
-                Leonardo da Vinci (1452-1519) was a painter, architect,
-                inventor, and student of all things scientific. His natural
-                genius crossed so many disciplines that he epitomized the term
-                “Renaissance man.” Today he remains best known for his art,
-                including two paintings that remain among the world’s most
-                famous and admired, Mona Lisa and The Last Supper.
-              </p>
+              <p className='creative-item-about'>{aboutText}</p>
 
               <div className='creative-detail-category-container'>
                 {categoryIcons}
@@ -174,6 +133,8 @@ const CreativeDetail = props => {
 
               <div className='creative-detail-contact-container'>
                 <h2>Feel free to contact me under</h2>
+
+                {emailVisible && <a href={mailTo}>{email}</a>}
                 <p className='creative-detail-website'>
                   <a href={`http://${website}`}>{website}</a>
                 </p>
