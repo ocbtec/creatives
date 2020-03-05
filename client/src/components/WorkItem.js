@@ -57,9 +57,11 @@ const WorkItem = props => {
               workId: props.workId
             }
           }}>
-          <div
-            className='work-image-container'
-            style={{ backgroundImage: `url(${props.filePath})` }}></div>
+          <div className='work-image-container-clip-path'>
+            <div
+              className='work-image-container'
+              style={{ backgroundImage: `url(${props.filePath})` }}></div>
+          </div>
         </Link>
         <div className='tags-container'>
           {props.tags.map((tag, index) => {
