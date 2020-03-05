@@ -105,20 +105,13 @@ const WorkDetail = props => {
                   className='work-detail-category-icon'
                   src={`/images/category-icon-${fileCategory
                     .toLowerCase()
-                    .replace(' ', '-')}-deselect.png`}></img>
+                    .replace(' ', '-')}-deselect.png`}
+                  alt='icon'></img>
               )}
               <p className='work-detail-category'>{fileCategory}</p>
             </div>
 
-            {/* <p>{fileDescription}</p> */}
-            <p className='work-item-description'>
-              The protagonist, K., arrives in a village governed by a mysterious
-              bureaucracy operating in a nearby castle. When seeking shelter at
-              the town inn, he claims to be a land surveyor summoned by the
-              castle authorities. He is quickly notified that his castle contact
-              is an official named Klamm, who, in an introductory note, informs
-              K. he will report to the Mayor.
-            </p>
+            <p className='work-item-description'>{fileDescription}</p>
             <Link to='/message'>
               <button className='work-detail-button-contact'>Contact</button>
             </Link>
