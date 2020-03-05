@@ -25,6 +25,8 @@ const Results = props => {
     ? (resultsContainer = 'no-results-works-container')
     : (resultsContainer = 'results-works-container');
 
+  console.log(props);
+
   return (
     <Fragment>
       <div className='results-main-container'>
@@ -55,6 +57,11 @@ const Results = props => {
                     tags={work.tags}
                     filePath={work.filePath}
                     workId={work._id}
+                    userName={props.location.state.userName}
+                    avatarImage={props.location.state.avatarImage}
+                    token={props.location.state.token}
+                    creative={props.location.state.creative}
+                    categories={props.location.state.categories}
                   />
                 );
               });
