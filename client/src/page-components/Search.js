@@ -59,7 +59,7 @@ const Search = props => {
         `.search-creations-toggle-image`
       ).src = `/images/creations-icon-deselect.png`;
       document.querySelector(`.creative-icon-container`).style =
-        'border-radius: 50%; background-color: #0ad82e; box-shadow: 0px 0px 20px 10px #0ad82e;';
+        'border-radius: 50%; background-color: #749096; box-shadow: 0px 0px 20px 18px #749096;';
       document.querySelector(`.creation-icon-container`).style =
         'border-radius: 50%; background-color: #ffffff00; box-shadow: 0px 0px 0px 0px #ffffff00;';
       setClickFlag(true);
@@ -70,7 +70,7 @@ const Search = props => {
         `.search-creatives-toggle-image`
       ).src = `/images/creatives-icon-deselect.png`;
       document.querySelector(`.creation-icon-container`).style =
-        'border-radius: 50%; background-color: #0ad82e; box-shadow: 0px 0px 20px 10px #0ad82e;';
+        'border-radius: 50%; background-color: #749096; box-shadow: 0px 0px 20px 18px #749096;';
       document.querySelector(`.creative-icon-container`).style =
         'border-radius: 50%; background-color: #ffffff00; box-shadow: 0px 0px 0px 0px #ffffff00;';
       setClickFlag(false);
