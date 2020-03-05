@@ -70,19 +70,6 @@
   font-size: 14pt;
   cursor: pointer;
 }
-.contact-go-back-button {
-  width: 350px;
-  height: 40px;
-  border-radius: 10px;
-  border-style: none;
-  background-color: #606a6c;
-  color: #fefefe;
-  font-size: 14pt;
-  cursor: pointer;
-  position: absolute;
-  bottom: 0px;
-  right: 50px;
-}
 .input-section {
   display: flex;
   flex-direction: column;

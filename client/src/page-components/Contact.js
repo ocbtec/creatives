@@ -128,11 +128,6 @@ const Contact = props => {
             </form>
 
             {loading ? <Spinner name='register-spinner' /> : handleEmailSent()}
-            <button
-              className='contact-go-back-button'
-              onClick={() => props.history.go(-1)}>
-              Go Back
-            </button>
           </div>
           <div className='contact-flex-3'></div>
         </div>
